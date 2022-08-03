@@ -1,24 +1,20 @@
 {
-  "name": "component-library",
-  "version": "0.1.0",
-  "private": true,
+  "name": "stores-ui",
+  "version": "0.1.6",
+  "private": false,
+  "main": "lib/index.js",
+  "files": [
+    "lib"
+  ],
   "dependencies": {
-    "@testing-library/jest-dom": "^5.16.4",
-    "@testing-library/react": "^13.3.0",
-    "@testing-library/user-event": "^13.5.0",
-    "@types/jest": "^27.5.2",
-    "@types/node": "^16.11.47",
-    "@types/react": "^18.0.15",
-    "@types/react-dom": "^18.0.6",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-scripts": "5.0.1",
-    "typescript": "^4.7.4",
-    "web-vitals": "^2.1.4"
+    "styled-components": "^5.3.5"
   },
   "scripts": {
+    "compile-icons": "npx @svgr/cli -d src/icons src/icons --typescript",
+    "copy-files": "copyfiles --up 1 src/config/fonts/* lib/",
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "tsc",
+    "prebuild": "rm -rf ./lib && npm run compile-icons && npm run copy-files",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -39,5 +35,26 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "peerDependencies": {
+    "react": ">=18.2.0",
+    "react-dom": ">=18.2.0"
+  },
+  "devDependencies": {
+    "@svgr/cli": "^6.3.1",
+    "@testing-library/jest-dom": "^5.16.4",
+    "@testing-library/react": "^13.3.0",
+    "@testing-library/user-event": "^13.5.0",
+    "@types/jest": "^27.5.2",
+    "@types/node": "^16.11.47",
+    "@types/react": "^18.0.15",
+    "@types/react-dom": "^18.0.6",
+    "@types/styled-components": "^5.1.25",
+    "copyfiles": "^2.4.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-scripts": "5.0.1",
+    "typescript": "^4.7.4",
+    "web-vitals": "^2.1.4"
   }
 }
