@@ -1,1 +1,1 @@
-export { Themes } from './themes'
+export * from './types'

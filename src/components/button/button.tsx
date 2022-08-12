@@ -8,10 +8,11 @@ export type ButtonProps = {
   shape?: keyof typeof SHAPE
   children?: ReactNode
   onClick?: MouseEventHandler<HTMLButtonElement>
+  className?: string
   disabled?: boolean
   loading?: boolean
-  // iconLeft:
-  // iconRight:
+  // iconLeft?: ElementType
+  // iconRight?: ElementType
 }
 
 export const Button = (props: ButtonProps) => {
@@ -21,6 +22,7 @@ export const Button = (props: ButtonProps) => {
     shape = 'rectangle',
     children,
     onClick,
+    className,
     disabled,
     loading,
   } = props
@@ -30,6 +32,7 @@ export const Button = (props: ButtonProps) => {
       size={size}
       shape={shape}
       onClick={onClick}
+      className={className}
       disabled={disabled}
       loading={loading}
     >

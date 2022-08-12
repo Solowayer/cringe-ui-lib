@@ -1,0 +1,53 @@
+import { Base } from './types'
+
+export const baseColors: Base = {
+  black: '#000000',
+  white: '#ffffff',
+  // Gray
+  gray50: '#F6F6F6',
+  gray100: '#EEEEEE',
+  gray200: '#DDDDDD',
+  gray300: '#C3C3C3',
+  gray400: '#9F9F9F',
+  gray500: '#737373',
+  gray600: '#595959',
+  gray700: '#404040',
+  gray800: '#262626',
+  gray900: '#1A1A1A',
+  // Red
+  red50: '#FCEBEA',
+  red100: '#F9D7D4',
+  red200: '#F2AFA9',
+  red300: '#EC867E',
+  red400: '#E55E53',
+  red500: '#DF3628',
+  red600: '#B22B20',
+  red700: '#862018',
+  // Orange
+  orange50: '#FDF0E9',
+  orange100: '#FCE1D2',
+  orange200: '#F8C3A6',
+  orange300: '#F5A479',
+  orange400: '#F1864D',
+  orange500: '#EE6820',
+  orange600: '#BE531A',
+  orange700: '#8F3E13',
+  //Green
+  green50: '#EBF6EE',
+  green100: '#D6EEDD',
+  green200: '#AEDCBA',
+  green300: '#85CB98',
+  green400: '#5DB975',
+  green500: '#34A853',
+  green600: '#2A8642',
+  green700: '#1F6532',
+  //Blue
+  blue50: '#EBF1FC',
+  blue100: '#D7E3F8',
+  blue200: '#AFC7F1',
+  blue300: '#88AAEB',
+  blue400: '#608EE4',
+  blue500: '#3872DD',
+  blue600: '#2D5BB1',
+  blue700: '#27509B',
+}
