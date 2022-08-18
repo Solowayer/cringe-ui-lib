@@ -10,7 +10,7 @@
     "styled-components": "^5.3.5"
   },
   "scripts": {
-    "compile-icons": "npx @svgr/cli -d src/icons src/icons --typescript",
+    "compile-icons": "npx @svgr/cli -d src/assets src/assets --typescript",
     "copy-files": "copyfiles --up 1 src/config/fonts/* lib/",
     "start": "react-scripts start",
     "build": "tsc",

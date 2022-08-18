@@ -1,4 +1,4 @@
-export const KIND = {
+export const VARIANT = {
   primary: 'primary',
   secondary: 'secondary',
   tertiary: 'tertiary',
@@ -10,7 +10,6 @@ export const KIND = {
 export const SHAPE = {
   rectangle: 'rectangle',
   round: 'round',
-  square: 'square',
   circle: 'circle',
 } as const
 

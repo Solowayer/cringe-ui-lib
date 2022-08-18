@@ -1,42 +1,57 @@
-import { MouseEventHandler, ReactNode } from 'react'
+import { ComponentType, MouseEventHandler, ReactNode } from 'react'
 import { StyledButton } from './styled'
-import { SHAPE, SIZE, KIND } from './constants'
+import { SHAPE, SIZE, VARIANT } from './constants'
+import { LibraryThemeProvider } from '../../config/themes/theme-provider'
+import { Theme } from '../../config/themes'
+import { Close, Delete } from '../icon'
 
 export type ButtonProps = {
-  kind?: keyof typeof KIND
+  theme: Theme
+  variant?: keyof typeof VARIANT
   size?: keyof typeof SIZE
   shape?: keyof typeof SHAPE
   children?: ReactNode
   onClick?: MouseEventHandler<HTMLButtonElement>
   className?: string
   disabled?: boolean
-  loading?: boolean
-  // iconLeft?: ElementType
-  // iconRight?: ElementType
+  isLoading?: boolean
+  iconLeft?: ComponentType<any>
+  iconRight?: ComponentType<any>
 }
 
 export const Button = (props: ButtonProps) => {
   const {
-    kind = 'primary',
+    theme,
+    variant = 'primary',
     size = 'medium',
     shape = 'rectangle',
     children,
     onClick,
     className,
     disabled,
-    loading,
+    isLoading,
+    iconLeft,
+    iconRight,
   } = props
+
   return (
-    <StyledButton
-      kind={kind}
-      size={size}
-      shape={shape}
-      onClick={onClick}
-      className={className}
-      disabled={disabled}
-      loading={loading}
-    >
-      {children}
-    </StyledButton>
+    <LibraryThemeProvider>
+      <StyledButton
+        theme={theme}
+        variant={variant}
+        size={size}
+        shape={shape}
+        onClick={onClick}
+        className={className}
+        disabled={disabled}
+        isLoading={isLoading}
+        iconLeft={iconLeft}
+        iconRight={iconRight}
+      >
+        <Close />
+        {children}
+        <Delete />
+      </StyledButton>
+    </LibraryThemeProvider>
   )
 }
