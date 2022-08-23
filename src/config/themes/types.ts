@@ -111,6 +111,11 @@ export type Component = {
   buttonDisabledFill: string
   buttonDisabledContent: string
 
+  // Spinner
+  // spinnerPrimaryFill: string
+  // spinnerForeground: string
+  // spinnerDisabledFill: string
+
   // Inputs
   inputFill: string
   inputSuccessFill: string
@@ -197,7 +202,6 @@ export type Effects = {
 type Colors = Base & Background & Content & Component
 
 export type Theme = {
-  title: string
   colors: Colors
   typography: Typography
   borders: Borders

@@ -1,5 +1,5 @@
 import { Component } from '../types'
-import { baseColors } from '../base-colors'
+import { baseColors } from '../shared/base-colors'
 
 export const componentColors: Component = {
   // Buttons

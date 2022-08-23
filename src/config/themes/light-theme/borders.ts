@@ -1,5 +1,5 @@
 import { Borders } from '../types'
-import { baseColors } from '../base-colors'
+import { baseColors } from '../shared/base-colors'
 
 export const borders: Borders = {
   default: {

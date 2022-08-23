@@ -1,4 +1,4 @@
-import { Base } from './types'
+import { Base } from '../types'
 
 export const baseColors: Base = {
   black: '#000000',

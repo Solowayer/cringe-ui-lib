@@ -1,29 +1,41 @@
 import styled from 'styled-components'
 import { ButtonProps } from './button'
 import { SHAPE, SIZE, VARIANT } from './constants'
+import { lightTheme as theme } from '../../config/themes/light-theme'
 
-export const StyledButton = styled.button<ButtonProps>`
+export const StyledIconLeft = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-right: 8px;
+`
+
+export const StyledIconRight = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 8px;
+`
+
+export const StyledButton = styled.button<ButtonProps>`
+  display: flex;
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: center;
+  border: none;
   cursor: ${(props) => (props.disabled ? 'not-allowed' : 'pointer')};
+  ${(props) => (props.disabled ? getDisabled : getBackgroundColor)}
+  ${getDisabled}
+  color: ${(props) => (props.isLoading ? 'transparent' : '')};
   ${getFontFamily}
-  ${getBackgroundColor}
   ${getSize}
   ${getShape}
 `
 
-function getFontFamily({ theme }: ButtonProps) {
-  return `
-    font-family: ${theme.typography.defaultFontFamily};
-  `
-}
-
-function getBackgroundColor({ variant, theme }: ButtonProps) {
-  switch (variant) {
+function getBackgroundColor(props: ButtonProps) {
+  switch (props.variant) {
     case VARIANT.primary:
       return `
-        border: none;
         color: ${theme.colors.buttonPrimaryContent};
         background-color: ${theme.colors.buttonPrimaryFill};
         &:hover {
@@ -35,9 +47,9 @@ function getBackgroundColor({ variant, theme }: ButtonProps) {
       `
     case VARIANT.secondary:
       return `
-        border-width: ${theme.colors.buttonSecondaryBorder.width}; 
-        border-style: ${theme.colors.buttonSecondaryBorder.style}; 
-        border-color: ${theme.colors.buttonSecondaryBorder.color};
+        outline-width: ${theme.colors.buttonSecondaryBorder.width}; 
+        outline-style: ${theme.colors.buttonSecondaryBorder.style}; 
+        outline-color: ${theme.colors.buttonSecondaryBorder.color};
         color: ${theme.colors.buttonSecondaryContent};
         background-color: ${theme.colors.buttonSecondaryFill};
         &:hover {
@@ -49,7 +61,6 @@ function getBackgroundColor({ variant, theme }: ButtonProps) {
       `
     case VARIANT.tertiary:
       return `
-        border: none; 
         color: ${theme.colors.buttonTertiaryContent};
         background-color: ${theme.colors.buttonTertiaryFill};
         &:hover {
@@ -61,7 +72,6 @@ function getBackgroundColor({ variant, theme }: ButtonProps) {
       `
     case VARIANT.ghost:
       return `
-        border: none; 
         color: ${theme.colors.buttonGhostContent};
         background-color: ${theme.colors.buttonGhostFill};
         &:hover {
@@ -73,7 +83,6 @@ function getBackgroundColor({ variant, theme }: ButtonProps) {
       `
     case VARIANT.clear:
       return `
-        border: none; 
         color: ${theme.colors.buttonClearContent};
         background-color: ${theme.colors.buttonClearFill};
         &:hover {
@@ -84,8 +93,7 @@ function getBackgroundColor({ variant, theme }: ButtonProps) {
         }
       `
     case VARIANT.danger:
-      return `
-        border: none; 
+      return ` 
         color: ${theme.colors.buttonDangerContent};
         background-color: ${theme.colors.buttonDangerFill};
         &:hover {
@@ -100,35 +108,51 @@ function getBackgroundColor({ variant, theme }: ButtonProps) {
   }
 }
 
-function getSize({ size, theme }: ButtonProps) {
+function getDisabled({ disabled }: ButtonProps) {
+  if (disabled) {
+    return `
+      border: none; 
+      color: ${theme.colors.buttonDisabledContent};
+      background: ${theme.colors.buttonDisabledFill};
+  `
+  }
+}
+
+function getFontFamily() {
+  return `
+    font-family: ${theme.typography.defaultFontFamily};
+  `
+}
+
+function getSize({ size }: ButtonProps) {
   switch (size) {
     case SIZE.small:
       return `
-        font-size: ${theme.typography.labelSmall.fontSize};
-        font-weight: ${theme.typography.labelMedium.fontWeight};
-        line-height: ${theme.typography.labelSmall.lineHeight};
         padding: 8px 16px;
+        font-size: ${theme.typography.labelSmall.fontSize};
+        font-weight: ${theme.typography.labelSmall.fontWeight};
+        line-height: ${theme.typography.labelSmall.lineHeight}; 
       `
     case SIZE.medium:
       return `
+        padding: 12px 16px;
         font-size: ${theme.typography.labelMedium.fontSize};
         font-weight: ${theme.typography.labelMedium.fontWeight};
         line-height: ${theme.typography.labelMedium.lineHeight};
-        padding: 12px 16px;
       `
     case SIZE.large:
       return `
+        padding: 12px 24px;
         font-size: ${theme.typography.labelLarge.fontSize};
         font-weight: ${theme.typography.labelLarge.fontWeight};
         line-height: ${theme.typography.labelLarge.lineHeight};
-        padding: 12px 24px;
       `
     default:
       return ''
   }
 }
 
-function getShape({ shape, theme }: ButtonProps) {
+function getShape({ shape }: ButtonProps) {
   switch (shape) {
     case SHAPE.rectangle:
       return `
