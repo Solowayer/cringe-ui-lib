@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { SpinnerProps } from './spinner'
-import { lightTheme as theme } from '../../config/themes/light-theme'
+// import { lightTheme as theme } from '../../config/themes/light-theme'
 
 export const StyledSpinner = styled.span<SpinnerProps>`
   position: absolute;
@@ -11,7 +11,7 @@ export const StyledSpinner = styled.span<SpinnerProps>`
   ${getSize}
   ${getColor}
 
-  animation: spin 1s linear infinite;
+  animation: spin 0.5s linear infinite;
 
   @keyframes spin {
     0% {

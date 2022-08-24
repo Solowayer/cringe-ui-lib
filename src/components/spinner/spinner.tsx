@@ -1,12 +1,14 @@
 import { SIZE } from './constants'
 import { StyledSpinner } from './styled'
 
+type SpinnerType = ''
+
 export type SpinnerProps = {
-  type?: 'green' | 'white'
+  type?: SpinnerType
   size?: keyof typeof SIZE
 }
 
 export const Spinner = (props: SpinnerProps) => {
-  const { size, type } = props
+  const { type, size } = props
   return <StyledSpinner type={type} size={size} />
 }

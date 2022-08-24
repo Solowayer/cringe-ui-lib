@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 import { ButtonProps } from './button'
 import { SHAPE, SIZE, VARIANT } from './constants'
-import { lightTheme as theme } from '../../config/themes/light-theme'
 
 export const StyledIconLeft = styled.div`
   display: flex;
@@ -32,8 +31,8 @@ export const StyledButton = styled.button<ButtonProps>`
   ${getShape}
 `
 
-function getBackgroundColor(props: ButtonProps) {
-  switch (props.variant) {
+function getBackgroundColor({ variant, theme }: ButtonProps) {
+  switch (variant) {
     case VARIANT.primary:
       return `
         color: ${theme.colors.buttonPrimaryContent};
@@ -108,7 +107,7 @@ function getBackgroundColor(props: ButtonProps) {
   }
 }
 
-function getDisabled({ disabled }: ButtonProps) {
+function getDisabled({ theme, disabled }: ButtonProps) {
   if (disabled) {
     return `
       border: none; 
@@ -118,13 +117,13 @@ function getDisabled({ disabled }: ButtonProps) {
   }
 }
 
-function getFontFamily() {
+function getFontFamily({ theme }: ButtonProps) {
   return `
     font-family: ${theme.typography.defaultFontFamily};
   `
 }
 
-function getSize({ size }: ButtonProps) {
+function getSize({ theme, size }: ButtonProps) {
   switch (size) {
     case SIZE.small:
       return `
@@ -152,7 +151,7 @@ function getSize({ size }: ButtonProps) {
   }
 }
 
-function getShape({ shape }: ButtonProps) {
+function getShape({ theme, shape }: ButtonProps) {
   switch (shape) {
     case SHAPE.rectangle:
       return `
