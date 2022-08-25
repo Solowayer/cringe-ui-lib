@@ -21,7 +21,7 @@ export const StyledIconRight = styled.div`
   margin-left: 8px;
 `
 
-export const StyledButton = styled.button<ButtonProps>`
+export const StyledButton = styled.button<StyledButtonProps>`
   display: flex;
   box-sizing: border-box;
   align-items: center;
