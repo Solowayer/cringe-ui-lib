@@ -17,6 +17,11 @@
     "declaration": true,
     "sourceMap": true,
     "declarationMap": true
+    // "baseUrl": "src",
+    // "paths": {
+    //   "components": ["components/*"],
+    //   "config": ["config/*"]
+    // }
   },
   "include": ["src"],
   "exclude": ["**/*.stories.tsx", "**/*.test.ts", "**/*.test.tsx", "./src/setupTests.ts"]

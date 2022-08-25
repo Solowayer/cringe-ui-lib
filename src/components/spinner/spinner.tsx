@@ -1,14 +1,17 @@
 import { SIZE } from './constants'
 import { StyledSpinner } from './styled'
-
-type SpinnerType = ''
+import { LibraryThemeProvider } from '../../config/themes/theme-provider'
 
 export type SpinnerProps = {
-  type?: SpinnerType
   size?: keyof typeof SIZE
+  disabled?: boolean
 }
 
 export const Spinner = (props: SpinnerProps) => {
-  const { type, size } = props
-  return <StyledSpinner type={type} size={size} />
+  const { size = 'medium' } = props
+  return (
+    <LibraryThemeProvider>
+      <StyledSpinner size={size} />
+    </LibraryThemeProvider>
+  )
 }

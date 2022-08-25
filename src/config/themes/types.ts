@@ -206,5 +206,5 @@ export type Theme = {
   typography: Typography
   borders: Borders
   effects?: Effects
-  sizing?: Sizing
+  sizing: Sizing
 }

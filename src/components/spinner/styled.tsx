@@ -1,8 +1,13 @@
 import styled from 'styled-components'
 import { SpinnerProps } from './spinner'
-// import { lightTheme as theme } from '../../config/themes/light-theme'
+import { Theme } from '../../config/themes/types'
+import { SIZE } from './constants'
 
-export const StyledSpinner = styled.span<SpinnerProps>`
+interface StyledSpinnerProps extends SpinnerProps {
+  theme: Theme
+}
+
+export const StyledSpinner = styled.span<StyledSpinnerProps>`
   position: absolute;
   box-sizing: border-box;
   display: block;
@@ -23,19 +28,35 @@ export const StyledSpinner = styled.span<SpinnerProps>`
   }
 `
 
-function getColor({ type }: SpinnerProps) {
+function getColor() {
   return `
         border-top-color: green;
-        border-left-color: white;
-        border-bottom-color: white;
-        border-right-color: white;
+        border-left-color: gray;
+        border-bottom-color: gray;
+        border-right-color: gray;
         border-style: solid;
       `
 }
 
-function getSize({ size }: SpinnerProps) {
-  return `
-    width: 24px;
-    height: 24px;
-  `
+function getSize({ size, theme }: StyledSpinnerProps) {
+  switch (size) {
+    case SIZE.small:
+      return `
+        width: ${theme.sizing.scale16};
+        height: ${theme.sizing.scale16};
+        border-width: ${theme.sizing.scale4};
+      `
+    case SIZE.medium:
+      return `
+        width: ${theme.sizing.scale32};
+        height: ${theme.sizing.scale32};
+      `
+    case SIZE.large:
+      return `
+        width: ${theme.sizing.scale64};
+        height: ${theme.sizing.scale64};
+      `
+    default:
+      return ''
+  }
 }
