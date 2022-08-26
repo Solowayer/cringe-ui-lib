@@ -28,12 +28,12 @@ export const StyledSpinner = styled.span<StyledSpinnerProps>`
   }
 `
 
-function getColor() {
+function getColor({ theme }: StyledSpinnerProps) {
   return `
-        border-top-color: green;
-        border-left-color: gray;
-        border-bottom-color: gray;
-        border-right-color: gray;
+        border-top-color: ${theme.colors.blue500};
+        border-left-color: ${theme.colors.gray100};
+        border-bottom-color: ${theme.colors.gray100};
+        border-right-color: ${theme.colors.gray100};
         border-style: solid;
       `
 }
@@ -42,19 +42,21 @@ function getSize({ size, theme }: StyledSpinnerProps) {
   switch (size) {
     case SIZE.small:
       return `
-        width: ${theme.sizing.scale16};
-        height: ${theme.sizing.scale16};
-        border-width: ${theme.sizing.scale4};
+        width: ${theme.sizing.scale24};
+        height: ${theme.sizing.scale24};
+        border-width: ${theme.sizing.scale2};
       `
     case SIZE.medium:
       return `
         width: ${theme.sizing.scale32};
         height: ${theme.sizing.scale32};
+        border-width: ${theme.sizing.scale4};
       `
     case SIZE.large:
       return `
-        width: ${theme.sizing.scale64};
-        height: ${theme.sizing.scale64};
+        width: ${theme.sizing.scale40};
+        height: ${theme.sizing.scale40};
+        border-width: ${theme.sizing.scale4};
       `
     default:
       return ''

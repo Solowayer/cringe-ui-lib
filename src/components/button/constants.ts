@@ -10,6 +10,7 @@ export const VARIANT = {
 export const SHAPE = {
   rectangle: 'rectangle',
   round: 'round',
+  square: 'square',
   circle: 'circle',
 } as const
 

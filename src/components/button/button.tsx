@@ -12,7 +12,7 @@ export type ButtonProps = {
   className?: string
   disabled?: boolean
   isLoading?: boolean
-  children: ReactNode
+  children?: ReactNode | null
   iconLeft?: ReactElement
   iconRight?: ReactElement
 }
@@ -43,7 +43,7 @@ export const Button = (props: ButtonProps) => {
         isLoading={isLoading}
       >
         {iconLeft && <StyledIconLeft>{iconLeft}</StyledIconLeft>}
-        {isLoading && <Spinner />}
+        {isLoading && <Spinner size={size} />}
         {children}
         {iconRight && <StyledIconRight>{iconRight}</StyledIconRight>}
       </StyledButton>
