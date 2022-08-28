@@ -4,13 +4,15 @@ import { Button } from '../components'
 import { Close } from '../components/icon/close'
 
 export default {
-  title: 'Components/Button',
+  title: 'Components/Controls/Button',
   component: Button,
 } as ComponentMeta<typeof Button>
 
 const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />
 
-export const Primary = Template.bind({})
-Primary.args = {
+export const Playground = Template.bind({})
+Playground.args = {
   children: 'Cringe',
+  iconLeft: <Close />,
+  iconRight: <Close />,
 }

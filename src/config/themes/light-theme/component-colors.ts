@@ -43,6 +43,7 @@ export const componentColors: Component = {
 
   // Inputs
   inputFill: baseColors.gray50,
+  inputFocusFill: baseColors.white,
   inputSuccessFill: baseColors.green50,
   inputErrorFill: baseColors.red50,
   inputDisabledFill: baseColors.gray50,
@@ -51,9 +52,29 @@ export const componentColors: Component = {
   inputContent: baseColors.black,
   inputContentDisabled: baseColors.gray300,
   inputControls: baseColors.gray500,
-  inputBorderHover: baseColors.gray200,
-  inputBorderFocus: baseColors.black,
-  inputBorderSuccess: baseColors.green300,
-  inputBorderError: baseColors.red300,
-  inputBorderDisabled: baseColors.gray50,
+  inputBorderHover: {
+    width: '2px',
+    style: 'solid',
+    color: baseColors.gray200,
+  },
+  inputBorderFocus: {
+    width: '2px',
+    style: 'solid',
+    color: baseColors.black,
+  },
+  inputBorderSuccess: {
+    width: '2px',
+    style: 'solid',
+    color: baseColors.green300,
+  },
+  inputBorderError: {
+    width: '2px',
+    style: 'solid',
+    color: baseColors.red300,
+  },
+  inputBorderDisabled: {
+    width: '2px',
+    style: 'solid',
+    color: baseColors.gray50,
+  },
 }

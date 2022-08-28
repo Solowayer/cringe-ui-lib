@@ -1,23 +1,40 @@
-import { ChangeEventHandler, ElementType } from 'react'
+import { ChangeEventHandler, HTMLAttributes, ReactElement } from 'react'
+import { SIZE } from './constants'
 import { LibraryThemeProvider } from '../../config/themes/theme-provider'
-import { StyledInput } from './styled'
+import { StyledInputWrapper, StyledInputIcon, StyledInputControls, StyledInput } from './styled'
+import { VisibilityOn, Close } from '../icon'
 
-export type InputProps = {
-  size?: string
+export interface InputProps
+  extends Omit<HTMLAttributes<HTMLInputElement>, 'size' | 'disabled' | 'onChange'> {
+  type?: 'text' | 'password'
   value?: string
+  size?: keyof typeof SIZE
+  onChange?: ChangeEventHandler<HTMLInputElement>
+  icon?: ReactElement
+  clearable?: boolean
+  disabled?: boolean
   error?: boolean
   success?: boolean
-  disabled?: boolean
-  cleareble?: boolean
-  onChange?: ChangeEventHandler<HTMLInputElement>
-  icon?: ElementType
 }
 
 export const Input = (props: InputProps) => {
-  const { value } = props
+  const { type = 'text', value, size = 'medium', onChange, icon } = props
   return (
     <LibraryThemeProvider>
-      <StyledInput value={value} />
+      <StyledInputWrapper>
+        {icon && <StyledInputIcon>{icon}</StyledInputIcon>}
+        <StyledInput
+          type={type}
+          size={size}
+          value={value}
+          onChange={onChange}
+          placeholder="Type here"
+        />
+        <StyledInputControls>
+          <Close />
+          <VisibilityOn />
+        </StyledInputControls>
+      </StyledInputWrapper>
     </LibraryThemeProvider>
   )
 }

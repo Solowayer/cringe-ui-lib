@@ -14,7 +14,7 @@
     "copy-files": "copyfiles --up 1 src/config/fonts/* lib/",
     "start": "react-scripts start",
     "build": "tsc",
-    "prebuild": "rm -rf ./lib && npm run compile-icons && npm run copy-files",
+    "prebuild": "rm -rf ./lib && npm run copy-files",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 6006",

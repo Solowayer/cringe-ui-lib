@@ -118,6 +118,7 @@ export type Component = {
 
   // Inputs
   inputFill: string
+  inputFocusFill: string
   inputSuccessFill: string
   inputErrorFill: string
   inputDisabledFill: string
@@ -128,11 +129,11 @@ export type Component = {
   inputContentDisabled: string
   inputControls: string
 
-  inputBorderHover: string
-  inputBorderFocus: string
-  inputBorderSuccess: string
-  inputBorderError: string
-  inputBorderDisabled: string
+  inputBorderHover: Border
+  inputBorderFocus: Border
+  inputBorderSuccess: Border
+  inputBorderError: Border
+  inputBorderDisabled: Border
 }
 
 export type Sizing = {
