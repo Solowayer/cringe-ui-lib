@@ -23,14 +23,14 @@ export const componentColors: Component = {
   buttonTertiaryActive: baseColors.gray500,
   buttonTertiaryContent: baseColors.white,
 
-  buttonGhostFill: baseColors.gray50,
-  buttonGhostHover: baseColors.gray100,
-  buttonGhostActive: baseColors.gray200,
+  buttonGhostFill: baseColors.gray100,
+  buttonGhostHover: baseColors.gray200,
+  buttonGhostActive: baseColors.gray300,
   buttonGhostContent: baseColors.black,
 
   buttonClearFill: 'transparent',
-  buttonClearHover: baseColors.gray100,
-  buttonClearActive: baseColors.gray200,
+  buttonClearHover: baseColors.gray200,
+  buttonClearActive: baseColors.gray300,
   buttonClearContent: baseColors.black,
 
   buttonDangerFill: baseColors.red500,
@@ -42,7 +42,7 @@ export const componentColors: Component = {
   buttonDisabledContent: baseColors.gray300,
 
   // Inputs
-  inputFill: baseColors.gray50,
+  inputFill: baseColors.gray100,
   inputFocusFill: baseColors.white,
   inputSuccessFill: baseColors.green50,
   inputErrorFill: baseColors.red50,

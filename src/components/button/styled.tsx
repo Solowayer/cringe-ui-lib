@@ -28,7 +28,6 @@ export const StyledButton = styled.button<StyledButtonProps>`
   justify-content: center;
   border: none;
   font-family: ${(props) => props.theme.typography.defaultFontFamily};
-
   cursor: ${(props) => (props.disabled ? 'not-allowed' : 'pointer')};
   ${(props) => (props.disabled ? getDisabledStyles : getBackgroundStyles)}
   ${getDisabledStyles}
