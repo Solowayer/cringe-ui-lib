@@ -42,21 +42,21 @@ function getSize({ size, theme }: StyledSpinnerProps) {
   switch (size) {
     case SIZE.small:
       return `
-        width: ${theme.sizing.scale24};
-        height: ${theme.sizing.scale24};
+        width: ${theme.sizing.scale16};
+        height: ${theme.sizing.scale16};
         border-width: ${theme.sizing.scale2};
       `
     case SIZE.medium:
       return `
-        width: ${theme.sizing.scale32};
-        height: ${theme.sizing.scale32};
+        width: ${theme.sizing.scale24};
+        height: ${theme.sizing.scale24};
         border-width: ${theme.sizing.scale4};
       `
     case SIZE.large:
       return `
-        width: ${theme.sizing.scale40};
-        height: ${theme.sizing.scale40};
-        border-width: ${theme.sizing.scale4};
+        width: ${theme.sizing.scale32};
+        height: ${theme.sizing.scale32};
+        border-width: ${theme.sizing.scale6};
       `
     default:
       return ''

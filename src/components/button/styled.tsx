@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { ButtonProps } from './button'
 import { SHAPE, SIZE, VARIANT } from './constants'
 import { Theme } from '../../config/themes/types'
@@ -40,20 +40,20 @@ export const StyledButton = styled.button<StyledButtonProps>`
 function getBackgroundStyles({ theme, variant }: StyledButtonProps) {
   switch (variant) {
     case VARIANT.primary:
-      return `
+      return css`
         color: ${theme.colors.buttonPrimaryContent};
         background-color: ${theme.colors.buttonPrimaryFill};
         &:hover {
-          background-color: ${theme.colors.buttonPrimaryHover}
+          background-color: ${theme.colors.buttonPrimaryHover};
         }
         &:active {
-          background-color: ${theme.colors.buttonPrimaryActive}
-        } 
+          background-color: ${theme.colors.buttonPrimaryActive};
+        }
       `
     case VARIANT.secondary:
-      return `
-        outline-width: ${theme.colors.buttonSecondaryBorder.width}; 
-        outline-style: ${theme.colors.buttonSecondaryBorder.style}; 
+      return css`
+        outline-width: ${theme.colors.buttonSecondaryBorder.width};
+        outline-style: ${theme.colors.buttonSecondaryBorder.style};
         outline-color: ${theme.colors.buttonSecondaryBorder.color};
         color: ${theme.colors.buttonSecondaryContent};
         background-color: ${theme.colors.buttonSecondaryFill};
@@ -61,51 +61,51 @@ function getBackgroundStyles({ theme, variant }: StyledButtonProps) {
           background-color: ${theme.colors.buttonSecondaryHover};
         }
         &:active {
-          background-color: ${theme.colors.buttonSecondaryActive}; 
+          background-color: ${theme.colors.buttonSecondaryActive};
         }
       `
     case VARIANT.tertiary:
-      return `
+      return css`
         color: ${theme.colors.buttonTertiaryContent};
         background-color: ${theme.colors.buttonTertiaryFill};
         &:hover {
           background-color: ${theme.colors.buttonTertiaryHover};
         }
         &:active {
-          background-color: ${theme.colors.buttonTertiaryActive}; 
+          background-color: ${theme.colors.buttonTertiaryActive};
         }
       `
     case VARIANT.ghost:
-      return `
+      return css`
         color: ${theme.colors.buttonGhostContent};
         background-color: ${theme.colors.buttonGhostFill};
         &:hover {
           background-color: ${theme.colors.buttonGhostHover};
         }
         &:active {
-          background-color: ${theme.colors.buttonGhostActive}; 
+          background-color: ${theme.colors.buttonGhostActive};
         }
       `
     case VARIANT.clear:
-      return `
+      return css`
         color: ${theme.colors.buttonClearContent};
         background-color: ${theme.colors.buttonClearFill};
         &:hover {
           background-color: ${theme.colors.buttonClearHover};
         }
         &:active {
-          background-color: ${theme.colors.buttonClearActive}; 
+          background-color: ${theme.colors.buttonClearActive};
         }
       `
     case VARIANT.danger:
-      return ` 
+      return css`
         color: ${theme.colors.buttonDangerContent};
         background-color: ${theme.colors.buttonDangerFill};
         &:hover {
           background-color: ${theme.colors.buttonDangerHover};
         }
         &:active {
-          background-color: ${theme.colors.buttonDangerActive}; 
+          background-color: ${theme.colors.buttonDangerActive};
         }
       `
     default:
@@ -115,30 +115,30 @@ function getBackgroundStyles({ theme, variant }: StyledButtonProps) {
 
 function getDisabledStyles({ theme, disabled }: StyledButtonProps) {
   if (disabled) {
-    return `
-      border: none; 
+    return css`
+      border: none;
       color: ${theme.colors.buttonDisabledContent};
       background: ${theme.colors.buttonDisabledFill};
-  `
+    `
   }
 }
 
 function getFontStyles({ theme, size }: StyledButtonProps) {
   switch (size) {
     case SIZE.small:
-      return `
+      return css`
         font-size: ${theme.typography.labelSmall.fontSize};
         font-weight: ${theme.typography.labelSmall.fontWeight};
-        line-height: ${theme.typography.labelSmall.lineHeight}; 
+        line-height: ${theme.typography.labelSmall.lineHeight};
       `
     case SIZE.medium:
-      return `
+      return css`
         font-size: ${theme.typography.labelMedium.fontSize};
         font-weight: ${theme.typography.labelMedium.fontWeight};
         line-height: ${theme.typography.labelMedium.lineHeight};
       `
     case SIZE.large:
-      return `
+      return css`
         font-size: ${theme.typography.labelLarge.fontSize};
         font-weight: ${theme.typography.labelLarge.fontWeight};
         line-height: ${theme.typography.labelLarge.lineHeight};
@@ -151,20 +151,20 @@ function getFontStyles({ theme, size }: StyledButtonProps) {
 function getBorderRadiusStyles({ theme, shape }: StyledButtonProps) {
   switch (shape) {
     case SHAPE.rectangle:
-      return `
-        border-radius: ${theme.borders.radius4}
+      return css`
+        border-radius: ${theme.borders.radius4};
       `
     case SHAPE.round:
-      return `
-        border-radius: ${theme.borders.radius32}
+      return css`
+        border-radius: ${theme.borders.radius32};
       `
     case SHAPE.square:
-      return `
-        border-radius: ${theme.borders.radius4}
+      return css`
+        border-radius: ${theme.borders.radius4};
       `
     case SHAPE.circle:
-      return `
-        border-radius: ${theme.borders.radiusCircle}
+      return css`
+        border-radius: ${theme.borders.radiusCircle};
       `
   }
 }
@@ -173,21 +173,21 @@ function getPaddingStyles({ theme, size, shape }: StyledButtonProps) {
   const iconShape = shape === SHAPE.circle || shape === SHAPE.square
   switch (size) {
     case SIZE.small:
-      return `
+      return css`
         padding-top: ${theme.sizing.scale8};
         padding-bottom: ${theme.sizing.scale8};
         padding-right: ${iconShape ? theme.sizing.scale8 : theme.sizing.scale12};
         padding-left: ${iconShape ? theme.sizing.scale8 : theme.sizing.scale12};
       `
     case SIZE.medium:
-      return `
+      return css`
         padding-top: ${theme.sizing.scale12};
         padding-bottom: ${theme.sizing.scale12};
         padding-right: ${iconShape ? theme.sizing.scale12 : theme.sizing.scale16};
         padding-left: ${iconShape ? theme.sizing.scale12 : theme.sizing.scale16};
       `
     case SIZE.large:
-      return `
+      return css`
         padding-top: ${theme.sizing.scale16};
         padding-bottom: ${theme.sizing.scale16};
         padding-right: ${iconShape ? theme.sizing.scale16 : theme.sizing.scale24};

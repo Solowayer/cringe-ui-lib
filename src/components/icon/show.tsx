@@ -1,6 +1,6 @@
 import { IconProps } from './types'
 
-export const VisibilityOn = (props: IconProps) => {
+export const Show = (props: IconProps) => {
   const { size = '16', color = 'currentColor' } = props
   return (
     <svg

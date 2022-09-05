@@ -3,6 +3,7 @@ import { Sizing } from '../types'
 export const sizing: Sizing = {
   scale2: '2px',
   scale4: '4px',
+  scale6: '6px',
   scale8: '8px',
   scale12: '12px',
   scale16: '16px',

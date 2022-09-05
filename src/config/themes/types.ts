@@ -139,6 +139,7 @@ export type Component = {
 export type Sizing = {
   scale2: string
   scale4: string
+  scale6: string
   scale8: string
   scale12: string
   scale16: string

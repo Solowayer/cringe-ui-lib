@@ -1,18 +1,33 @@
-import { ChangeEventHandler, FocusEventHandler, HTMLAttributes, ReactElement } from 'react'
+import {
+  ChangeEventHandler,
+  FocusEventHandler,
+  HTMLAttributes,
+  ReactElement,
+  useState,
+} from 'react'
 import { SIZE } from './constants'
 import { LibraryThemeProvider } from '../../config/themes/theme-provider'
-import { StyledInputWrapper, StyledInputIcon, StyledInputControls, StyledInput } from './styled'
-import { VisibilityOn, Close } from '../icon'
+import {
+  StyledInputWrapper,
+  StyledInputIcon,
+  StyledInputControls,
+  StyledInput,
+  StyledClearIcon,
+} from './styled'
+import { Show, Hide, Close } from '../icon'
 import React from 'react'
+
+type InputType = 'text' | 'password'
 
 export interface InputProps
   extends Omit<HTMLAttributes<HTMLInputElement>, 'size' | 'disabled' | 'onChange'> {
-  type?: 'text' | 'password'
+  type?: InputType
   value?: string
   scale?: keyof typeof SIZE
   onChange?: ChangeEventHandler<HTMLInputElement>
-  isFocused?: FocusEventHandler<HTMLInputElement>
-  icon?: ReactElement
+  onFocus?: FocusEventHandler<HTMLInputElement>
+  autoFocus?: boolean
+  icon?: ReactElement | string
   clearable?: boolean
   disabled?: boolean
   error?: boolean
@@ -20,12 +35,15 @@ export interface InputProps
 }
 
 export const Input = React.forwardRef<HTMLInputElement, InputProps>((props, ref) => {
+  const [visibility, setVisibility] = useState(false)
+  const [inputValue, setInputValue] = useState('')
+
   const {
     type = 'text',
     value,
-    scale = 'medium',
+    scale = SIZE.medium,
     onChange,
-    isFocused,
+    onFocus,
     icon,
     clearable = false,
     disabled = false,
@@ -33,18 +51,19 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>((props, ref)
     success,
     ...rest
   } = props
+
   return (
     <LibraryThemeProvider>
       <StyledInputWrapper>
-        {icon && <StyledInputIcon>{icon}</StyledInputIcon>}
+        {icon && <StyledInputIcon disabled={disabled}>{icon}</StyledInputIcon>}
         <StyledInput
           ref={ref}
           placeholder="Type here"
           type={type}
           scale={scale}
-          value={value}
+          value={inputValue}
           onChange={onChange}
-          isFocused={isFocused}
+          onFocus={onFocus}
           icon={icon}
           clearable={clearable}
           disabled={disabled}
@@ -53,8 +72,10 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>((props, ref)
           {...rest}
         />
         <StyledInputControls>
-          <Close />
-          <VisibilityOn />
+          <StyledClearIcon>
+            <Close onClick={() => setInputValue('')} />
+          </StyledClearIcon>
+          {visibility ? <Hide /> : <Show />}
         </StyledInputControls>
       </StyledInputWrapper>
     </LibraryThemeProvider>

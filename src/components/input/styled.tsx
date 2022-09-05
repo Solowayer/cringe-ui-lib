@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { InputProps } from './input'
 import { SIZE } from './constants'
 import { Theme } from '../../config/themes/types'
@@ -19,7 +19,7 @@ export const StyledInputWrapper = styled.div<StyledInputProps>`
   align-items: center;
   flex-direction: row;
   background-color: transparent;
-  width: 450px;
+  width: 100%;
   height: 40px;
 `
 
@@ -41,6 +41,13 @@ export const StyledInput = styled.input<StyledInputProps>`
   padding-left: 48px;
   padding-right: 64px;
   border: none;
+  &:focus {
+    outline-width: ${({ theme }) => theme.colors.inputBorderFocus.width};
+    outline-style: ${({ theme }) => theme.colors.inputBorderFocus.style};
+    outline-color: ${({ theme }) => theme.colors.inputBorderFocus.color};
+    background-color: ${({ theme }) => theme.colors.inputFocusFill};
+  }
+
   ${getBackgroundStyles}
 `
 
@@ -57,28 +64,23 @@ export const StyledInputControls = styled.div`
   position: absolute;
   display: flex;
   right: 16px;
-  svg {
-    &:hover {
-      cursor: pointer;
-    }
-  }
   svg:nth-child(2) {
     margin-left: 8px;
   }
   color: ${({ theme }) => theme.colors.inputControls};
 `
 
-function getBackgroundStyles({ theme, isFocused, disabled, success, error }: StyledInputProps) {
-  if (isFocused) {
-    return `
-      outline-width: ${theme.colors.inputBorderFocus.width};
-      outline-style: ${theme.colors.inputBorderFocus.style};
-      outline-color: ${theme.colors.inputBorderFocus.color};
-      background-color: ${theme.colors.inputFocusFill};
-    `
+export const StyledClearIcon = styled.div`
+  display: flex;
+  align-items: center;
+  &:hover {
+    cursor: pointer;
   }
+`
+
+function getBackgroundStyles({ theme, disabled, success, error }: StyledInputProps) {
   if (disabled) {
-    return `
+    return css`
       color: ${theme.colors.inputContentDisabled};
       background-color: ${theme.colors.inputDisabledFill};
       &::placeholder {
@@ -87,7 +89,7 @@ function getBackgroundStyles({ theme, isFocused, disabled, success, error }: Sty
     `
   }
   if (error) {
-    return `
+    return css`
       outline-width: ${theme.colors.inputBorderError.width};
       outline-style: ${theme.colors.inputBorderError.style};
       outline-color: ${theme.colors.inputBorderError.color};
@@ -95,7 +97,7 @@ function getBackgroundStyles({ theme, isFocused, disabled, success, error }: Sty
     `
   }
   if (success) {
-    return `
+    return css`
       outline-width: ${theme.colors.inputBorderSuccess.width};
       outline-style: ${theme.colors.inputBorderSuccess.style};
       outline-color: ${theme.colors.inputBorderSuccess.color};
