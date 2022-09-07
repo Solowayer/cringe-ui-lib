@@ -38,7 +38,7 @@ export const StyledInput = styled.input<StyledInputProps>`
   line-height: 16px;
   padding-top: 0px;
   padding-bottom: 0px;
-  padding-left: 48px;
+  padding-left: ${(props) => (props.icon ? '48px' : '16px')};
   padding-right: 64px;
   border: none;
   &:focus {
@@ -60,9 +60,10 @@ export const StyledInputIcon = styled.div<StyledInputProps>`
     props.disabled ? props.theme.colors.inputContentDisabled : props.theme.colors.inputContent};
 `
 
-export const StyledInputControls = styled.div`
+export const StyledInputControls = styled.div<StyledInputProps>`
   position: absolute;
   display: flex;
+  align-items: center;
   right: 16px;
   svg:nth-child(2) {
     margin-left: 8px;
@@ -73,6 +74,15 @@ export const StyledInputControls = styled.div`
 export const StyledClearIcon = styled.div`
   display: flex;
   align-items: center;
+  &:hover {
+    cursor: pointer;
+  }
+`
+
+export const StyledVisibilityIcon = styled.div`
+  display: flex;
+  align-items: center;
+  margin-left: 8px;
   &:hover {
     cursor: pointer;
   }

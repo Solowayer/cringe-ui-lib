@@ -4,13 +4,11 @@ import { Input } from '../components'
 import { Search } from '../components/icon'
 
 export default {
-  title: 'Components/Controls/Input',
+  title: 'Components/Inputs/Input',
   component: Input,
 } as ComponentMeta<typeof Input>
 
 const Template: ComponentStory<typeof Input> = (args) => <Input {...args} />
 
 export const Playground = Template.bind({})
-Playground.args = {
-  icon: <Search />,
-}
+Playground.args = { icon: <Search /> }

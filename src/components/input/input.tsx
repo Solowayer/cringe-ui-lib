@@ -1,10 +1,5 @@
-import {
-  ChangeEventHandler,
-  FocusEventHandler,
-  HTMLAttributes,
-  ReactElement,
-  useState,
-} from 'react'
+import React, { useState } from 'react'
+import { ChangeEventHandler, FocusEventHandler, HTMLAttributes, ReactElement } from 'react'
 import { SIZE } from './constants'
 import { LibraryThemeProvider } from '../../config/themes/theme-provider'
 import {
@@ -13,16 +8,14 @@ import {
   StyledInputControls,
   StyledInput,
   StyledClearIcon,
+  StyledVisibilityIcon,
 } from './styled'
-import { Show, Hide, Close } from '../icon'
-import React from 'react'
-
-type InputType = 'text' | 'password'
+import { Close, Show, Hide } from '../icon'
 
 export interface InputProps
   extends Omit<HTMLAttributes<HTMLInputElement>, 'size' | 'disabled' | 'onChange'> {
-  type?: InputType
   value?: string
+  type?: 'text' | 'password'
   scale?: keyof typeof SIZE
   onChange?: ChangeEventHandler<HTMLInputElement>
   onFocus?: FocusEventHandler<HTMLInputElement>
@@ -35,15 +28,13 @@ export interface InputProps
 }
 
 export const Input = React.forwardRef<HTMLInputElement, InputProps>((props, ref) => {
-  const [visibility, setVisibility] = useState(false)
-  const [inputValue, setInputValue] = useState('')
+  const [isMasked, setMask] = useState(true)
 
   const {
-    type = 'text',
     value,
+    type = 'text',
     scale = SIZE.medium,
     onChange,
-    onFocus,
     icon,
     clearable = false,
     disabled = false,
@@ -52,6 +43,14 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>((props, ref)
     ...rest
   } = props
 
+  function getInputType() {
+    if (type === 'password') {
+      return isMasked ? 'password' : 'text'
+    } else {
+      return type
+    }
+  }
+
   return (
     <LibraryThemeProvider>
       <StyledInputWrapper>
@@ -59,11 +58,10 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>((props, ref)
         <StyledInput
           ref={ref}
           placeholder="Type here"
-          type={type}
+          value={value}
+          type={getInputType()}
           scale={scale}
-          value={inputValue}
           onChange={onChange}
-          onFocus={onFocus}
           icon={icon}
           clearable={clearable}
           disabled={disabled}
@@ -72,10 +70,16 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>((props, ref)
           {...rest}
         />
         <StyledInputControls>
-          <StyledClearIcon>
-            <Close onClick={() => setInputValue('')} />
-          </StyledClearIcon>
-          {visibility ? <Hide /> : <Show />}
+          {clearable && (
+            <StyledClearIcon>
+              <Close />
+            </StyledClearIcon>
+          )}
+          {type === 'password' && (
+            <StyledVisibilityIcon onClick={() => setMask(!isMasked)}>
+              {isMasked ? <Show /> : <Hide />}
+            </StyledVisibilityIcon>
+          )}
         </StyledInputControls>
       </StyledInputWrapper>
     </LibraryThemeProvider>
