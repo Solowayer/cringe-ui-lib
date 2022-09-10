@@ -1,7 +1,7 @@
 import { IconProps } from './types'
 
 export const Delete = (props: IconProps) => {
-  const { size = '16', color = 'currentColor' } = props
+  const { size = '20', color = 'currentColor' } = props
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

@@ -141,14 +141,22 @@ export type Sizing = {
   scale4: string
   scale6: string
   scale8: string
+  scale10: string
   scale12: string
+  scale14: string
   scale16: string
+  scale18: string
+  scale20: string
+  scale22: string
   scale24: string
+  scale28: string
   scale32: string
+  scale36: string
   scale40: string
   scale48: string
   scale56: string
   scale64: string
+  scale96: string
 }
 
 export type Font = {

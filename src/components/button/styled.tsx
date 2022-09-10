@@ -181,17 +181,17 @@ function getPaddingStyles({ theme, size, shape }: StyledButtonProps) {
       `
     case SIZE.medium:
       return css`
-        padding-top: ${theme.sizing.scale12};
-        padding-bottom: ${theme.sizing.scale12};
+        padding-top: 10px;
+        padding-bottom: 10px;
         padding-right: ${iconShape ? theme.sizing.scale12 : theme.sizing.scale16};
         padding-left: ${iconShape ? theme.sizing.scale12 : theme.sizing.scale16};
       `
     case SIZE.large:
       return css`
-        padding-top: ${theme.sizing.scale16};
-        padding-bottom: ${theme.sizing.scale16};
-        padding-right: ${iconShape ? theme.sizing.scale16 : theme.sizing.scale24};
-        padding-left: ${iconShape ? theme.sizing.scale16 : theme.sizing.scale24};
+        padding-top: ${theme.sizing.scale12};
+        padding-bottom: ${theme.sizing.scale12};
+        padding-right: ${iconShape ? theme.sizing.scale16 : theme.sizing.scale20};
+        padding-left: ${iconShape ? theme.sizing.scale16 : theme.sizing.scale20};
       `
     default:
       return ''

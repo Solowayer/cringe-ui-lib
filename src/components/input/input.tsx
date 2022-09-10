@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { ChangeEventHandler, FocusEventHandler, HTMLAttributes, ReactElement } from 'react'
+import { ChangeEventHandler, HTMLAttributes, ReactElement } from 'react'
 import { SIZE } from './constants'
 import { LibraryThemeProvider } from '../../config/themes/theme-provider'
 import {
@@ -12,14 +12,15 @@ import {
 } from './styled'
 import { Close, Show, Hide } from '../icon'
 
+type InputTypes = 'text' | 'password'
+
 export interface InputProps
   extends Omit<HTMLAttributes<HTMLInputElement>, 'size' | 'disabled' | 'onChange'> {
   value?: string
-  type?: 'text' | 'password'
+  type?: InputTypes
+  width?: string
   scale?: keyof typeof SIZE
   onChange?: ChangeEventHandler<HTMLInputElement>
-  onFocus?: FocusEventHandler<HTMLInputElement>
-  autoFocus?: boolean
   icon?: ReactElement | string
   clearable?: boolean
   disabled?: boolean
@@ -33,10 +34,11 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>((props, ref)
   const {
     value,
     type = 'text',
+    width = '100%',
     scale = SIZE.medium,
     onChange,
     icon,
-    clearable = false,
+    clearable = true,
     disabled = false,
     error,
     success,
@@ -53,7 +55,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>((props, ref)
 
   return (
     <LibraryThemeProvider>
-      <StyledInputWrapper>
+      <StyledInputWrapper width={width} scale={scale}>
         {icon && <StyledInputIcon disabled={disabled}>{icon}</StyledInputIcon>}
         <StyledInput
           ref={ref}
@@ -70,14 +72,16 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>((props, ref)
           {...rest}
         />
         <StyledInputControls>
-          {clearable && (
-            <StyledClearIcon>
-              <Close />
+          {clearable && value && !disabled ? (
+            <StyledClearIcon
+              onClick={() => onChange && onChange({ currentTarget: { value: '' } } as any)}
+            >
+              <Close size="16" />
             </StyledClearIcon>
-          )}
+          ) : null}
           {type === 'password' && (
             <StyledVisibilityIcon onClick={() => setMask(!isMasked)}>
-              {isMasked ? <Show /> : <Hide />}
+              {isMasked ? <Show size="16" /> : <Hide size="16" />}
             </StyledVisibilityIcon>
           )}
         </StyledInputControls>
