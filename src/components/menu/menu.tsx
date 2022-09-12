@@ -1,6 +1,7 @@
+import React from 'react'
 import { HTMLAttributes, ReactElement } from 'react'
 import { LibraryThemeProvider } from '../../config/themes/theme-provider'
-import { StyledIcon, StyledOption, StyledList, ProfileImg } from './styled'
+import { StyledIcon, StyledItem, StyledList, StyledDivider } from './styled'
 
 type ListItemProps = {
   icon?: ReactElement
@@ -17,30 +18,37 @@ type ListItemProfileProps = {
 export interface ListProps
   extends Omit<HTMLAttributes<HTMLDivElement>, 'classname' | 'width' | 'onChange'> {
   width?: string
-  listItems?: ListItemProps[]
+  maxHeight?: string
   listItemsProfile?: ListItemProfileProps[]
+  listItems?: ListItemProps[]
 }
 
 export const Menu = (props: ListProps) => {
-  const { width, listItems, listItemsProfile } = props
+  const { width, maxHeight, listItems, listItemsProfile } = props
 
   return (
     <LibraryThemeProvider>
-      <StyledList width={width}>
+      <StyledList width={width} maxHeight={maxHeight}>
         {listItems &&
-          listItems?.map((option) => (
-            <StyledOption>
-              {option.icon && <StyledIcon>{option.icon}</StyledIcon>}
-              {option.label}
-            </StyledOption>
+          listItems?.map((item) => (
+            <>
+              {item.divider ? (
+                <StyledDivider />
+              ) : (
+                <StyledItem onClick={() => alert('lkl')}>
+                  {item.icon && <StyledIcon>{item.icon}</StyledIcon>}
+                  {item.label}
+                </StyledItem>
+              )}
+            </>
           ))}
-        {listItemsProfile &&
-          listItemsProfile?.map((option) => (
+        {/* {listItemsProfile &&
+          listItemsProfile?.map((item) => (
             <StyledOption>
-              <ProfileImg src={option.imgUrl} />
-              {option.title}
+              <ProfileImg src={item.imgUrl} />
+              {item.title}
             </StyledOption>
-          ))}
+          ))} */}
       </StyledList>
     </LibraryThemeProvider>
   )

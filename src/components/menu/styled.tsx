@@ -2,6 +2,12 @@ import styled from 'styled-components'
 import { ListProps } from './menu'
 
 export const StyledList = styled.ul<ListProps>`
+  overflow-y: scroll;
+  ::-webkit-scrollbar {
+    display: none;
+  }
+  max-height: ${({ maxHeight }) => maxHeight};
+  width: ${({ width }) => width};
   font-family: ${(props) => props.theme.typography.defaultFontFamily};
   background-color: white;
   box-sizing: border-box;
@@ -11,11 +17,10 @@ export const StyledList = styled.ul<ListProps>`
   padding-top: 8px;
   padding-bottom: 8px;
   box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.15);
-  width: 450px;
   border-radius: 4px;
 `
 
-export const StyledOption = styled.li`
+export const StyledItem = styled.li`
   display: flex;
   align-items: center;
   box-sizing: border-box;
@@ -36,6 +41,17 @@ export const StyledIcon = styled.div`
   display: flex;
   box-sizing: border-box;
   margin-right: 8px;
+`
+
+export const StyledDivider = styled.li`
+  display: flex;
+  height: 1px;
+  margin-top: 4px;
+  margin-bottom: 4px;
+  margin-left: 16px;
+  margin-right: 16px;
+  background-color: lightgray;
+  max-width: 100%;
 `
 
 export const ProfileImg = styled.img`
