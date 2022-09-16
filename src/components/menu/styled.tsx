@@ -1,7 +1,7 @@
 import styled from 'styled-components'
-import { ListProps } from './menu'
+import { MenuProps } from './menu'
 
-export const StyledList = styled.ul<ListProps>`
+export const StyledList = styled.ul<MenuProps>`
   overflow-y: scroll;
   ::-webkit-scrollbar {
     display: none;
@@ -54,9 +54,23 @@ export const StyledDivider = styled.li`
   max-width: 100%;
 `
 
-export const ProfileImg = styled.img`
+export const StyledProfileImg = styled.img`
   width: 36px;
   height: 36px;
   border-radius: 50%;
   object-fit: cover;
+`
+
+export const StyledProfileContainer = styled.div`
+  display: flex;
+  margin-left: 8px;
+  flex-direction: column;
+`
+
+export const Nothing = styled.span`
+  display: flex;
+  padding-top: 24px;
+  padding-bottom: 24px;
+  align-items: center;
+  justify-content: center;
 `

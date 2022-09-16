@@ -1,54 +1,49 @@
-import React from 'react'
-import { HTMLAttributes, ReactElement } from 'react'
+import { HTMLAttributes } from 'react'
 import { LibraryThemeProvider } from '../../config/themes/theme-provider'
-import { StyledIcon, StyledItem, StyledList, StyledDivider } from './styled'
+import { StyledList, Nothing } from './styled'
+import { Item, ItemProfile } from './'
+import { ItemProps } from './item'
+import { ItemProfileProps } from './item-profile'
 
-type ListItemProps = {
-  icon?: ReactElement
-  label?: string
-  divider?: boolean
-}
-
-type ListItemProfileProps = {
-  imgUrl?: string
-  title?: string
-  subTitle?: string
-}
-
-export interface ListProps
+export interface MenuProps
   extends Omit<HTMLAttributes<HTMLDivElement>, 'classname' | 'width' | 'onChange'> {
   width?: string
   maxHeight?: string
-  listItemsProfile?: ListItemProfileProps[]
-  listItems?: ListItemProps[]
+  itemType?: 'item' | 'profile'
+  items?: ItemProps[]
+  itemsProfile?: ItemProfileProps[]
 }
 
-export const Menu = (props: ListProps) => {
-  const { width, maxHeight, listItems, listItemsProfile } = props
+export const Menu = (props: MenuProps) => {
+  const { width, maxHeight, items, itemsProfile } = props
+
+  const itemsArray = items || itemsProfile
+
+  if (!items && !itemsProfile) {
+    return (
+      <LibraryThemeProvider>
+        <StyledList>
+          <Nothing>Cringe</Nothing>
+        </StyledList>
+      </LibraryThemeProvider>
+    )
+  }
 
   return (
     <LibraryThemeProvider>
       <StyledList width={width} maxHeight={maxHeight}>
-        {listItems &&
-          listItems?.map((item) => (
-            <>
-              {item.divider ? (
-                <StyledDivider />
-              ) : (
-                <StyledItem onClick={() => alert('lkl')}>
-                  {item.icon && <StyledIcon>{item.icon}</StyledIcon>}
-                  {item.label}
-                </StyledItem>
-              )}
-            </>
+        {items &&
+          items?.map((item) => <Item divider={item.divider} icon={item.icon} label={item.label} />)}
+        {itemsProfile &&
+          itemsProfile?.map((item) => (
+            <ItemProfile
+              divider={item.divider}
+              imgUrl={item.imgUrl}
+              title={item.title}
+              subTitle={item.subTitle}
+            />
           ))}
-        {/* {listItemsProfile &&
-          listItemsProfile?.map((item) => (
-            <StyledOption>
-              <ProfileImg src={item.imgUrl} />
-              {item.title}
-            </StyledOption>
-          ))} */}
+        {itemsArray?.length === 0 ? <Nothing>No results</Nothing> : null}
       </StyledList>
     </LibraryThemeProvider>
   )
