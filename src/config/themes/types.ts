@@ -209,12 +209,4 @@ export type Effects = {
   shadow3: string
 }
 
-type Colors = Base & Background & Content & Component
-
-export type Theme = {
-  colors: Colors
-  typography: Typography
-  borders: Borders
-  effects?: Effects
-  sizing: Sizing
-}
+export type Colors = Base & Background & Content & Component

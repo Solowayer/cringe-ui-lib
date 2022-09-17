@@ -1,5 +1,4 @@
-import { Theme } from '../types'
-
+import { DefaultTheme } from 'styled-components'
 import { baseColors } from '../shared/base-colors'
 import { backgroundColors } from './background-colors'
 import { contentColors } from './content-colors'
@@ -7,8 +6,9 @@ import { componentColors } from './component-colors'
 import { typography } from '../shared/typography'
 import { borders } from './borders'
 import { sizing } from '../shared/sizing'
+import { effects } from './effects'
 
-export const lightTheme: Theme = {
+export const lightTheme: DefaultTheme = {
   colors: {
     ...baseColors,
     ...backgroundColors,
@@ -18,4 +18,5 @@ export const lightTheme: Theme = {
   borders: borders,
   typography: typography,
   sizing: sizing,
+  effects: effects,
 }

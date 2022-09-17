@@ -1,13 +1,8 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { SpinnerProps } from './spinner'
-import { Theme } from '../../config/themes/types'
 import { SIZE } from './constants'
 
-interface StyledSpinnerProps extends SpinnerProps {
-  theme: Theme
-}
-
-export const StyledSpinner = styled.span<StyledSpinnerProps>`
+export const StyledSpinner = styled.span<SpinnerProps>`
   position: absolute;
   box-sizing: border-box;
   display: block;
@@ -28,35 +23,35 @@ export const StyledSpinner = styled.span<StyledSpinnerProps>`
   }
 `
 
-function getColor({ theme }: StyledSpinnerProps) {
-  return `
-        border-top-color: ${theme.colors.blue500};
-        border-left-color: ${theme.colors.gray100};
-        border-bottom-color: ${theme.colors.gray100};
-        border-right-color: ${theme.colors.gray100};
-        border-style: solid;
-      `
+function getColor() {
+  return css`
+    border-top-color: ${({ theme }) => theme.colors.blue500};
+    border-left-color: ${({ theme }) => theme.colors.gray100};
+    border-bottom-color: ${({ theme }) => theme.colors.gray100};
+    border-right-color: ${({ theme }) => theme.colors.gray100};
+    border-style: solid;
+  `
 }
 
-function getSize({ size, theme }: StyledSpinnerProps) {
+function getSize({ size }: SpinnerProps) {
   switch (size) {
     case SIZE.small:
-      return `
-        width: ${theme.sizing.scale16};
-        height: ${theme.sizing.scale16};
-        border-width: ${theme.sizing.scale2};
+      return css`
+        width: ${({ theme }) => theme.sizing.scale16};
+        height: ${({ theme }) => theme.sizing.scale16};
+        border-width: ${({ theme }) => theme.sizing.scale2};
       `
     case SIZE.medium:
-      return `
-        width: ${theme.sizing.scale24};
-        height: ${theme.sizing.scale24};
-        border-width: ${theme.sizing.scale4};
+      return css`
+        width: ${({ theme }) => theme.sizing.scale24};
+        height: ${({ theme }) => theme.sizing.scale24};
+        border-width: ${({ theme }) => theme.sizing.scale4};
       `
     case SIZE.large:
-      return `
-        width: ${theme.sizing.scale32};
-        height: ${theme.sizing.scale32};
-        border-width: ${theme.sizing.scale6};
+      return css`
+        width: ${({ theme }) => theme.sizing.scale32};
+        height: ${({ theme }) => theme.sizing.scale32};
+        border-width: ${({ theme }) => theme.sizing.scale6};
       `
     default:
       return ''

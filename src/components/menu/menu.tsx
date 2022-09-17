@@ -1,6 +1,6 @@
 import { HTMLAttributes } from 'react'
 import { LibraryThemeProvider } from '../../config/themes/theme-provider'
-import { StyledList, Nothing } from './styled'
+import { StyledList, NoResults } from './styled'
 import { Item, ItemProfile } from './'
 import { ItemProps } from './item'
 import { ItemProfileProps } from './item-profile'
@@ -9,7 +9,6 @@ export interface MenuProps
   extends Omit<HTMLAttributes<HTMLDivElement>, 'classname' | 'width' | 'onChange'> {
   width?: string
   maxHeight?: string
-  itemType?: 'item' | 'profile'
   items?: ItemProps[]
   itemsProfile?: ItemProfileProps[]
 }
@@ -22,8 +21,8 @@ export const Menu = (props: MenuProps) => {
   if (!items && !itemsProfile) {
     return (
       <LibraryThemeProvider>
-        <StyledList>
-          <Nothing>Cringe</Nothing>
+        <StyledList width={width}>
+          <NoResults>No results</NoResults>
         </StyledList>
       </LibraryThemeProvider>
     )
@@ -43,7 +42,7 @@ export const Menu = (props: MenuProps) => {
               subTitle={item.subTitle}
             />
           ))}
-        {itemsArray?.length === 0 ? <Nothing>No results</Nothing> : null}
+        {itemsArray?.length === 0 ? <NoResults>No results</NoResults> : null}
       </StyledList>
     </LibraryThemeProvider>
   )

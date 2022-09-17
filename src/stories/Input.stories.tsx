@@ -4,7 +4,7 @@ import { Input } from '../components'
 import { Search } from '../components/icon'
 
 export default {
-  title: 'Components/Inputs/Input',
+  title: 'Components/Controls/Input',
   component: Input,
 } as ComponentMeta<typeof Input>
 

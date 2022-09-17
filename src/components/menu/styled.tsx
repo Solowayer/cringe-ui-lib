@@ -14,22 +14,23 @@ export const StyledList = styled.ul<MenuProps>`
   margin: 0;
   padding-left: 0;
   padding-right: 0;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.15);
-  border-radius: 4px;
+  padding-top: ${({ theme }) => theme.sizing.scale8};
+  padding-bottom: ${({ theme }) => theme.sizing.scale8};
+  box-shadow: ${({ theme }) => theme.effects.shadow2};
+  border-radius: ${({ theme }) => theme.sizing.scale4};
 `
 
 export const StyledItem = styled.li`
   display: flex;
+  font-family: ${(props) => props.theme.typography.defaultFontFamily};
   align-items: center;
   box-sizing: border-box;
   width: 100%;
   list-style: none;
   padding-left: ${(props) => props.theme.sizing.scale16};
-  padding-right: 16px;
-  padding-top: 12px;
-  padding-bottom: 12px;
+  padding-right: ${({ theme }) => theme.sizing.scale16};
+  padding-top: ${({ theme }) => theme.sizing.scale12};
+  padding-bottom: ${({ theme }) => theme.sizing.scale12};
   font-size: 14px;
   &:hover {
     cursor: pointer;
@@ -37,40 +38,42 @@ export const StyledItem = styled.li`
   }
 `
 
+export const NoResults = styled.li`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: ${({ theme }) => theme.colors.tertiary};
+  padding-top: ${({ theme }) => theme.sizing.scale24};
+  padding-bottom: ${({ theme }) => theme.sizing.scale24};
+  cursor: not-allowed;
+`
+
 export const StyledIcon = styled.div`
   display: flex;
   box-sizing: border-box;
-  margin-right: 8px;
+  margin-right: ${({ theme }) => theme.sizing.scale8};
 `
 
 export const StyledDivider = styled.li`
   display: flex;
-  height: 1px;
-  margin-top: 4px;
-  margin-bottom: 4px;
-  margin-left: 16px;
-  margin-right: 16px;
-  background-color: lightgray;
   max-width: 100%;
+  height: 1px;
+  background-color: ${({ theme }) => theme.borders.default.color};
+  margin-top: ${({ theme }) => theme.sizing.scale4};
+  margin-bottom: ${({ theme }) => theme.sizing.scale4};
+  margin-left: ${({ theme }) => theme.sizing.scale16};
+  margin-right: ${({ theme }) => theme.sizing.scale16};
 `
 
 export const StyledProfileImg = styled.img`
-  width: 36px;
-  height: 36px;
+  width: ${({ theme }) => theme.sizing.scale64};
+  height: ${({ theme }) => theme.sizing.scale64};
   border-radius: 50%;
   object-fit: cover;
 `
 
 export const StyledProfileContainer = styled.div`
   display: flex;
-  margin-left: 8px;
   flex-direction: column;
-`
-
-export const Nothing = styled.span`
-  display: flex;
-  padding-top: 24px;
-  padding-bottom: 24px;
-  align-items: center;
-  justify-content: center;
+  margin-left: ${({ theme }) => theme.sizing.scale8};
 `
