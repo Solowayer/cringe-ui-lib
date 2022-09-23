@@ -51,28 +51,28 @@ export type Base = {
 }
 
 export type Background = {
-  primary: string
-  secondary: string
-  accent: string
-  success: string
-  warning: string
-  danger: string
-  accentLight: string
-  successLight: string
-  warningLight: string
-  dangerLight: string
+  backgroundPrimary: string
+  backgroundSecondary: string
+  backgroundAccent: string
+  backgroundSuccess: string
+  backgroundWarning: string
+  backgroundDanger: string
+  backgroundAccentLight: string
+  backgroundSuccessLight: string
+  backgroundWarningLight: string
+  backgroundDangerLight: string
 }
 
 export type Content = {
-  primary: string
-  secondary: string
-  tertiary: string
-  onColor: string
-  accent: string
-  success: string
-  warning: string
-  danger: string
-  disabled: string
+  contentPrimary: string
+  contentSecondary: string
+  contentTertiary: string
+  contentOnColor: string
+  contentAccent: string
+  contentSuccess: string
+  contentWarning: string
+  contentDanger: string
+  contentDisabled: string
 }
 
 export type Component = {
@@ -112,9 +112,8 @@ export type Component = {
   buttonDisabledContent: string
 
   // Spinner
-  // spinnerPrimaryFill: string
-  // spinnerForeground: string
-  // spinnerDisabledFill: string
+  spinnerFill: string
+  spinnerForeground: string
 
   // Inputs
   inputFill: string
@@ -134,6 +133,16 @@ export type Component = {
   inputBorderSuccess: Border
   inputBorderError: Border
   inputBorderDisabled: Border
+
+  // Menu
+  menuFill: string
+  menuItemFill: string
+  menuItemHover: string
+  menuItemHoverDanger: string
+  menuItemContent: string
+  menuItemContentDanger: string
+  menuItemContentDisabled: string
+  menuItemSubTitle: string
 }
 
 export type Sizing = {
@@ -208,5 +217,3 @@ export type Effects = {
   shadow2: string
   shadow3: string
 }
-
-export type Colors = Base & Background & Content & Component

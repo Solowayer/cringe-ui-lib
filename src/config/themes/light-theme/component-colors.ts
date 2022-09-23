@@ -41,6 +41,10 @@ export const componentColors: Component = {
   buttonDisabledFill: baseColors.gray50,
   buttonDisabledContent: baseColors.gray300,
 
+  // Spinner
+  spinnerFill: baseColors.gray100,
+  spinnerForeground: baseColors.blue500,
+
   // Inputs
   inputFill: baseColors.gray100,
   inputFocusFill: baseColors.white,
@@ -77,4 +81,14 @@ export const componentColors: Component = {
     style: 'solid',
     color: baseColors.gray50,
   },
+
+  // Menu
+  menuFill: baseColors.white,
+  menuItemFill: 'transparent',
+  menuItemHover: baseColors.gray200,
+  menuItemHoverDanger: baseColors.red50,
+  menuItemContent: baseColors.black,
+  menuItemContentDanger: baseColors.red500,
+  menuItemContentDisabled: baseColors.gray50,
+  menuItemSubTitle: baseColors.gray500,
 }

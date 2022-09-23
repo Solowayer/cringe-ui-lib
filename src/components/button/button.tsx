@@ -19,9 +19,9 @@ export type ButtonProps = {
 
 export const Button = (props: ButtonProps) => {
   const {
-    variant = 'primary',
-    size = 'medium',
-    shape = 'rectangle',
+    variant = VARIANT.primary,
+    size = SIZE.medium,
+    shape = SHAPE.rectangle,
     onClick,
     className,
     disabled,

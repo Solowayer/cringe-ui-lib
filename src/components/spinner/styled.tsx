@@ -25,10 +25,10 @@ export const StyledSpinner = styled.span<SpinnerProps>`
 
 function getColor() {
   return css`
-    border-top-color: ${({ theme }) => theme.colors.blue500};
-    border-left-color: ${({ theme }) => theme.colors.gray100};
-    border-bottom-color: ${({ theme }) => theme.colors.gray100};
-    border-right-color: ${({ theme }) => theme.colors.gray100};
+    border-top-color: ${({ theme }) => theme.colors.spinnerForeground};
+    border-left-color: ${({ theme }) => theme.colors.spinnerFill};
+    border-bottom-color: ${({ theme }) => theme.colors.spinnerFill};
+    border-right-color: ${({ theme }) => theme.colors.spinnerFill};
     border-style: solid;
   `
 }

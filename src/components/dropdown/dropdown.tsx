@@ -1,19 +1,19 @@
 import { HTMLAttributes } from 'react'
 import { LibraryThemeProvider } from '../../config/themes/theme-provider'
 import { StyledList, NoResults } from './styled'
-import { Item, ItemProfile } from './'
-import { ItemProps } from './item'
-import { ItemProfileProps } from './item-profile'
+import { MenuItem, MenuItemProfile } from '.'
+import { MenuItemProps } from './menu-item/menu-item'
+import { MenuItemProfileProps } from './menu-item-profile/menu-item-profile'
 
-export interface MenuProps
+export interface DropdownProps
   extends Omit<HTMLAttributes<HTMLDivElement>, 'classname' | 'width' | 'onChange'> {
   width?: string
   maxHeight?: string
-  items?: ItemProps[]
-  itemsProfile?: ItemProfileProps[]
+  items?: MenuItemProps[]
+  itemsProfile?: MenuItemProfileProps[]
 }
 
-export const Menu = (props: MenuProps) => {
+export const Dropdown = (props: DropdownProps) => {
   const { width, maxHeight, items, itemsProfile } = props
 
   const itemsArray = items || itemsProfile
@@ -32,10 +32,12 @@ export const Menu = (props: MenuProps) => {
     <LibraryThemeProvider>
       <StyledList width={width} maxHeight={maxHeight}>
         {items &&
-          items?.map((item) => <Item divider={item.divider} icon={item.icon} label={item.label} />)}
+          items?.map((item) => (
+            <MenuItem divider={item.divider} icon={item.icon} label={item.label} />
+          ))}
         {itemsProfile &&
           itemsProfile?.map((item) => (
-            <ItemProfile
+            <MenuItemProfile
               divider={item.divider}
               imgUrl={item.imgUrl}
               title={item.title}

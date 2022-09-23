@@ -1,5 +1,5 @@
 export * from './button'
 export * from './spinner'
 export * from './input'
-export * from './menu'
+export * from './dropdown'
 export * from './typo'

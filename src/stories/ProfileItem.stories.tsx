@@ -1,13 +1,13 @@
 import React from 'react'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
-import { ItemProfile } from '../components'
+import { MenuItemProfile } from '../components'
 
 export default {
-  title: 'Components/Menu/ItemProfile',
-  component: ItemProfile,
-} as ComponentMeta<typeof ItemProfile>
+  title: 'Components/Dropdown/MenuItemProfile',
+  component: MenuItemProfile,
+} as ComponentMeta<typeof MenuItemProfile>
 
-const Template: ComponentStory<typeof ItemProfile> = (args) => <ItemProfile {...args} />
+const Template: ComponentStory<typeof MenuItemProfile> = (args) => <MenuItemProfile {...args} />
 
 export const Playground = Template.bind({})
 Playground.args = {

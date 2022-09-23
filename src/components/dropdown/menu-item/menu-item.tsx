@@ -1,15 +1,16 @@
-import { LibraryThemeProvider } from '../../config/themes/theme-provider'
+import { LibraryThemeProvider } from '../../../config/themes/theme-provider'
 import { ReactElement } from 'react'
-import { StyledItem, StyledIcon, StyledDivider } from './styled'
+import { StyledMenuItem, StyledIcon } from './styled'
+import { StyledDivider } from '../styled'
 
-export type ItemProps = {
+export interface MenuItemProps {
   icon?: ReactElement
   label?: string
   divider?: boolean
   disabled?: boolean
 }
 
-export const Item = (props: ItemProps) => {
+export const MenuItem = (props: MenuItemProps) => {
   const { icon, label, divider } = props
 
   return (
@@ -17,10 +18,10 @@ export const Item = (props: ItemProps) => {
       {divider ? (
         <StyledDivider />
       ) : (
-        <StyledItem>
+        <StyledMenuItem>
           <StyledIcon>{icon}</StyledIcon>
           {label}
-        </StyledItem>
+        </StyledMenuItem>
       )}
     </LibraryThemeProvider>
   )
