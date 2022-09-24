@@ -51,7 +51,6 @@ function getBackgroundStyles({ variant }: ButtonProps) {
         outline-style: ${({ theme }) => theme.colors.buttonSecondaryBorder.style};
         outline-color: ${({ theme }) => theme.colors.buttonSecondaryBorder.color};
         color: ${({ theme }) => theme.colors.buttonSecondaryContent};
-        background-color: ${({ theme }) => theme.colors.buttonSecondaryFill};
         &:hover {
           background-color: ${({ theme }) => theme.colors.buttonSecondaryHover};
         }
@@ -84,7 +83,6 @@ function getBackgroundStyles({ variant }: ButtonProps) {
     case VARIANT.clear:
       return css`
         color: ${({ theme }) => theme.colors.buttonClearContent};
-        background-color: ${({ theme }) => theme.colors.buttonClearFill};
         &:hover {
           background-color: ${({ theme }) => theme.colors.buttonClearHover};
         }

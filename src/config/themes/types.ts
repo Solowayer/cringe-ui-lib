@@ -82,7 +82,6 @@ export type Component = {
   buttonPrimaryActive: string
   buttonPrimaryContent: string
 
-  buttonSecondaryFill: string
   buttonSecondaryHover: string
   buttonSecondaryActive: string
   buttonSecondaryContent: string
@@ -98,7 +97,6 @@ export type Component = {
   buttonGhostActive: string
   buttonGhostContent: string
 
-  buttonClearFill: string
   buttonClearHover: string
   buttonClearActive: string
   buttonClearContent: string
@@ -134,9 +132,8 @@ export type Component = {
   inputBorderError: Border
   inputBorderDisabled: Border
 
-  // Menu
-  menuFill: string
-  menuItemFill: string
+  // Dropdown
+  dropdownFill: string
   menuItemHover: string
   menuItemHoverDanger: string
   menuItemContent: string

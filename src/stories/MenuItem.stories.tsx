@@ -1,6 +1,7 @@
 import React from 'react'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
 import { MenuItem } from '../components'
+import { Search } from '../components/icon'
 
 export default {
   title: 'Components/Dropdown/MenuItem',
@@ -10,4 +11,4 @@ export default {
 const Template: ComponentStory<typeof MenuItem> = (args) => <MenuItem {...args} />
 
 export const Playground = Template.bind({})
-Playground.args = { label: 'Одяг' }
+Playground.args = { label: 'Одяг', icon: <Search /> }

@@ -10,5 +10,5 @@ export const contentColors: Content = {
   contentSuccess: baseColors.green500,
   contentWarning: baseColors.orange500,
   contentDanger: baseColors.red500,
-  contentDisabled: baseColors.gray50,
+  contentDisabled: baseColors.gray300,
 }

@@ -17,10 +17,14 @@ const PROFILE_ITEMS = Array.from({ length: 14 }, () => ({
   subTitle: 'Cringe',
 }))
 
-const ITEMS = Array.from({ length: 14 }, () => ({
-  icon: <Delete />,
-  label: 'Delete',
-}))
+const ITEMS = [
+  { icon: <Delete />, label: 'Delete' },
+  { icon: <Delete />, label: 'Delete' },
+  { icon: <Delete />, label: 'Delete', danger: true },
+  { icon: <Delete />, label: 'Delete' },
+  { divider: true },
+  { icon: <Delete />, label: 'Delete', disabled: true },
+]
 
 export const Playground = Template.bind({})
-Playground.args = { itemsProfile: PROFILE_ITEMS, maxHeight: '400px' }
+Playground.args = { items: ITEMS, maxHeight: '400px' }

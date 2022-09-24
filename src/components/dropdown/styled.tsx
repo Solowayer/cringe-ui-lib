@@ -2,12 +2,12 @@ import styled from 'styled-components'
 import { DropdownProps } from './dropdown'
 
 export const StyledList = styled.ul<DropdownProps>`
+  box-sizing: border-box;
   overflow-y: scroll;
   max-height: ${({ maxHeight }) => maxHeight};
   width: ${({ width }) => width};
   font-family: ${(props) => props.theme.typography.defaultFontFamily};
-  background-color: white;
-  box-sizing: border-box;
+  background-color: ${({ theme }) => theme.colors.dropdownFill};
   margin: 0;
   padding-left: 0;
   padding-right: 0;

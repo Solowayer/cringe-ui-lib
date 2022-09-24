@@ -1,3 +1,5 @@
 import styled from 'styled-components'
 
-export const StyledFlexBlock = styled.div``
+export const StyledFlexBlock = styled.div`
+  display: flex;
+`

@@ -1,5 +1,11 @@
-import React from 'react'
+import React, { ReactNode } from 'react'
+import { StyledFlexBlock } from './styled'
 
-export const FlexBlock = () => {
-  return <></>
+type FlexProps = {
+  children: ReactNode
+}
+
+export const FlexBlock = (props: FlexProps) => {
+  const { children } = props
+  return <StyledFlexBlock> {children}</StyledFlexBlock>
 }

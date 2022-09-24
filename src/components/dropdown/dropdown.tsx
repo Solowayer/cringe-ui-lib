@@ -33,7 +33,13 @@ export const Dropdown = (props: DropdownProps) => {
       <StyledList width={width} maxHeight={maxHeight}>
         {items &&
           items?.map((item) => (
-            <MenuItem divider={item.divider} icon={item.icon} label={item.label} />
+            <MenuItem
+              divider={item.divider}
+              icon={item.icon}
+              label={item.label}
+              disabled={item.disabled}
+              danger={item.danger}
+            />
           ))}
         {itemsProfile &&
           itemsProfile?.map((item) => (

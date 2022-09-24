@@ -8,7 +8,6 @@ export const componentColors: Component = {
   buttonPrimaryActive: baseColors.green700,
   buttonPrimaryContent: baseColors.white,
 
-  buttonSecondaryFill: 'transparent',
   buttonSecondaryHover: baseColors.green100,
   buttonSecondaryActive: baseColors.green200,
   buttonSecondaryContent: baseColors.green500,
@@ -28,7 +27,6 @@ export const componentColors: Component = {
   buttonGhostActive: baseColors.gray300,
   buttonGhostContent: baseColors.black,
 
-  buttonClearFill: 'transparent',
   buttonClearHover: baseColors.gray200,
   buttonClearActive: baseColors.gray300,
   buttonClearContent: baseColors.black,
@@ -82,13 +80,12 @@ export const componentColors: Component = {
     color: baseColors.gray50,
   },
 
-  // Menu
-  menuFill: baseColors.white,
-  menuItemFill: 'transparent',
+  // Dropdown
+  dropdownFill: baseColors.white,
   menuItemHover: baseColors.gray200,
   menuItemHoverDanger: baseColors.red50,
   menuItemContent: baseColors.black,
   menuItemContentDanger: baseColors.red500,
-  menuItemContentDisabled: baseColors.gray50,
+  menuItemContentDisabled: baseColors.gray300,
   menuItemSubTitle: baseColors.gray500,
 }
