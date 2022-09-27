@@ -12,7 +12,7 @@ export type ButtonProps = {
   className?: string
   disabled?: boolean
   isLoading?: boolean
-  children?: ReactNode | null
+  children?: ReactNode
   iconLeft?: ReactElement
   iconRight?: ReactElement
 }

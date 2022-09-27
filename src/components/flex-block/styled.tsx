@@ -3,6 +3,7 @@ import { FlexProps } from './flex-block'
 
 export const StyledFlexBlock = styled.div<FlexProps>`
   display: flex;
+  font-family: ${({ theme }) => theme.typography.defaultFontFamily};
   position: ${({ position }) => position};
   overflow: ${({ overflow }) => overflow};
   flex: ${({ flex }) => flex};
@@ -10,8 +11,9 @@ export const StyledFlexBlock = styled.div<FlexProps>`
   flex-shrink: ${({ flexShrink }) => flexShrink};
   flex-basis: ${({ flexBasis }) => flexBasis};
   flex-wrap: ${({ flexWrap }) => flexWrap};
-  flex-direction: ${({ direction }) => direction};
+  flex-direction: ${({ flexDirection }) => flexDirection};
   align-items: ${({ alignItems }) => alignItems};
+  align-self: ${({ alignSelf }) => alignSelf};
   justify-content: ${({ justifyContent }) => justifyContent};
   gap: ${({ gap }) => gap};
   width: ${({ width }) => width};
@@ -30,4 +32,9 @@ export const StyledFlexBlock = styled.div<FlexProps>`
   padding-bottom: ${({ paddingBottom }) => paddingBottom};
   padding-left: ${({ paddingLeft }) => paddingLeft};
   padding-right: ${({ paddingRight }) => paddingRight};
+  color: ${({ color }) => color};
+  background-color: ${({ backgroundColor }) => backgroundColor};
+  background-image: ${({ backgroundImage }) => backgroundImage};
+  background-position: ${({ backgroundPosition }) => backgroundPosition};
+  background-repeat: ${({ backgroundRepeat }) => backgroundRepeat};
 `

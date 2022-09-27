@@ -1,5 +1,6 @@
 import React, { ElementType, HTMLAttributes, ReactNode } from 'react'
 import { StyledFlexBlock } from './styled'
+import { LibraryThemeProvider } from '../../config/themes/theme-provider'
 
 export interface FlexProps extends HTMLAttributes<HTMLDivElement> {
   as?: ElementType
@@ -10,8 +11,9 @@ export interface FlexProps extends HTMLAttributes<HTMLDivElement> {
   flexShrink?: string
   flexBasis?: string
   flexWrap?: string
-  direction?: string
+  flexDirection?: string
   alignItems?: string
+  alignSelf?: string
   justifyContent?: string
   gap?: string
   width?: string
@@ -30,6 +32,11 @@ export interface FlexProps extends HTMLAttributes<HTMLDivElement> {
   paddingBottom?: string
   paddingLeft?: string
   paddingRight?: string
+  color?: string
+  backgroundColor?: string
+  backgroundImage?: string
+  backgroundPosition?: string
+  backgroundRepeat?: string
   children?: ReactNode
 }
 
@@ -43,8 +50,9 @@ export const FlexBlock = (props: FlexProps) => {
     flexShrink,
     flexBasis,
     flexWrap,
-    direction,
+    flexDirection,
     alignItems,
+    alignSelf,
     justifyContent,
     gap,
     width,
@@ -63,40 +71,53 @@ export const FlexBlock = (props: FlexProps) => {
     paddingBottom,
     paddingLeft,
     paddingRight,
+    color,
+    backgroundColor,
+    backgroundImage,
+    backgroundPosition,
+    backgroundRepeat,
     children,
   } = props
   return (
-    <StyledFlexBlock
-      as={as}
-      position={position}
-      overflow={overflow}
-      flex={flex}
-      flexGrow={flexGrow}
-      flexShrink={flexShrink}
-      flexBasis={flexBasis}
-      flexWrap={flexWrap}
-      direction={direction}
-      alignItems={alignItems}
-      justifyContent={justifyContent}
-      gap={gap}
-      width={width}
-      minWidth={minWidth}
-      maxWidth={maxWidth}
-      height={height}
-      minHeight={minHeight}
-      maxHeight={maxHeight}
-      margin={margin}
-      marginTop={marginTop}
-      marginBottom={marginBottom}
-      marginLeft={marginLeft}
-      marginRight={marginRight}
-      padding={padding}
-      paddingTop={paddingTop}
-      paddingBottom={paddingBottom}
-      paddingLeft={paddingLeft}
-      paddingRight={paddingRight}
-    >
-      {children}
-    </StyledFlexBlock>
+    <LibraryThemeProvider>
+      <StyledFlexBlock
+        as={as}
+        position={position}
+        overflow={overflow}
+        flex={flex}
+        flexGrow={flexGrow}
+        flexShrink={flexShrink}
+        flexBasis={flexBasis}
+        flexWrap={flexWrap}
+        flexDirection={flexDirection}
+        alignItems={alignItems}
+        alignSelf={alignSelf}
+        justifyContent={justifyContent}
+        gap={gap}
+        width={width}
+        minWidth={minWidth}
+        maxWidth={maxWidth}
+        height={height}
+        minHeight={minHeight}
+        maxHeight={maxHeight}
+        margin={margin}
+        marginTop={marginTop}
+        marginBottom={marginBottom}
+        marginLeft={marginLeft}
+        marginRight={marginRight}
+        padding={padding}
+        paddingTop={paddingTop}
+        paddingBottom={paddingBottom}
+        paddingLeft={paddingLeft}
+        paddingRight={paddingRight}
+        color={color}
+        backgroundColor={backgroundColor}
+        backgroundImage={backgroundImage}
+        backgroundPosition={backgroundPosition}
+        backgroundRepeat={backgroundRepeat}
+      >
+        {children}
+      </StyledFlexBlock>
+    </LibraryThemeProvider>
   )
 }
