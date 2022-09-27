@@ -1,3 +1,5 @@
+import React from 'react'
+import { HTMLAttributes } from 'react'
 import { LibraryThemeProvider } from '../../../config/themes/theme-provider'
 import { StyledDivider } from '../styled'
 import {
@@ -8,7 +10,7 @@ import {
   StyledProfileSubTitle,
 } from './styled'
 
-export interface MenuItemProfileProps {
+export interface MenuItemProfileProps extends Omit<HTMLAttributes<HTMLLIElement>, 'disabled'> {
   divider?: boolean
   imgUrl?: string
   title?: string
@@ -16,22 +18,24 @@ export interface MenuItemProfileProps {
   disabled?: boolean
 }
 
-export const MenuItemProfile = (props: MenuItemProfileProps) => {
-  const { divider, imgUrl, title, subTitle, disabled } = props
+export const MenuItemProfile = React.forwardRef<HTMLLIElement, MenuItemProfileProps>(
+  (props, ref) => {
+    const { divider, imgUrl, title, subTitle, disabled } = props
 
-  return (
-    <LibraryThemeProvider>
-      {divider ? (
-        <StyledDivider />
-      ) : (
-        <StyledMenuItemProfile disabled={disabled}>
-          {imgUrl && <StyledProfileImg src={imgUrl} />}
-          <StyledProfileContainer>
-            <StyledProfileTitle>{title}</StyledProfileTitle>
-            <StyledProfileSubTitle>{subTitle}</StyledProfileSubTitle>
-          </StyledProfileContainer>
-        </StyledMenuItemProfile>
-      )}
-    </LibraryThemeProvider>
-  )
-}
+    return (
+      <LibraryThemeProvider>
+        {divider ? (
+          <StyledDivider />
+        ) : (
+          <StyledMenuItemProfile ref={ref} disabled={disabled}>
+            {imgUrl && <StyledProfileImg src={imgUrl} />}
+            <StyledProfileContainer>
+              <StyledProfileTitle>{title}</StyledProfileTitle>
+              <StyledProfileSubTitle>{subTitle}</StyledProfileSubTitle>
+            </StyledProfileContainer>
+          </StyledMenuItemProfile>
+        )}
+      </LibraryThemeProvider>
+    )
+  }
+)

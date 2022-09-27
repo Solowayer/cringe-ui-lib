@@ -140,6 +140,16 @@ export type Component = {
   menuItemContentDanger: string
   menuItemContentDisabled: string
   menuItemSubTitle: string
+
+  // Tag
+  tagSolidDefaultFill: string
+  tagSolidDefaultContent: string
+  tagSolidPositiveFill: string
+  tagSolidPositiveContent: string
+  tagOutlinedDefaultBorder: Border
+  tagOutlinedDefaultContent: string
+  tagOutlinedPositiveBorder: Border
+  tagOutlinedPositiveContent: string
 }
 
 export type Sizing = {

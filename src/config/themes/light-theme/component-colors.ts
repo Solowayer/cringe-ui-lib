@@ -88,4 +88,24 @@ export const componentColors: Component = {
   menuItemContentDanger: baseColors.red500,
   menuItemContentDisabled: baseColors.gray300,
   menuItemSubTitle: baseColors.gray500,
+
+  // Tag Solid
+  tagSolidDefaultFill: baseColors.black,
+  tagSolidDefaultContent: baseColors.white,
+  tagSolidPositiveFill: baseColors.green500,
+  tagSolidPositiveContent: baseColors.white,
+
+  // Tag Outlined
+  tagOutlinedDefaultBorder: {
+    width: '2px',
+    style: 'solid',
+    color: baseColors.gray200,
+  },
+  tagOutlinedDefaultContent: baseColors.black,
+  tagOutlinedPositiveBorder: {
+    width: '2px',
+    style: 'solid',
+    color: baseColors.green300,
+  },
+  tagOutlinedPositiveContent: baseColors.green500,
 }
