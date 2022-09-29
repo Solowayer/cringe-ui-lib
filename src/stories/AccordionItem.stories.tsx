@@ -9,5 +9,8 @@ export default {
 
 const Template: ComponentStory<typeof AccordionItem> = (args) => <AccordionItem {...args} />
 
+const content =
+  'Folly words widow one downs few age every seven. If miss part by fact he park just shew. Discovered had get considered projection who favourable. Necessary up knowledge it tolerably. Unwilling departure education is be dashwoods or an.'
+
 export const Playground = Template.bind({})
-Playground.args = { title: 'Пісюн' }
+Playground.args = { title: 'Cringe', subTitle: 'SubCringe', content: content }

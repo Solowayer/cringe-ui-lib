@@ -1,26 +1,30 @@
-import React, { ReactNode } from 'react'
+import React, { ReactNode, useState } from 'react'
 import { LibraryThemeProvider } from '../../../config/themes/theme-provider'
-import { StyledAccordionItem, ItemHeader, Heading, Content } from './styled'
+import { StyledAccordionItem, ItemHeader, Heading, Content, Title, SubTitle } from './styled'
 import { ExpandLess, ExpandMore } from '../../icon'
 
 export type AccordionItemProps = {
   title?: string
+  subTitle?: string
+  content?: ReactNode
   expanded?: boolean
-  children?: ReactNode
   onClick?: () => void
 }
 
 export const AccordionItem = (props: AccordionItemProps) => {
-  const { title, expanded = false, children, onClick } = props
+  const { title, subTitle, content, expanded = false } = props
   const icon = expanded ? <ExpandLess size="24" /> : <ExpandMore size="24" />
   return (
     <LibraryThemeProvider>
-      <StyledAccordionItem expanded={expanded} onClick={onClick}>
+      <StyledAccordionItem expanded={expanded}>
         <ItemHeader>
-          <Heading>{title}</Heading>
+          <Heading>
+            <Title>{title}</Title>
+            <SubTitle>{subTitle}</SubTitle>
+          </Heading>
           {icon}
         </ItemHeader>
-        <Content>{children}</Content>
+        {expanded && <Content>{content}</Content>}
       </StyledAccordionItem>
     </LibraryThemeProvider>
   )
