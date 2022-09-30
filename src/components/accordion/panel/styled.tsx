@@ -1,20 +1,24 @@
 import styled from 'styled-components'
-import { AccordionItemProps } from './accordion-item'
+import { PanelProps } from './panel'
 
-export const StyledAccordionItem = styled.li<AccordionItemProps>`
+export const StyledPanel = styled.li<PanelProps>`
+  width: 100%;
   display: flex;
   box-sizing: border-box;
   flex-direction: column;
   list-style: none;
-  min-width: 100%;
   border-bottom: 1px solid lightgray;
 `
-export const ItemHeader = styled.div`
+export const ItemHeader = styled.div<PanelProps>`
   display: flex;
   align-items: center;
   justify-content: space-between;
   cursor: pointer;
   padding: ${({ theme }) => theme.sizing.scale16};
+  svg {
+    transition: transform 0.2s ease-in-out;
+    transform: ${(props) => (props.expanded ? 'rotate(180deg)' : 'rotate(0)')};
+  }
 `
 
 export const Heading = styled.div`
@@ -39,9 +43,17 @@ export const SubTitle = styled.p`
   line-height: ${({ theme }) => theme.typography.paragraphMedium.lineHeight};
 `
 
-export const Content = styled.div<AccordionItemProps>`
-  padding: ${({ theme }) => theme.sizing.scale16};
+export const ContentContainer = styled.div`
+  overflow: hidden;
+  transition: height 0.2s ease-in-out;
+`
+
+export const Content = styled.div<PanelProps>`
+  display: flex;
+  transition: opacity 0.5s ease-in-out;
+  opacity: ${(props) => (props.expanded ? 1 : 0)};
   color: ${({ theme }) => theme.colors.black};
+  padding: ${({ theme }) => theme.sizing.scale16};
   font-family: ${({ theme }) => theme.typography.defaultFontFamily};
   font-size: ${({ theme }) => theme.typography.paragraphMedium.fontSize};
   font-weight: ${({ theme }) => theme.typography.paragraphMedium.fontWeight};
