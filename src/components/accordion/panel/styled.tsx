@@ -8,6 +8,7 @@ export const StyledPanel = styled.li<PanelProps>`
   flex-direction: column;
   list-style: none;
   border-bottom: 1px solid lightgray;
+  font-family: ${({ theme }) => theme.typography.defaultFontFamily};
 `
 export const ItemHeader = styled.div<PanelProps>`
   display: flex;
@@ -25,7 +26,6 @@ export const Heading = styled.div`
   display: flex;
   gap: ${({ theme }) => theme.sizing.scale8};
   flex-direction: column;
-  font-family: ${({ theme }) => theme.typography.defaultFontFamily};
 `
 
 export const Title = styled.p`
@@ -54,7 +54,6 @@ export const Content = styled.div<PanelProps>`
   opacity: ${(props) => (props.expanded ? 1 : 0)};
   color: ${({ theme }) => theme.colors.black};
   padding: ${({ theme }) => theme.sizing.scale16};
-  font-family: ${({ theme }) => theme.typography.defaultFontFamily};
   font-size: ${({ theme }) => theme.typography.paragraphMedium.fontSize};
   font-weight: ${({ theme }) => theme.typography.paragraphMedium.fontWeight};
   line-height: ${({ theme }) => theme.typography.paragraphMedium.lineHeight};

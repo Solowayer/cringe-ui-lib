@@ -16,7 +16,7 @@ export const StyledInputWrapper = styled.div<InputProps>`
 export const StyledInput = styled.input<InputProps>`
   display: flex;
   width: 100%;
-  height: 100%;
+  min-height: 100%;
   border: none;
   font-family: ${(props) => props.theme.typography.defaultFontFamily};
   border-radius: ${(props) => props.theme.sizing.scale4};
@@ -31,6 +31,8 @@ export const StyledInput = styled.input<InputProps>`
     outline-color: ${({ theme }) => theme.colors.inputBorderFocus.color};
     background-color: ${({ theme }) => theme.colors.inputFocusFill};
   }
+  padding-top: 0;
+  padding-bottom: 0;
   padding-right: ${({ theme }) => theme.sizing.scale64};
   ${getBackgroundStyles}
   ${getPaddingStyles}
@@ -87,10 +89,6 @@ function getBackgroundStyles({ disabled, error, success }: InputProps) {
       outline-style: ${({ theme }) => theme.colors.inputBorderError.style};
       outline-color: ${({ theme }) => theme.colors.inputBorderError.color};
       background-color: ${({ theme }) => theme.colors.inputErrorFill};
-      &:focus {
-        outline-color: ${({ theme }) => theme.colors.inputBorderError.color};
-        background-color: ${({ theme }) => theme.colors.inputErrorFill};
-      }
     `
   }
   if (success) {
@@ -99,10 +97,6 @@ function getBackgroundStyles({ disabled, error, success }: InputProps) {
       outline-style: ${({ theme }) => theme.colors.inputBorderSuccess.style};
       outline-color: ${({ theme }) => theme.colors.inputBorderSuccess.color};
       background-color: ${({ theme }) => theme.colors.inputSuccessFill};
-      &:focus {
-        outline-color: ${({ theme }) => theme.colors.inputBorderSuccess.color};
-        background-color: ${({ theme }) => theme.colors.inputSuccessFill};
-      }
     `
   }
 }
