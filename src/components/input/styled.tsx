@@ -49,11 +49,14 @@ export const StyledInputIcon = styled.div<InputProps>`
 `
 
 export const StyledInputControls = styled.div<InputProps>`
+  font-family: ${(props) => props.theme.typography.defaultFontFamily};
+  gap: ${({ theme }) => theme.sizing.scale8};
   position: absolute;
   display: flex;
   align-items: center;
   right: 16px;
-  color: ${({ theme }) => theme.colors.inputControls};
+  color: ${(props) =>
+    props.disabled ? props.theme.colors.inputContentDisabled : props.theme.colors.inputControls};
 `
 
 export const StyledClearIcon = styled.div`
@@ -67,7 +70,6 @@ export const StyledClearIcon = styled.div`
 export const StyledVisibilityIcon = styled.div`
   display: flex;
   align-items: center;
-  margin-left: ${({ theme }) => theme.sizing.scale8};
   &:hover {
     cursor: pointer;
   }
@@ -120,19 +122,19 @@ function getHeightStyles({ scale }: InputProps) {
   }
 }
 
-function getPaddingStyles({ icon, scale }: InputProps) {
+function getPaddingStyles({ startIcon, scale }: InputProps) {
   switch (scale) {
     case SIZE.small:
       return css`
-        padding-left: ${icon ? '48px' : ({ theme }) => theme.sizing.scale16};
+        padding-left: ${startIcon ? '48px' : ({ theme }) => theme.sizing.scale16};
       `
     case SIZE.medium:
       return css`
-        padding-left: ${icon ? '52px' : ({ theme }) => theme.sizing.scale16};
+        padding-left: ${startIcon ? '52px' : ({ theme }) => theme.sizing.scale16};
       `
     case SIZE.large:
       return css`
-        padding-left: ${icon ? '56px' : ({ theme }) => theme.sizing.scale16};
+        padding-left: ${startIcon ? '56px' : ({ theme }) => theme.sizing.scale16};
       `
     default:
       return ``

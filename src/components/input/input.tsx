@@ -10,7 +10,7 @@ import {
   StyledClearIcon,
   StyledVisibilityIcon,
 } from './styled'
-import { Close, Show, Hide } from '../icon'
+import { Close, Show, Hide, ExpandMore } from '../icon'
 
 type InputTypes = 'text' | 'password'
 
@@ -21,7 +21,8 @@ export interface InputProps
   width?: string
   scale?: keyof typeof SIZE
   onChange?: ChangeEventHandler<HTMLInputElement>
-  icon?: ReactElement | string
+  startIcon?: ReactElement
+  endContent?: ReactElement | string
   clearable?: boolean
   disabled?: boolean
   error?: boolean
@@ -37,7 +38,8 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>((props, ref)
     width = '100%',
     scale = SIZE.medium,
     onChange,
-    icon,
+    startIcon,
+    endContent,
     clearable = true,
     disabled = false,
     error,
@@ -56,22 +58,22 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>((props, ref)
   return (
     <LibraryThemeProvider>
       <StyledInputWrapper width={width} scale={scale}>
-        {icon && <StyledInputIcon disabled={disabled}>{icon}</StyledInputIcon>}
+        {startIcon && <StyledInputIcon disabled={disabled}>{startIcon}</StyledInputIcon>}
         <StyledInput
           ref={ref}
-          placeholder="Type here"
           value={value}
           type={getInputType()}
           scale={scale}
           onChange={onChange}
-          icon={icon}
+          startIcon={startIcon}
+          endContent={endContent}
           clearable={clearable}
           disabled={disabled}
           error={error}
           success={success}
           {...rest}
         />
-        <StyledInputControls>
+        <StyledInputControls disabled={disabled}>
           {clearable && value && !disabled ? (
             <StyledClearIcon
               onClick={() => onChange && onChange({ currentTarget: { value: '' } } as any)}
@@ -84,6 +86,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>((props, ref)
               {isMasked ? <Show size="16" /> : <Hide size="16" />}
             </StyledVisibilityIcon>
           )}
+          {endContent}
         </StyledInputControls>
       </StyledInputWrapper>
     </LibraryThemeProvider>

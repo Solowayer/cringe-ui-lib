@@ -1,27 +1,26 @@
+import React from 'react'
 import { HTMLAttributes } from 'react'
 import { LibraryThemeProvider } from '../../config/themes/theme-provider'
 import { StyledList, NoResults } from './styled'
-import { MenuItem, MenuItemProfile } from '.'
+import { MenuItem } from '.'
 import { MenuItemProps } from './menu-item/menu-item'
-import { MenuItemProfileProps } from './menu-item-profile/menu-item-profile'
 
 export interface DropdownProps
-  extends Omit<HTMLAttributes<HTMLDivElement>, 'classname' | 'width' | 'onChange'> {
+  extends Omit<HTMLAttributes<HTMLUListElement>, 'classname' | 'width' | 'onChange'> {
+  isOpen?: boolean
   width?: string
   maxHeight?: string
   items?: MenuItemProps[]
-  itemsProfile?: MenuItemProfileProps[]
+  onItemClick?: () => void
 }
 
-export const Dropdown = (props: DropdownProps) => {
-  const { width, maxHeight, items, itemsProfile } = props
+export const Dropdown = React.forwardRef<HTMLUListElement, DropdownProps>((props, ref) => {
+  const { isOpen = false, width, maxHeight, items, onItemClick } = props
 
-  const itemsArray = items || itemsProfile
-
-  if (!items && !itemsProfile) {
+  if (!items || items?.length === 0) {
     return (
       <LibraryThemeProvider>
-        <StyledList width={width}>
+        <StyledList isOpen={isOpen} width={width}>
           <NoResults>No results</NoResults>
         </StyledList>
       </LibraryThemeProvider>
@@ -30,7 +29,7 @@ export const Dropdown = (props: DropdownProps) => {
 
   return (
     <LibraryThemeProvider>
-      <StyledList width={width} maxHeight={maxHeight}>
+      <StyledList ref={ref} isOpen={isOpen} width={width} maxHeight={maxHeight}>
         {items &&
           items?.map((item) => (
             <MenuItem
@@ -39,19 +38,10 @@ export const Dropdown = (props: DropdownProps) => {
               label={item.label}
               disabled={item.disabled}
               danger={item.danger}
+              onClick={onItemClick}
             />
           ))}
-        {itemsProfile &&
-          itemsProfile?.map((item) => (
-            <MenuItemProfile
-              divider={item.divider}
-              imgUrl={item.imgUrl}
-              title={item.title}
-              subTitle={item.subTitle}
-            />
-          ))}
-        {itemsArray?.length === 0 ? <NoResults>No results</NoResults> : null}
       </StyledList>
     </LibraryThemeProvider>
   )
-}
+})

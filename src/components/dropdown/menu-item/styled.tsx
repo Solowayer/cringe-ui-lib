@@ -26,6 +26,12 @@ export const StyledMenuItem = styled.li<MenuItemProps>`
   ${dangerStyles}
 `
 
+export const StyledContainer = styled.div<MenuItemProps>`
+  display: flex;
+  flex-direction: column;
+  margin-left: ${({ theme }) => theme.sizing.scale8};
+`
+
 function dangerStyles({ danger }: MenuItemProps) {
   if (danger) {
     return css`

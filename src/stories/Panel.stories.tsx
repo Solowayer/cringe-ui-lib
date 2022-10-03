@@ -3,7 +3,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react'
 import { Panel } from '../components'
 
 export default {
-  title: 'Components/Accordion/Panel',
+  title: 'Components/Content/Accordion/Panel',
   component: Panel,
 } as ComponentMeta<typeof Panel>
 

@@ -12,5 +12,5 @@ const Template: ComponentStory<typeof Input> = (args) => <Input {...args} />
 
 export const Playground = Template.bind({})
 Playground.args = {
-  icon: <Search />,
+  startIcon: <Search />,
 }

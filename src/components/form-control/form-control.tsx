@@ -11,11 +11,11 @@ export type FormControlProps = {
   children?: ReactNode
 }
 
-export const FormControl = (props: FormControlProps) => {
+export const FormControl = React.forwardRef<HTMLDivElement, FormControlProps>((props, ref) => {
   const { label, htmlFor, hint, error, success, children } = props
   return (
     <LibraryThemeProvider>
-      <StyledFormControl>
+      <StyledFormControl ref={ref}>
         <StyledLabel htmlFor={htmlFor}>{label}</StyledLabel>
         {children}
         {error ? (
@@ -28,4 +28,4 @@ export const FormControl = (props: FormControlProps) => {
       </StyledFormControl>
     </LibraryThemeProvider>
   )
-}
+})

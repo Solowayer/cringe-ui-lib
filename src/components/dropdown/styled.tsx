@@ -2,8 +2,10 @@ import styled from 'styled-components'
 import { DropdownProps } from './dropdown'
 
 export const StyledList = styled.ul<DropdownProps>`
+  display: ${(props) => (props.isOpen ? 'flex' : 'none')};
+  flex-direction: column;
   box-sizing: border-box;
-  overflow-y: scroll;
+  overflow-y: auto;
   max-height: ${({ maxHeight }) => maxHeight};
   width: ${({ width }) => width};
   font-family: ${(props) => props.theme.typography.defaultFontFamily};
