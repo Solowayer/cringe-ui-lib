@@ -2,10 +2,12 @@
   "compilerOptions": {
     "target": "ESNext",
     "lib": ["ESNext", "DOM"],
-    "jsx": "preserve",
+    "jsx": "react-jsx",
     "module": "ESNext",
     "moduleResolution": "node",
-    "noEmit": true,
+    "declaration": true,
+    "declarationMap": true,
+    // "noEmit": true,
     "downlevelIteration": true,
 
     "isolatedModules": true,
