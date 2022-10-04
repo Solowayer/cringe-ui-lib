@@ -3,7 +3,6 @@ import { StyledSelectWrapper, StyledHeader, StyledList, StyledOption } from './s
 import { LibraryThemeProvider } from '../../config/themes/theme-provider'
 import { Input } from '../input'
 import { ExpandMore } from '../icon'
-import { MenuItemProps } from '../dropdown/menu-item/menu-item'
 
 export type SelectOption = {
   label: string
@@ -29,7 +28,7 @@ export const Select = React.forwardRef<HTMLDivElement, SelectProps>((props, ref)
     option,
     options,
     disabled,
-    onChange,
+    onChange = () => {},
   } = props
 
   const headerRef = useRef<HTMLDivElement>(null)
@@ -56,12 +55,18 @@ export const Select = React.forwardRef<HTMLDivElement, SelectProps>((props, ref)
     }
   }, [headerRef, dropdownRef, setIsOpen])
 
+  const onOptionClick = (option: SelectOption) => {
+    onChange(option)
+    setIsOpen(false)
+  }
+
   return (
     <LibraryThemeProvider>
       <StyledSelectWrapper width={width} ref={ref}>
         <StyledHeader ref={headerRef} onClick={() => setIsOpen(!isOpen)}>
           <Input
             width="100%"
+            placeholder="Select some cringe..."
             endContent={<ExpandMore />}
             value={option?.label}
             disabled={disabled}
@@ -73,7 +78,9 @@ export const Select = React.forwardRef<HTMLDivElement, SelectProps>((props, ref)
           ref={dropdownRef}
         >
           {options?.map((option) => (
-            <StyledOption key={option.value}>{option.label}</StyledOption>
+            <StyledOption key={option.value} onClick={() => onOptionClick(option)}>
+              {option.label}
+            </StyledOption>
           ))}
         </StyledList>
       </StyledSelectWrapper>

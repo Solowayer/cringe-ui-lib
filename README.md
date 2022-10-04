@@ -1,3 +1,3 @@
 # Getting Started
 
-### `npm install stores-ui`
+### `npm install cringe-ui-lib`
