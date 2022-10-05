@@ -4,7 +4,7 @@ import { LibraryThemeProvider } from '../../config/themes/theme-provider'
 import { Input } from '../input'
 import { ExpandMore } from '../icon'
 
-export type SelectOption = {
+export type Value = {
   label: string
   value: string
 }
@@ -13,22 +13,22 @@ export interface SelectProps {
   width?: string
   maxDropdownHeight?: string
   isDropdownOpen?: boolean
-  option?: SelectOption
-  options?: SelectOption[]
+  value?: Value
+  options?: Value[]
   disabled?: boolean
-  onChange?: (option: SelectOption | undefined) => void
+  onChange?: (option: Value | undefined) => void
 }
 
-export const Select = React.forwardRef<HTMLDivElement, SelectProps>((props, ref) => {
+export const Select = (props: SelectProps) => {
   const [isOpen, setIsOpen] = useState(false)
   const {
     width,
     maxDropdownHeight,
     isDropdownOpen = isOpen,
-    option,
+    value,
     options,
     disabled,
-    onChange = () => {},
+    onChange,
   } = props
 
   const headerRef = useRef<HTMLDivElement>(null)
@@ -55,21 +55,23 @@ export const Select = React.forwardRef<HTMLDivElement, SelectProps>((props, ref)
     }
   }, [headerRef, dropdownRef, setIsOpen])
 
-  const onOptionClick = (option: SelectOption) => {
+  const onOptionClick = (option: Value) => {
     onChange(option)
     setIsOpen(false)
   }
 
   return (
     <LibraryThemeProvider>
-      <StyledSelectWrapper width={width} ref={ref}>
-        <StyledHeader ref={headerRef} onClick={() => setIsOpen(!isOpen)}>
+      <StyledSelectWrapper width={width}>
+        <StyledHeader ref={headerRef}>
           <Input
+            onClick={() => setIsOpen(!isOpen)}
             width="100%"
             placeholder="Select some cringe..."
             endContent={<ExpandMore />}
-            value={option?.label}
+            value={value ? value?.label : ''}
             disabled={disabled}
+            clearable
           />
         </StyledHeader>
         <StyledList
@@ -86,4 +88,4 @@ export const Select = React.forwardRef<HTMLDivElement, SelectProps>((props, ref)
       </StyledSelectWrapper>
     </LibraryThemeProvider>
   )
-})
+}

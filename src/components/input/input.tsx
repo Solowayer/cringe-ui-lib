@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import { ChangeEventHandler, HTMLAttributes, ReactElement } from 'react'
 import { SIZE } from './constants'
 import { LibraryThemeProvider } from '../../config/themes/theme-provider'
@@ -10,7 +10,7 @@ import {
   StyledClearIcon,
   StyledVisibilityIcon,
 } from './styled'
-import { Close, Show, Hide, ExpandMore } from '../icon'
+import { Close, Show, Hide } from '../icon'
 
 type InputTypes = 'text' | 'password'
 
@@ -40,7 +40,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>((props, ref)
     onChange,
     startIcon,
     endContent,
-    clearable = true,
+    clearable = false,
     disabled = false,
     error,
     success,

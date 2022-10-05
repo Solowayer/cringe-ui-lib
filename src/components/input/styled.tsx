@@ -49,11 +49,11 @@ export const StyledInputIcon = styled.div<InputProps>`
 `
 
 export const StyledInputControls = styled.div<InputProps>`
-  font-family: ${(props) => props.theme.typography.defaultFontFamily};
-  gap: ${({ theme }) => theme.sizing.scale8};
   position: absolute;
   display: flex;
   align-items: center;
+  font-family: ${(props) => props.theme.typography.defaultFontFamily};
+  gap: ${({ theme }) => theme.sizing.scale8};
   right: 16px;
   color: ${(props) =>
     props.disabled ? props.theme.colors.inputContentDisabled : props.theme.colors.inputControls};
