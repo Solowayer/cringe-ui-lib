@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, { useState } from 'react'
 import { ChangeEventHandler, HTMLAttributes, ReactElement } from 'react'
 import { SIZE } from './constants'
 import { LibraryThemeProvider } from '../../config/themes/theme-provider'
@@ -21,12 +21,14 @@ export interface InputProps
   width?: string
   scale?: keyof typeof SIZE
   onChange?: ChangeEventHandler<HTMLInputElement>
+  clearButtonClick?: () => void
   startIcon?: ReactElement
   endContent?: ReactElement | string
   clearable?: boolean
   disabled?: boolean
   error?: boolean
   success?: boolean
+  readonly?: boolean
 }
 
 export const Input = React.forwardRef<HTMLInputElement, InputProps>((props, ref) => {
@@ -38,12 +40,14 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>((props, ref)
     width = '100%',
     scale = SIZE.medium,
     onChange,
+    clearButtonClick,
     startIcon,
     endContent,
     clearable = false,
     disabled = false,
     error,
     success,
+    readonly,
     ...rest
   } = props
 
@@ -65,19 +69,19 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>((props, ref)
           type={getInputType()}
           scale={scale}
           onChange={onChange}
+          clearButtonClick={clearButtonClick}
           startIcon={startIcon}
           endContent={endContent}
           clearable={clearable}
           disabled={disabled}
           error={error}
           success={success}
+          readonly={readonly}
           {...rest}
         />
         <StyledInputControls disabled={disabled}>
           {clearable && value && !disabled ? (
-            <StyledClearIcon
-              onClick={() => onChange && onChange({ currentTarget: { value: '' } } as any)}
-            >
+            <StyledClearIcon onClick={clearButtonClick}>
               <Close size="16" />
             </StyledClearIcon>
           ) : null}

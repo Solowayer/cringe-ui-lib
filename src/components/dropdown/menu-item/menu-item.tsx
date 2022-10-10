@@ -7,10 +7,10 @@ export interface MenuItemProps extends Omit<HTMLAttributes<HTMLLIElement>, 'disa
   icon?: ReactElement
   label?: string
   value?: string
+  onClick?: () => void
   divider?: boolean
   disabled?: boolean
   danger?: boolean
-  onClick?: () => void
 }
 
 export const MenuItem = React.forwardRef<HTMLLIElement, MenuItemProps>((props, ref) => {

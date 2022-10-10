@@ -1,5 +1,11 @@
 {
   "compilerOptions": {
+    "baseUrl": "./src/",
+    "paths": {
+      "components": ["components/"],
+      "config": ["config/"],
+      "icon": ["components/icon/"]
+    },
     "target": "ESNext",
     "lib": ["ESNext", "DOM"],
     "jsx": "react-jsx",
@@ -17,12 +23,7 @@
     "strict": false,
     "skipLibCheck": true,
 
-    "outDir": "lib",
-    "baseUrl": "./src",
-    "paths": {
-      "components": ["components/*"],
-      "config": ["config/*"]
-    }
+    "outDir": "lib"
   },
   "include": ["src"],
   "exclude": ["**/*.stories.tsx", "**/*.test.ts", "**/*.test.tsx", "./src/setupTests.ts"]

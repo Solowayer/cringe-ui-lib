@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { StyledSelectWrapper, StyledHeader, StyledList, StyledOption } from './styled'
+import { StyledSelectWrapper, StyledDropdown, StyledOption } from './styled'
 import { LibraryThemeProvider } from '../../config/themes/theme-provider'
 import { Input } from '../input'
 import { ExpandMore } from '../icon'
@@ -9,30 +9,43 @@ export type Value = {
   value: string
 }
 
-export interface SelectProps {
+export type SelectProps = {
   width?: string
   maxDropdownHeight?: string
   isDropdownOpen?: boolean
   value?: Value
-  options?: Value[]
-  disabled?: boolean
+  options: Value[]
   onChange?: (option: Value | undefined) => void
 }
 
-export const Select = (props: SelectProps) => {
+export const Select = ({
+  width,
+  maxDropdownHeight,
+  isDropdownOpen,
+  value,
+  options,
+  onChange,
+}: SelectProps) => {
+  const [inputValue, setInputValue] = useState<Value>({ label: '', value: '' })
   const [isOpen, setIsOpen] = useState(false)
-  const {
-    width,
-    maxDropdownHeight,
-    isDropdownOpen = isOpen,
-    value,
-    options,
-    disabled,
-    onChange,
-  } = props
+  isDropdownOpen = isOpen
+  value = inputValue
 
-  const headerRef = useRef<HTMLDivElement>(null)
+  const inputRef = useRef<HTMLInputElement>(null)
   const dropdownRef = useRef<HTMLUListElement>(null)
+
+  function selectOption(option: Value) {
+    onChange(option)
+    setIsOpen(false)
+  }
+
+  const isOptionSelected = (option: Value) => {
+    return option === value
+  }
+
+  function clearOptions() {
+    onChange(undefined)
+  }
 
   useEffect(() => {
     /**
@@ -40,9 +53,9 @@ export const Select = (props: SelectProps) => {
      */
     const handleClickOutside = (event: MouseEvent) => {
       if (
-        headerRef.current &&
+        inputRef.current &&
         dropdownRef.current &&
-        !headerRef.current.contains(event.target as Node) &&
+        !inputRef.current.contains(event.target as Node) &&
         !dropdownRef.current.contains(event.target as Node)
       ) {
         setIsOpen(false)
@@ -53,38 +66,32 @@ export const Select = (props: SelectProps) => {
     return () => {
       document.removeEventListener('mousedown', handleClickOutside)
     }
-  }, [headerRef, dropdownRef, setIsOpen])
-
-  const onOptionClick = (option: Value) => {
-    onChange(option)
-    setIsOpen(false)
-  }
+  }, [inputRef, dropdownRef, setIsOpen])
 
   return (
     <LibraryThemeProvider>
       <StyledSelectWrapper width={width}>
-        <StyledHeader ref={headerRef}>
-          <Input
-            onClick={() => setIsOpen(!isOpen)}
-            width="100%"
-            placeholder="Select some cringe..."
-            endContent={<ExpandMore />}
-            value={value ? value?.label : ''}
-            disabled={disabled}
-            clearable
-          />
-        </StyledHeader>
-        <StyledList
+        <Input
+          ref={inputRef}
+          onClick={() => setIsOpen(!isOpen)}
+          width="100%"
+          placeholder="Select some cringe..."
+          endContent={<ExpandMore />}
+          value={value?.label}
+          clearButtonClick={() => clearOptions()}
+          clearable
+        />
+        <StyledDropdown
+          ref={dropdownRef}
           isDropdownOpen={isDropdownOpen}
           maxDropdownHeight={maxDropdownHeight}
-          ref={dropdownRef}
         >
           {options?.map((option) => (
-            <StyledOption key={option.value} onClick={() => onOptionClick(option)}>
+            <StyledOption key={option.value} onClick={() => selectOption(option)}>
               {option.label}
             </StyledOption>
           ))}
-        </StyledList>
+        </StyledDropdown>
       </StyledSelectWrapper>
     </LibraryThemeProvider>
   )

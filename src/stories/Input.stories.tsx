@@ -1,7 +1,6 @@
-import React, { useRef, useState } from 'react'
+import React, { useState } from 'react'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
 import { Input } from '../components'
-import { Search } from '../components/icon'
 
 export default {
   title: 'Components/Controls/Input',
@@ -9,13 +8,14 @@ export default {
 } as ComponentMeta<typeof Input>
 
 const Template: ComponentStory<typeof Input> = () => {
-  const [value, setValue] = useState('Hello')
+  const [value, setValue] = useState<string | undefined>('Hello')
 
   return (
     <Input
       placeholder="Type some cringe"
       value={value}
       onChange={(event) => setValue(event.currentTarget.value)}
+      clearButtonClick={() => setValue(undefined)}
       clearable
     />
   )

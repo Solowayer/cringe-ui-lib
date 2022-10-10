@@ -8,22 +8,20 @@ export default {
   component: Select,
 } as ComponentMeta<typeof Select>
 
+const options = [
+  { label: 'Dark', value: 'dark' },
+  { label: 'Red', value: 'red' },
+  { label: 'Blue', value: 'blue' },
+  { label: 'Yellow', value: 'yellow' },
+  { label: 'Green', value: 'green' },
+  { label: 'Violette', value: 'violette' },
+]
+
 const Template: ComponentStory<typeof Select> = () => {
   const [value, setValue] = useState<Value | undefined>({ label: '', value: '' })
-  return (
-    <Select
-      value={value}
-      options={[
-        { label: 'Red', value: 'red' },
-        { label: 'Blue', value: 'blue' },
-        { label: 'Yellow', value: 'yellow' },
-        { label: 'Green', value: 'green' },
-        { label: 'Violette', value: 'violette' },
-      ]}
-      onChange={(value) => setValue(value)}
-    />
-  )
+  return <Select value={value} options={options} onChange={(option) => setValue(option)} />
 }
 
 export const Playground: ComponentStory<typeof Select> = Template.bind({})
+
 // Playground.args = { options: options }

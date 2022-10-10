@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react'
+import React, { MouseEventHandler, ReactNode } from 'react'
 import { StyledTag, Control } from './styled'
 import { COLOR, VARIANT } from './constants'
 import { LibraryThemeProvider } from '../../config/themes/theme-provider'
@@ -8,7 +8,7 @@ export type TagProps = {
   variant?: keyof typeof VARIANT
   color?: keyof typeof COLOR
   closeable?: boolean
-  onClick?: () => void
+  onClick?: MouseEventHandler<HTMLSpanElement>
   children?: ReactNode
 }
 

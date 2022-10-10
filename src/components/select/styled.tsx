@@ -1,24 +1,16 @@
 import styled from 'styled-components'
-import { SelectProps } from './select'
+import { SelectProps, Value } from './select'
 
-export const StyledSelectWrapper = styled.div<SelectProps>`
+interface StyledSelectProps extends Omit<SelectProps, 'options' | 'value' | 'onChange'> {}
+
+export const StyledSelectWrapper = styled.div<StyledSelectProps>`
   display: flex;
   width: ${({ width }) => width};
   flex-direction: column;
   gap: ${({ theme }) => theme.sizing.scale4};
 `
 
-export const StyledHeader = styled.div`
-  display: flex;
-  width: 100%;
-`
-
-export const StyledDropdown = styled.div`
-  display: flex;
-  width: 100%;
-`
-
-export const StyledList = styled.ul<SelectProps>`
+export const StyledDropdown = styled.ul<StyledSelectProps>`
   display: ${(props) => (props.isDropdownOpen ? 'flex' : 'none')};
   flex-direction: column;
   box-sizing: border-box;
@@ -36,7 +28,7 @@ export const StyledList = styled.ul<SelectProps>`
   border-radius: ${({ theme }) => theme.sizing.scale4};
 `
 
-export const StyledOption = styled.li<SelectProps>`
+export const StyledOption = styled.li`
   display: flex;
   align-items: center;
   gap: ${({ theme }) => theme.sizing.scale8};
@@ -51,11 +43,9 @@ export const StyledOption = styled.li<SelectProps>`
   font-size: ${({ theme }) => theme.typography.paragraphMedium.fontSize};
   font-weight: ${({ theme }) => theme.typography.paragraphMedium.fontWeight};
   line-height: ${({ theme }) => theme.typography.paragraphMedium.lineHeight};
-  color: ${({ theme, disabled }) =>
-    disabled ? theme.colors.menuItemContentDisabled : theme.colors.menuItemContent};
-  cursor: ${(props) => (props.disabled ? 'not-allowed' : 'pointer')};
+  color: ${({ theme }) => theme.colors.menuItemContent};
+  cursor: 'pointer';
   &:hover {
-    background-color: ${({ theme, disabled }) =>
-      disabled ? 'transparent' : theme.colors.menuItemHover};
+    background-color: ${({ theme }) => theme.colors.menuItemHover};
   }
 `
