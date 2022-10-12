@@ -4,6 +4,7 @@ import { SelectProps, Value } from './select'
 interface StyledSelectProps extends Omit<SelectProps, 'options' | 'value' | 'onChange'> {}
 
 export const StyledSelectWrapper = styled.div<StyledSelectProps>`
+  position: relative;
   display: flex;
   width: ${({ width }) => width};
   flex-direction: column;
@@ -11,6 +12,9 @@ export const StyledSelectWrapper = styled.div<StyledSelectProps>`
 `
 
 export const StyledDropdown = styled.ul<StyledSelectProps>`
+  position: absolute;
+  top: 44px;
+  width: 100%;
   display: ${(props) => (props.isDropdownOpen ? 'flex' : 'none')};
   flex-direction: column;
   box-sizing: border-box;

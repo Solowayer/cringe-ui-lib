@@ -18,7 +18,7 @@ const options = [
 ]
 
 const Template: ComponentStory<typeof Select> = () => {
-  const [value, setValue] = useState<Value | undefined>({ label: '', value: '' })
+  const [value, setValue] = useState<Value | undefined>()
   return <Select value={value} options={options} onChange={(option) => setValue(option)} />
 }
 

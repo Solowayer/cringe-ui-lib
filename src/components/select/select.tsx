@@ -26,10 +26,8 @@ export const Select = ({
   options,
   onChange,
 }: SelectProps) => {
-  const [inputValue, setInputValue] = useState<Value>({ label: '', value: '' })
   const [isOpen, setIsOpen] = useState(false)
   isDropdownOpen = isOpen
-  value = inputValue
 
   const inputRef = useRef<HTMLInputElement>(null)
   const dropdownRef = useRef<HTMLUListElement>(null)
@@ -41,10 +39,6 @@ export const Select = ({
 
   const isOptionSelected = (option: Value) => {
     return option === value
-  }
-
-  function clearOptions() {
-    onChange(undefined)
   }
 
   useEffect(() => {
@@ -78,7 +72,7 @@ export const Select = ({
           placeholder="Select some cringe..."
           endContent={<ExpandMore />}
           value={value?.label}
-          clearButtonClick={() => clearOptions()}
+          clearButtonClick={() => onChange({ label: '', value: '' })}
           clearable
         />
         <StyledDropdown

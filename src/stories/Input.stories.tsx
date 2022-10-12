@@ -8,14 +8,14 @@ export default {
 } as ComponentMeta<typeof Input>
 
 const Template: ComponentStory<typeof Input> = () => {
-  const [value, setValue] = useState<string | undefined>('Hello')
+  const [value, setValue] = useState<string | undefined>('Cringe text')
 
   return (
     <Input
       placeholder="Type some cringe"
       value={value}
       onChange={(event) => setValue(event.currentTarget.value)}
-      clearButtonClick={() => setValue(undefined)}
+      clearButtonClick={() => setValue('')}
       clearable
     />
   )

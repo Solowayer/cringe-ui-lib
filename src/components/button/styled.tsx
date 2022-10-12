@@ -83,6 +83,7 @@ function getBackgroundStyles({ variant }: ButtonProps) {
     case VARIANT.clear:
       return css`
         color: ${({ theme }) => theme.colors.buttonClearContent};
+        background-color: transparent;
         &:hover {
           background-color: ${({ theme }) => theme.colors.buttonClearHover};
         }
