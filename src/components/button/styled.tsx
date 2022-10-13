@@ -179,13 +179,13 @@ function getPaddingStyles({ size, shape }: ButtonProps) {
       `
     case SIZE.medium:
       return css`
-        padding-top: 10px;
-        padding-bottom: 10px;
+        padding-top: ${({ theme }) => theme.sizing.scale10};
+        padding-bottom: ${({ theme }) => theme.sizing.scale10};
         padding-right: ${iconShape
-          ? ({ theme }) => theme.sizing.scale12
+          ? ({ theme }) => theme.sizing.scale10
           : ({ theme }) => theme.sizing.scale16};
         padding-left: ${iconShape
-          ? ({ theme }) => theme.sizing.scale12
+          ? ({ theme }) => theme.sizing.scale10
           : ({ theme }) => theme.sizing.scale16};
       `
     case SIZE.large:
@@ -193,10 +193,10 @@ function getPaddingStyles({ size, shape }: ButtonProps) {
         padding-top: ${({ theme }) => theme.sizing.scale12};
         padding-bottom: ${({ theme }) => theme.sizing.scale12};
         padding-right: ${iconShape
-          ? ({ theme }) => theme.sizing.scale16
+          ? ({ theme }) => theme.sizing.scale12
           : ({ theme }) => theme.sizing.scale20};
         padding-left: ${iconShape
-          ? ({ theme }) => theme.sizing.scale16
+          ? ({ theme }) => theme.sizing.scale12
           : ({ theme }) => theme.sizing.scale20};
       `
     default:

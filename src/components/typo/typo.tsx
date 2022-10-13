@@ -4,7 +4,7 @@ import { Typography } from '../../config/themes'
 
 export interface TypoProps {
   type?: keyof Omit<Typography, 'defaultFontFamily'>
-  color?: string
+  color?: string | 'secondary'
   children?: string
   marginTop?: string
   marginBottom?: string

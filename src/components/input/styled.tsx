@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components'
 import { InputProps } from './input'
 import { SIZE } from './constants'
 
-export const StyledInputWrapper = styled.div<{ width; scale }>`
+export const StyledInputWrapper = styled.div<InputProps>`
   position: relative;
   display: flex;
   box-sizing: border-box;

@@ -4,12 +4,13 @@ import { TypoProps } from './typo'
 export const StyledTypo = styled.p<TypoProps>`
   display: inline-block;
   font-family: ${(props) => props.theme.typography.defaultFontFamily};
-  color: ${(props) => props.theme.colors.black};
   margin-top: ${(props) => props.marginTop};
   margin-bottom: ${(props) => props.marginBottom};
   margin-left: ${(props) => props.marginLeft};
   margin-right: ${(props) => props.marginRight};
   ${fontStyles}
+  ${colorStyles}
+  color: ${(props) => props.color};
 `
 
 function fontStyles({ type }: TypoProps) {
@@ -82,5 +83,18 @@ function fontStyles({ type }: TypoProps) {
       `
     default:
       return ''
+  }
+}
+
+function colorStyles({ color }: TypoProps) {
+  switch (color) {
+    case 'secondary':
+      return css`
+        color: ${({ theme }) => theme.colors.gray500};
+      `
+    default:
+      return css`
+        color: ${({ theme }) => theme.colors.black};
+      `
   }
 }
