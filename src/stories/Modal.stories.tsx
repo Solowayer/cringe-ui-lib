@@ -14,8 +14,10 @@ const Template: ComponentStory<typeof Modal> = () => {
       <Button onClick={() => setIsOpen(true)}>Show Modal</Button>
       <Modal
         heading="Cringe"
-        subHeading="Sub-Cringe"
-        image="https://bst.icons8.com/wp-content/themes/icons8/app/uploads/2019/06/digital-illustration-brian-edward-miller-17.jpg"
+        // subHeading="Sub-Cringe"
+        // size="full"
+        // imageSize="large"
+        // image="https://bst.icons8.com/wp-content/themes/icons8/app/uploads/2019/06/digital-illustration-brian-edward-miller-17.jpg"
         children="A new day brings a new dose of inspiration for illustrators and digital artists, and this time it’s devoted to nature motifs. No doubt, nature is one of the most powerful inspiration sources for art of all kinds. Today we invite you to review the collection of digital illustrations by Brian Edward Miller, the artist famous for his atmospheric and picturesque artworks featuring landscapes of all kinds and in different seasons."
         isOpen={isOpen}
         onClose={() => setIsOpen(!isOpen)}

@@ -1,9 +1,9 @@
 import styled from 'styled-components'
-import { IMAGE_SIZE } from './constants'
+import { IMAGE_SIZE, SIZE } from './constants'
 
 export const StyledModalWrapper = styled.div<{ isOpen: boolean }>`
-  position: fixed;
   display: flex;
+  position: fixed;
   align-items: center;
   justify-content: center;
   background-color: rgba(0, 0, 0, 0.2);
@@ -18,26 +18,28 @@ export const StyledModalWrapper = styled.div<{ isOpen: boolean }>`
   z-index: 1000;
 `
 
-export const StyledModal = styled.div<{ isOpen: boolean }>`
+export const StyledModal = styled.div<{ isOpen: boolean; size: keyof typeof SIZE }>`
+  display: flex;
+  flex-direction: column;
   overflow: hidden;
   position: relative;
   background-color: white;
-  width: 480px;
+  width: ${(props) => (props.size === 'default' ? '480px' : '100%')};
+  height: ${(props) => (props.size === 'default' ? '' : '100%')};
   border-radius: ${({ theme }) => theme.sizing.scale4};
   transition: transform 0.2s ease-in;
   transform: ${(props) => (props.isOpen ? 'translateY(0)' : 'translateY(16px)')};
 `
 
 export const StyledCloseButton = styled.div`
-  display: flex;
   position: absolute;
   right: ${({ theme }) => theme.sizing.scale16};
   top: ${({ theme }) => theme.sizing.scale16};
 `
 
 export const StyledModalImage = styled.img<{ imageSize: keyof typeof IMAGE_SIZE }>`
-  object-fit: cover;
   width: 100%;
+  object-fit: cover;
   height: ${(props) => (props.imageSize === IMAGE_SIZE.default ? '200px' : '400px')};
 `
 
@@ -56,6 +58,7 @@ export const StyledHeading = styled.div`
 
 export const StyledModalBody = styled.div`
   padding: ${({ theme }) => theme.sizing.scale16};
+  height: 100%;
 `
 
 export const StyledModalFooter = styled.div`
@@ -63,4 +66,6 @@ export const StyledModalFooter = styled.div`
   justify-content: flex-end;
   gap: ${({ theme }) => theme.sizing.scale8};
   padding: ${({ theme }) => theme.sizing.scale16};
+  bottom: 0;
+  right: 0;
 `
