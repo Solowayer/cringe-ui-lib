@@ -1,6 +1,6 @@
 import React from 'react'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
-import { Button, Modal } from '../components'
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Typo } from '../components'
 
 export default {
   title: 'Components/Surface/Modal',
@@ -13,15 +13,33 @@ const Template: ComponentStory<typeof Modal> = () => {
     <React.Fragment>
       <Button onClick={() => setIsOpen(true)}>Show Modal</Button>
       <Modal
-        heading="Cringe"
-        // subHeading="Sub-Cringe"
         // size="full"
-        // imageSize="large"
         // image="https://bst.icons8.com/wp-content/themes/icons8/app/uploads/2019/06/digital-illustration-brian-edward-miller-17.jpg"
-        children="A new day brings a new dose of inspiration for illustrators and digital artists, and this time it’s devoted to nature motifs. No doubt, nature is one of the most powerful inspiration sources for art of all kinds. Today we invite you to review the collection of digital illustrations by Brian Edward Miller, the artist famous for his atmospheric and picturesque artworks featuring landscapes of all kinds and in different seasons."
+        // imageSize="large"
+        // showCloseButton={false}
         isOpen={isOpen}
         onClose={() => setIsOpen(!isOpen)}
-      />
+      >
+        <ModalHeader>
+          <Typo type="headingXSmall">Діапазон цін</Typo>
+          <Typo color="secondary">
+            Цю інформацію надав господар, і її перевірено в Cringe. Щоб ви не сумнівались, ото так!
+          </Typo>
+        </ModalHeader>
+        <ModalBody>
+          <Typo>
+            Це заходи, які організують і проводять місцеві мешканці, і вони геть не схожі на
+            звичайні екскурсії або майстер-класи. Продемонструйте іншим власне місто, ремесло,
+            культуру або ідею, організовуючи враження.
+          </Typo>
+        </ModalBody>
+        <ModalFooter>
+          <Button>Submit</Button>
+          <Button variant="ghost" onClick={() => setIsOpen(!isOpen)}>
+            Cancel
+          </Button>
+        </ModalFooter>
+      </Modal>
     </React.Fragment>
   )
 }

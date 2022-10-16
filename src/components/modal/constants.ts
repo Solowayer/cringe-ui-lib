@@ -5,5 +5,6 @@ export const IMAGE_SIZE = {
 
 export const SIZE = {
   default: 'default',
+  large: 'large',
   full: 'full',
 } as const

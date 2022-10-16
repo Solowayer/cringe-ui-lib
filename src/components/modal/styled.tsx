@@ -14,12 +14,13 @@ export const StyledModalWrapper = styled.div<{ isOpen: boolean }>`
   transition: opacity 0.2s ease-in;
   pointer-events: ${(props) => (props.isOpen ? 'all' : 'none')};
   opacity: ${(props) => (props.isOpen ? 1 : 0)};
-  overflow-y: auto;
   z-index: 1000;
 `
 
 export const StyledModal = styled.div<{ isOpen: boolean; size: keyof typeof SIZE }>`
   display: flex;
+  max-height: ${(props) => (props.size === 'full' ? '100%' : '90%')};
+  font-family: ${(props) => props.theme.typography.defaultFontFamily};
   flex-direction: column;
   overflow: hidden;
   position: relative;
@@ -31,10 +32,10 @@ export const StyledModal = styled.div<{ isOpen: boolean; size: keyof typeof SIZE
   transform: ${(props) => (props.isOpen ? 'translateY(0)' : 'translateY(16px)')};
 `
 
-export const StyledCloseButton = styled.div`
+export const StyledClose = styled.div`
   position: absolute;
-  right: ${({ theme }) => theme.sizing.scale16};
-  top: ${({ theme }) => theme.sizing.scale16};
+  right: ${({ theme }) => theme.sizing.scale12};
+  top: ${({ theme }) => theme.sizing.scale12};
 `
 
 export const StyledModalImage = styled.img<{ imageSize: keyof typeof IMAGE_SIZE }>`
@@ -44,28 +45,33 @@ export const StyledModalImage = styled.img<{ imageSize: keyof typeof IMAGE_SIZE 
 `
 
 export const StyledModalHeader = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: ${({ theme }) => theme.sizing.scale16};
-`
-
-export const StyledHeading = styled.div`
+  width: 100%;
   display: flex;
   flex-direction: column;
-  gap: ${({ theme }) => theme.sizing.scale4};
+  max-width: 375px;
+  gap: ${({ theme }) => theme.sizing.scale8};
+  padding-left: ${({ theme }) => theme.sizing.scale24};
+  padding-right: ${({ theme }) => theme.sizing.scale24};
+  padding-top: ${({ theme }) => theme.sizing.scale16};
+  padding-bottom: ${({ theme }) => theme.sizing.scale16};
 `
 
 export const StyledModalBody = styled.div`
-  padding: ${({ theme }) => theme.sizing.scale16};
+  padding-left: ${({ theme }) => theme.sizing.scale24};
+  padding-right: ${({ theme }) => theme.sizing.scale24};
+  padding-top: ${({ theme }) => theme.sizing.scale16};
+  padding-bottom: ${({ theme }) => theme.sizing.scale24};
   height: 100%;
+  overflow: auto;
 `
 
 export const StyledModalFooter = styled.div`
   display: flex;
+  box-shadow: ${({ theme }) => theme.effects.shadow1};
   justify-content: flex-end;
   gap: ${({ theme }) => theme.sizing.scale8};
-  padding: ${({ theme }) => theme.sizing.scale16};
-  bottom: 0;
-  right: 0;
+  padding-left: ${({ theme }) => theme.sizing.scale24};
+  padding-right: ${({ theme }) => theme.sizing.scale24};
+  padding-top: ${({ theme }) => theme.sizing.scale16};
+  padding-bottom: ${({ theme }) => theme.sizing.scale16};
 `
