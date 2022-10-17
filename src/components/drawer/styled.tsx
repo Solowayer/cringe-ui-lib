@@ -44,11 +44,9 @@ export const StyledDrawerHeader = styled.div`
   display: flex;
   flex: 0 0 auto;
   align-items: center;
-  min-height: ${({ theme }) => theme.sizing.scale32};
+  min-height: ${({ theme }) => theme.sizing.scale64};
   margin-left: ${({ theme }) => theme.sizing.scale24};
   margin-right: ${({ theme }) => theme.sizing.scale64};
-  margin-top: ${({ theme }) => theme.sizing.scale16};
-  margin-bottom: ${({ theme }) => theme.sizing.scale16};
 `
 
 export const StyledDrawerBody = styled.div`

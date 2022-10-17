@@ -25,7 +25,7 @@ export const Drawer = ({
       <StyledDrawerWrapper isOpen={isOpen} side={side} onClick={onClose}>
         <StyledDrawer isOpen={isOpen} side={side} size={size} onClick={(e) => e.stopPropagation()}>
           <StyledClose onClick={onClose}>
-            <Button size="small" variant="clear" shape="circle">
+            <Button variant="clear" shape="circle">
               <Close />
             </Button>
           </StyledClose>

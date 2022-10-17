@@ -35,12 +35,7 @@ export const Modal = ({
         <StyledModal size={size} isOpen={isOpen} onClick={(e) => e.stopPropagation()}>
           {showCloseButton && (
             <StyledClose>
-              <Button
-                size="small"
-                variant={image ? 'tertiary' : 'clear'}
-                shape="circle"
-                onClick={onClose}
-              >
+              <Button variant={image ? 'tertiary' : 'clear'} shape="circle" onClick={onClose}>
                 <Close />
               </Button>
             </StyledClose>

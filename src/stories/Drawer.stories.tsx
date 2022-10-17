@@ -14,16 +14,12 @@ const Template: ComponentStory<typeof Drawer> = () => {
       <Button variant="tertiary" onClick={() => setIsOpen(true)}>
         Show Drawer
       </Button>
-      <Drawer size="default" side="right" isOpen={isOpen} onClose={() => setIsOpen(!isOpen)}>
+      <Drawer size="default" side="bottom" isOpen={isOpen} onClose={() => setIsOpen(!isOpen)}>
         <DrawerHeader>
-          <Typo type="headingXSmall">Платежі</Typo>
+          <Typo type="headingXSmall">Корзина</Typo>
         </DrawerHeader>
         <DrawerBody>
-          <Typo>
-            Це заходи, які організують і проводять місцеві мешканці, і вони геть не схожі на
-            звичайні екскурсії або майстер-класи. Продемонструйте іншим власне місто, ремесло,
-            культуру або ідею, організовуючи враження.
-          </Typo>
+          <Typo>Замовлення...</Typo>
         </DrawerBody>
         {/* <DrawerFooter>
           <Button fullWidth>Замовити за 350 грн</Button>
