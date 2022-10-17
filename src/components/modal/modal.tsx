@@ -1,11 +1,5 @@
 import React, { ReactNode, useEffect } from 'react'
-import {
-  StyledModalWrapper,
-  StyledModal,
-  StyledModalHeader,
-  StyledClose,
-  StyledModalImage,
-} from './styled'
+import { StyledModalWrapper, StyledModal, StyledClose, StyledModalImage } from './styled'
 import { Close } from '../icon/'
 import { Button } from '../button/button'
 import { LibraryThemeProvider } from '../../config/themes/theme-provider'
@@ -41,7 +35,12 @@ export const Modal = ({
         <StyledModal size={size} isOpen={isOpen} onClick={(e) => e.stopPropagation()}>
           {showCloseButton && (
             <StyledClose>
-              <Button variant={image ? 'tertiary' : 'clear'} shape="circle" onClick={onClose}>
+              <Button
+                size="small"
+                variant={image ? 'tertiary' : 'clear'}
+                shape="circle"
+                onClick={onClose}
+              >
                 <Close />
               </Button>
             </StyledClose>

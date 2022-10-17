@@ -9,4 +9,5 @@ export const SIZE = {
   default: 'default',
   large: 'large',
   full: 'full',
+  auto: 'auto',
 } as const

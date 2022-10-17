@@ -25,7 +25,7 @@ export const StyledModal = styled.div<{ isOpen: boolean; size: keyof typeof SIZE
   overflow: hidden;
   position: relative;
   background-color: white;
-  width: ${(props) => (props.size === 'default' ? '480px' : '100%')};
+  width: ${(props) => (props.size === 'default' ? '600px' : '100%')};
   height: ${(props) => (props.size === 'default' ? '' : '100%')};
   border-radius: ${({ theme }) => theme.sizing.scale4};
   transition: transform 0.2s ease-in;
@@ -45,15 +45,14 @@ export const StyledModalImage = styled.img<{ imageSize: keyof typeof IMAGE_SIZE 
 `
 
 export const StyledModalHeader = styled.div`
-  width: 100%;
   display: flex;
-  flex-direction: column;
-  max-width: 375px;
-  gap: ${({ theme }) => theme.sizing.scale8};
-  padding-left: ${({ theme }) => theme.sizing.scale24};
-  padding-right: ${({ theme }) => theme.sizing.scale24};
-  padding-top: ${({ theme }) => theme.sizing.scale16};
-  padding-bottom: ${({ theme }) => theme.sizing.scale16};
+  flex: 0 0 auto;
+  align-items: center;
+  min-height: ${({ theme }) => theme.sizing.scale32};
+  margin-left: ${({ theme }) => theme.sizing.scale24};
+  margin-right: ${({ theme }) => theme.sizing.scale64};
+  margin-top: ${({ theme }) => theme.sizing.scale16};
+  margin-bottom: ${({ theme }) => theme.sizing.scale16};
 `
 
 export const StyledModalBody = styled.div`
@@ -62,16 +61,13 @@ export const StyledModalBody = styled.div`
   padding-top: ${({ theme }) => theme.sizing.scale16};
   padding-bottom: ${({ theme }) => theme.sizing.scale24};
   height: 100%;
-  overflow: auto;
+  overflow-y: auto;
 `
 
 export const StyledModalFooter = styled.div`
-  display: flex;
-  box-shadow: ${({ theme }) => theme.effects.shadow1};
-  justify-content: flex-end;
-  gap: ${({ theme }) => theme.sizing.scale8};
   padding-left: ${({ theme }) => theme.sizing.scale24};
   padding-right: ${({ theme }) => theme.sizing.scale24};
   padding-top: ${({ theme }) => theme.sizing.scale16};
   padding-bottom: ${({ theme }) => theme.sizing.scale16};
+  box-shadow: ${({ theme }) => theme.effects.shadow1};
 `

@@ -18,6 +18,7 @@ export const StyledIconRight = styled.div<ButtonProps>`
 
 export const StyledButton = styled.button<ButtonProps>`
   display: flex;
+  width: ${(props) => (props.fullWidth ? '100%' : '')};
   box-sizing: border-box;
   align-items: center;
   justify-content: center;

@@ -7,6 +7,7 @@ import { Spinner } from '../spinner'
 export type ButtonProps = {
   variant?: keyof typeof VARIANT
   size?: keyof typeof SIZE
+  fullWidth?: boolean
   shape?: keyof typeof SHAPE
   onClick?: MouseEventHandler<HTMLButtonElement>
   className?: string
@@ -21,6 +22,7 @@ export const Button = (props: ButtonProps) => {
   const {
     variant = VARIANT.primary,
     size = SIZE.medium,
+    fullWidth,
     shape = SHAPE.rectangle,
     onClick,
     className,
@@ -36,6 +38,7 @@ export const Button = (props: ButtonProps) => {
       <StyledButton
         variant={variant}
         size={size}
+        fullWidth={fullWidth}
         shape={shape}
         onClick={onClick}
         className={className}

@@ -14,7 +14,7 @@ export const StyledDrawerWrapper = styled.div<{ isOpen: boolean; side: keyof typ
   right: 0;
   top: 0;
   bottom: 0;
-  transition: opacity 0.4s ease-in;
+  transition: opacity 0.2s ease-in;
   pointer-events: ${(props) => (props.isOpen ? 'all' : 'none')};
   opacity: ${(props) => (props.isOpen ? 1 : 0)};
   z-index: 1000;
@@ -25,24 +25,48 @@ export const StyledDrawer = styled.div<{
   size: keyof typeof SIZE
   side: keyof typeof SIDE
 }>`
+  display: flex;
+  flex-direction: column;
   position: relative;
-  transition: transform 0.2s ease-in;
-  /* height: 100%; */
+  height: 100%;
+  transition: transform 0.4s ease-in-out;
   background-color: white;
   ${getSide}
 `
 
 export const StyledClose = styled.div`
   position: absolute;
-  right: ${({ theme }) => theme.sizing.scale16};
-  top: ${({ theme }) => theme.sizing.scale16};
+  right: ${({ theme }) => theme.sizing.scale12};
+  top: ${({ theme }) => theme.sizing.scale12};
 `
 
-export const StyledDrawerHeader = styled.div``
+export const StyledDrawerHeader = styled.div`
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  min-height: ${({ theme }) => theme.sizing.scale32};
+  margin-left: ${({ theme }) => theme.sizing.scale24};
+  margin-right: ${({ theme }) => theme.sizing.scale64};
+  margin-top: ${({ theme }) => theme.sizing.scale16};
+  margin-bottom: ${({ theme }) => theme.sizing.scale16};
+`
 
-export const StyledDrawerBody = styled.div``
+export const StyledDrawerBody = styled.div`
+  height: 100%;
+  overflow-y: auto;
+  margin-left: ${({ theme }) => theme.sizing.scale24};
+  margin-right: ${({ theme }) => theme.sizing.scale24};
+  margin-top: ${({ theme }) => theme.sizing.scale24};
+  margin-bottom: ${({ theme }) => theme.sizing.scale24};
+`
 
-export const StyledDrawerFooter = styled.div``
+export const StyledDrawerFooter = styled.div`
+  padding-left: ${({ theme }) => theme.sizing.scale24};
+  padding-right: ${({ theme }) => theme.sizing.scale24};
+  padding-top: ${({ theme }) => theme.sizing.scale16};
+  padding-bottom: ${({ theme }) => theme.sizing.scale16};
+  box-shadow: ${({ theme }) => theme.effects.shadow1};
+`
 
 function getSide({ size, side, isOpen }: DrawerProps) {
   const getSize =
@@ -52,7 +76,7 @@ function getSide({ size, side, isOpen }: DrawerProps) {
       ? '600px'
       : size === SIZE.full
       ? '100%'
-      : ''
+      : 'auto'
 
   switch (side) {
     case SIDE.left:

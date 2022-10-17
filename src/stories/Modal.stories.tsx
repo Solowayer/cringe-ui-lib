@@ -1,6 +1,6 @@
 import React from 'react'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Typo } from '../components'
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Typo, FlexBlock } from '../components'
 
 export default {
   title: 'Components/Surface/Modal',
@@ -11,7 +11,9 @@ const Template: ComponentStory<typeof Modal> = () => {
   const [isOpen, setIsOpen] = React.useState(true)
   return (
     <React.Fragment>
-      <Button onClick={() => setIsOpen(true)}>Show Modal</Button>
+      <Button variant="tertiary" onClick={() => setIsOpen(true)}>
+        Show Modal
+      </Button>
       <Modal
         // size="full"
         // image="https://bst.icons8.com/wp-content/themes/icons8/app/uploads/2019/06/digital-illustration-brian-edward-miller-17.jpg"
@@ -22,9 +24,9 @@ const Template: ComponentStory<typeof Modal> = () => {
       >
         <ModalHeader>
           <Typo type="headingXSmall">Діапазон цін</Typo>
-          <Typo color="secondary">
+          {/* <Typo color="secondary">
             Цю інформацію надав господар, і її перевірено в Cringe. Щоб ви не сумнівались, ото так!
-          </Typo>
+          </Typo> */}
         </ModalHeader>
         <ModalBody>
           <Typo>
@@ -34,10 +36,12 @@ const Template: ComponentStory<typeof Modal> = () => {
           </Typo>
         </ModalBody>
         <ModalFooter>
-          <Button>Submit</Button>
-          <Button variant="ghost" onClick={() => setIsOpen(!isOpen)}>
-            Cancel
-          </Button>
+          <FlexBlock justifyContent="flex-end" gap="8px">
+            <Button>Submit</Button>
+            <Button variant="ghost" onClick={() => setIsOpen(!isOpen)}>
+              Cancel
+            </Button>
+          </FlexBlock>
         </ModalFooter>
       </Modal>
     </React.Fragment>
