@@ -1,8 +1,9 @@
-import React, { ReactNode, useEffect } from 'react'
+import React, { ReactNode } from 'react'
 import { StyledModalWrapper, StyledModal, StyledClose, StyledModalImage } from './styled'
 import { Close } from '../icon/'
 import { Button } from '../button/button'
 import { LibraryThemeProvider } from '../../config/themes/theme-provider'
+import { useHideScroll } from '../../config/hooks/useHideScroll'
 import { IMAGE_SIZE, SIZE } from './constants'
 
 export type ModalProps = {
@@ -24,20 +25,7 @@ export const Modal = ({
   children,
   onClose,
 }: ModalProps) => {
-  useEffect(() => {
-    const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth
-
-    if (isOpen) {
-      document.body.style.overflow = 'hidden'
-      document.body.style.paddingRight = `${scrollbarWidth}px`
-    } else {
-      setTimeout(() => {
-        document.body.style.overflow = 'unset'
-        document.body.style.paddingRight = '0px'
-      }, 200)
-    }
-    // document.querySelector('html').style.overflow = isOpen ? 'hidden' : 'auto'
-  }, [isOpen])
+  useHideScroll(isOpen)
 
   return (
     <LibraryThemeProvider>
