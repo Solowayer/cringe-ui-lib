@@ -3,7 +3,6 @@ import { TypoProps } from './typo'
 
 export const StyledTypo = styled.p<TypoProps>`
   display: inline-block;
-  font-family: ${(props) => props.theme.typography.defaultFontFamily};
   margin-top: ${(props) => props.marginTop};
   margin-bottom: ${(props) => props.marginBottom};
   margin-left: ${(props) => props.marginLeft};

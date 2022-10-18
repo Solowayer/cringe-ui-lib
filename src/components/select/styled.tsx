@@ -21,7 +21,6 @@ export const StyledDropdown = styled.ul<StyledSelectProps>`
   overflow-y: auto;
   max-height: ${({ maxDropdownHeight }) => maxDropdownHeight};
   width: ${({ width }) => width};
-  font-family: ${(props) => props.theme.typography.defaultFontFamily};
   background-color: ${({ theme }) => theme.colors.dropdownFill};
   margin: 0;
   padding-left: 0;
@@ -37,7 +36,6 @@ export const StyledOption = styled.li`
   align-items: center;
   gap: ${({ theme }) => theme.sizing.scale8};
   width: 100%;
-  font-family: ${(props) => props.theme.typography.defaultFontFamily};
   box-sizing: border-box;
   list-style: none;
   padding-top: ${({ theme }) => theme.sizing.scale12};

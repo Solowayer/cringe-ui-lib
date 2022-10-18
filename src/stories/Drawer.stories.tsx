@@ -14,16 +14,16 @@ const Template: ComponentStory<typeof Drawer> = () => {
       <Button variant="tertiary" onClick={() => setIsOpen(true)}>
         Show Drawer
       </Button>
-      <Drawer size="default" side="bottom" isOpen={isOpen} onClose={() => setIsOpen(!isOpen)}>
+      <Drawer size="default" side="left" isOpen={isOpen} onClose={() => setIsOpen(!isOpen)}>
         <DrawerHeader>
           <Typo type="headingXSmall">Корзина</Typo>
         </DrawerHeader>
         <DrawerBody>
           <Typo>Замовлення...</Typo>
         </DrawerBody>
-        {/* <DrawerFooter>
+        <DrawerFooter>
           <Button fullWidth>Замовити за 350 грн</Button>
-        </DrawerFooter> */}
+        </DrawerFooter>
       </Drawer>
     </React.Fragment>
   )

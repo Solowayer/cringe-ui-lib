@@ -6,7 +6,6 @@ export const StyledTag = styled.span<TagProps>`
   display: inline-flex;
   align-items: center;
   cursor: default;
-  font-family: ${({ theme }) => theme.typography.defaultFontFamily};
   font-size: ${({ theme }) => theme.typography.paragraphMedium.fontSize};
   font-weight: ${({ theme }) => theme.typography.paragraphMedium.fontWeight};
   line-height: ${({ theme }) => theme.typography.paragraphMedium.lineHeight};

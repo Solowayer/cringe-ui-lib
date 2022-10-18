@@ -2,28 +2,14 @@ import styled, { css } from 'styled-components'
 import { ButtonProps } from './button'
 import { SHAPE, SIZE, VARIANT } from './constants'
 
-export const StyledIconLeft = styled.div<ButtonProps>`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-right: 8px;
-`
-
-export const StyledIconRight = styled.div<ButtonProps>`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-left: 8px;
-`
-
 export const StyledButton = styled.button<ButtonProps>`
   display: flex;
-  width: ${(props) => (props.fullWidth ? '100%' : '')};
   box-sizing: border-box;
   align-items: center;
   justify-content: center;
+  width: ${(props) => (props.fullWidth ? '100%' : '')};
+  gap: ${({ theme }) => theme.sizing.scale8};
   border: none;
-  font-family: ${({ theme }) => theme.typography.defaultFontFamily};
   cursor: ${(props) => (props.disabled ? 'not-allowed' : 'pointer')};
   ${(props) => (props.disabled ? getDisabledStyles : getBackgroundStyles)}
   ${getDisabledStyles}
@@ -31,6 +17,18 @@ export const StyledButton = styled.button<ButtonProps>`
   ${getFontStyles}
   ${getPaddingStyles}
   ${getBorderRadiusStyles}
+`
+
+export const StyledIconLeft = styled.div<ButtonProps>`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`
+
+export const StyledIconRight = styled.div<ButtonProps>`
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `
 
 function getBackgroundStyles({ variant }: ButtonProps) {

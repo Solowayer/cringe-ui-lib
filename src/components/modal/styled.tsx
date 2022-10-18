@@ -20,7 +20,6 @@ export const StyledModalWrapper = styled.div<{ isOpen: boolean }>`
 export const StyledModal = styled.div<{ isOpen: boolean; size: keyof typeof SIZE }>`
   display: flex;
   max-height: ${(props) => (props.size === 'full' ? '100%' : '90%')};
-  font-family: ${(props) => props.theme.typography.defaultFontFamily};
   flex-direction: column;
   overflow: hidden;
   position: relative;

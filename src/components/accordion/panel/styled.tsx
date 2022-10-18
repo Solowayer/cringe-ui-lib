@@ -8,7 +8,6 @@ export const StyledPanel = styled.li<PanelProps>`
   flex-direction: column;
   list-style: none;
   border-bottom: 1px solid lightgray;
-  font-family: ${({ theme }) => theme.typography.defaultFontFamily};
 `
 export const ItemHeader = styled.div<PanelProps>`
   display: flex;

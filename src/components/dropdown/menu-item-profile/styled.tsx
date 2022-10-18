@@ -3,7 +3,6 @@ import { MenuItemProfileProps } from './menu-item-profile'
 
 export const StyledMenuItemProfile = styled.li<MenuItemProfileProps>`
   width: 100%;
-  font-family: ${(props) => props.theme.typography.defaultFontFamily};
   box-sizing: border-box;
   display: flex;
   align-items: center;

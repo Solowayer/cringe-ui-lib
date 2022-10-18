@@ -9,7 +9,7 @@ export const typography: Typography = {
   paragraphMedium: {
     fontWeight: 400,
     fontSize: '14px',
-    lineHeight: '16px',
+    lineHeight: '20px',
   },
   paragraphLarge: {
     fontWeight: 400,
@@ -25,7 +25,7 @@ export const typography: Typography = {
   labelMedium: {
     fontWeight: 500,
     fontSize: '14px',
-    lineHeight: '16px',
+    lineHeight: '20px',
   },
   labelLarge: {
     fontWeight: 500,
@@ -58,5 +58,4 @@ export const typography: Typography = {
     fontSize: '40px',
     lineHeight: '40px',
   },
-  defaultFontFamily: '"Roboto", sans-serif',
 }

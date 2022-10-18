@@ -195,8 +195,6 @@ export type Typography = {
   headingMedium: Font
   headingLarge: Font
   headingXLarge: Font
-
-  defaultFontFamily: string
 }
 
 export type Border = {

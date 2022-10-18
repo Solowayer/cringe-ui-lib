@@ -8,7 +8,6 @@ export const StyledList = styled.ul<DropdownProps>`
   overflow-y: auto;
   max-height: ${({ maxHeight }) => maxHeight};
   width: ${({ width }) => width};
-  font-family: ${(props) => props.theme.typography.defaultFontFamily};
   background-color: ${({ theme }) => theme.colors.dropdownFill};
   margin: 0;
   padding-left: 0;

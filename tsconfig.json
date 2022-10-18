@@ -1,11 +1,5 @@
 {
   "compilerOptions": {
-    "baseUrl": "src",
-    "paths": {
-      "components": ["components/"],
-      "config": ["config/"],
-      "icon": ["components/icon/"]
-    },
     "target": "ESNext",
     "lib": ["ESNext", "DOM"],
     "jsx": "react-jsx",

@@ -18,7 +18,6 @@ export const StyledInput = styled.input<InputProps>`
   width: 100%;
   min-height: 100%;
   border: none;
-  font-family: ${(props) => props.theme.typography.defaultFontFamily};
   border-radius: ${(props) => props.theme.sizing.scale4};
   background-color: ${({ theme }) => theme.colors.inputFill};
   cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'text')};
@@ -52,7 +51,6 @@ export const StyledInputControls = styled.div<InputProps>`
   position: absolute;
   display: flex;
   align-items: center;
-  font-family: ${(props) => props.theme.typography.defaultFontFamily};
   gap: ${({ theme }) => theme.sizing.scale8};
   right: 16px;
   color: ${(props) =>

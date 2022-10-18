@@ -3,7 +3,6 @@ import { FlexProps } from './flex-block'
 
 export const StyledFlexBlock = styled.div<FlexProps>`
   display: flex;
-  font-family: ${({ theme }) => theme.typography.defaultFontFamily};
   position: ${({ position }) => position};
   overflow: ${({ overflow }) => overflow};
   flex: ${({ flex }) => flex};

@@ -13,6 +13,6 @@ const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />
 export const Playground = Template.bind({})
 Playground.args = {
   children: 'Cringe',
-  iconLeft: <Close />,
-  iconRight: <Close />,
+  // iconLeft: <Close />,
+  // iconRight: <Close />,
 }

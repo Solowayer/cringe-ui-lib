@@ -4,7 +4,6 @@ import { FormControlProps } from './form-control'
 export const StyledFormControl = styled.div`
   display: flex;
   gap: ${({ theme }) => theme.sizing.scale8};
-  font-family: ${({ theme }) => theme.typography.defaultFontFamily};
   flex-direction: column;
 `
 
