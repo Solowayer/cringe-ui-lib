@@ -25,8 +25,18 @@ export const Modal = ({
   onClose,
 }: ModalProps) => {
   useEffect(() => {
-    const body = document.querySelector('body')
-    body.style.overflow = isOpen ? 'hidden' : 'auto'
+    const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth
+
+    if (isOpen) {
+      document.body.style.overflow = 'hidden'
+      document.body.style.paddingRight = `${scrollbarWidth}px`
+    } else {
+      setTimeout(() => {
+        document.body.style.overflow = 'unset'
+        document.body.style.paddingRight = '0px'
+      }, 200)
+    }
+    // document.querySelector('html').style.overflow = isOpen ? 'hidden' : 'auto'
   }, [isOpen])
 
   return (

@@ -10,7 +10,7 @@ export default {
 const Template: ComponentStory<typeof Modal> = () => {
   const [isOpen, setIsOpen] = React.useState(true)
   return (
-    <React.Fragment>
+    <div style={{ height: '2000px', width: '100%' }}>
       <Button variant="tertiary" onClick={() => setIsOpen(true)}>
         Show Modal
       </Button>
@@ -44,7 +44,7 @@ const Template: ComponentStory<typeof Modal> = () => {
           </FlexBlock>
         </ModalFooter>
       </Modal>
-    </React.Fragment>
+    </div>
   )
 }
 

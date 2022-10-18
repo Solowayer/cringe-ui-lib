@@ -10,7 +10,7 @@ export default {
 const Template: ComponentStory<typeof Drawer> = () => {
   const [isOpen, setIsOpen] = React.useState(true)
   return (
-    <React.Fragment>
+    <div style={{ height: '2000px', width: '100%' }}>
       <Button variant="tertiary" onClick={() => setIsOpen(true)}>
         Show Drawer
       </Button>
@@ -25,7 +25,7 @@ const Template: ComponentStory<typeof Drawer> = () => {
           <Button fullWidth>Замовити за 350 грн</Button>
         </DrawerFooter>
       </Drawer>
-    </React.Fragment>
+    </div>
   )
 }
 
