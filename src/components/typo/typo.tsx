@@ -1,11 +1,12 @@
 import { LibraryThemeProvider } from '../../config/themes/theme-provider'
 import { StyledTypo } from './styled'
 import { Typography } from '../../config/themes'
+import { ReactNode } from 'react'
 
 export interface TypoProps {
   type?: keyof Omit<Typography, 'defaultFontFamily'>
   color?: string | 'secondary'
-  children?: string
+  children?: ReactNode
   marginTop?: string
   marginBottom?: string
   marginLeft?: string
