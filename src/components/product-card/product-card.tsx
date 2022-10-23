@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { MouseEventHandler } from 'react'
 import { LibraryThemeProvider } from '../../config/themes/theme-provider'
 import { Typo } from '../typo'
 import {
@@ -18,6 +18,7 @@ export type ProductCardProps = {
   weight?: number
   calories?: number
   amount?: number
+  onClick?: MouseEventHandler<HTMLDivElement>
 }
 
 export const ProductCard = ({
@@ -27,31 +28,27 @@ export const ProductCard = ({
   price,
   weight,
   calories,
-  amount,
 }: ProductCardProps) => {
+  const [startAmount, setAmount] = React.useState(0)
+
   return (
     <LibraryThemeProvider>
-      <StyledProductCard>
-        {image && <StyledCardImage src={image} />}
+      <StyledProductCard onClick={() => setAmount(startAmount + 1)}>
+        {image && <StyledCardImage image={image} />}
         <StyledCardBody>
+          {startAmount !== 0 && (
+            <Typo type="labelMedium" color="green">
+              {startAmount}
+            </Typo>
+          )}
           <Typo type="labelLarge">{title}</Typo>
           {description && <StyledDescription>{description}</StyledDescription>}
-          <StyledCardFooter>
-            {<Typo type="labelLarge">{price} грн</Typo>}
-            {weight ? (
-              <React.Fragment>
-                <span>•</span>
-                <Typo color="secondary">{weight} гр</Typo>
-              </React.Fragment>
-            ) : null}
-            {calories ? (
-              <React.Fragment>
-                <span>•</span>
-                <Typo color="secondary">{calories} кал</Typo>
-              </React.Fragment>
-            ) : null}
-          </StyledCardFooter>
         </StyledCardBody>
+        <StyledCardFooter>
+          {<Typo type="labelLarge">{price} грн</Typo>}
+          {weight ? <Typo color="secondary">{weight} кг</Typo> : null}
+          {calories ? <Typo color="secondary">{calories} кал</Typo> : null}
+        </StyledCardFooter>
       </StyledProductCard>
     </LibraryThemeProvider>
   )

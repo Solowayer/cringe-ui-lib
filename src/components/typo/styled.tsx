@@ -2,11 +2,16 @@ import styled, { css } from 'styled-components'
 import { TypoProps } from './typo'
 
 export const StyledTypo = styled.p<TypoProps>`
-  display: inline-block;
+  display: ${(props) => (props.line ? '-webkit-box' : 'inline-block')};
+  -webkit-line-clamp: ${(props) => (props.line ? props.line : '')};
+  -webkit-box-orient: ${(props) => (props.line ? 'vertical' : '')};
+  overflow: ${(props) => (props.line ? 'hidden' : '')};
+  width: ${(props) => props.width};
   margin-top: ${(props) => props.marginTop};
   margin-bottom: ${(props) => props.marginBottom};
   margin-left: ${(props) => props.marginLeft};
   margin-right: ${(props) => props.marginRight};
+  margin: ${(props) => props.margin};
   ${fontStyles}
   ${colorStyles}
   color: ${(props) => props.color};

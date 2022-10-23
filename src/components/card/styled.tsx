@@ -3,8 +3,8 @@ import styled from 'styled-components'
 export const StyledProductCard = styled.div`
   display: flex;
   position: relative;
-  flex: 0 0 33.3%;
-  flex-direction: column;
+  width: 400px;
+
   border-radius: 4px;
   overflow: hidden;
   cursor: pointer;
@@ -15,35 +15,35 @@ export const StyledProductCard = styled.div`
   background-color: ${({ theme }) => theme.colors.backgroundPrimary};
 `
 
-export const StyledCardImage = styled.div<{ image: string }>`
+export const StyledCardImage = styled.div<{ headerImage: string }>`
   width: 100%;
-  background-image: url(${(props) => props.image});
+  background-image: url(${(props) => props.headerImage});
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   height: 192px;
 `
 
-export const StyledCardBody = styled.div`
+export const StyledCardThumbnail = styled.img`
+  align-self: flex-end;
+  min-width: 96px;
+  max-height: 96px;
+  object-fit: cover;
+`
+
+export const StyledContent = styled.div`
   display: flex;
   flex-direction: column;
+`
+
+export const StyledCardBody = styled.div`
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
   margin: ${({ theme }) => theme.sizing.scale16};
-  gap: ${({ theme }) => theme.sizing.scale8};
 `
 
-export const StyledDescription = styled.div`
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  font-size: ${({ theme }) => theme.typography.paragraphMedium.fontSize};
-  font-weight: ${({ theme }) => theme.typography.paragraphMedium.fontWeight};
-  line-height: ${({ theme }) => theme.typography.paragraphMedium.lineHeight};
-  color: ${({ theme }) => theme.colors.gray500};
-`
-
-export const StyledCardFooter = styled.div`
+export const StyledCardAction = styled.div`
   display: flex;
   align-items: center;
   gap: ${({ theme }) => theme.sizing.scale8};
