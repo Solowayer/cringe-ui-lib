@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const StyledProductCard = styled.div`
+export const StyledCard = styled.div<{ width: string; height: string }>`
   display: flex;
   flex-direction: column;
   position: relative;
@@ -30,7 +30,7 @@ export const StyledCardThumbnail = styled.img`
   object-fit: cover;
 `
 
-export const StyledBody = styled.div`
+export const StyledCardBody = styled.div`
   display: flex;
   flex-direction: row;
   align-items: flex-start;
@@ -38,7 +38,7 @@ export const StyledBody = styled.div`
   margin: ${({ theme }) => theme.sizing.scale16};
 `
 
-export const StyledContent = styled.div`
+export const StyledCardContent = styled.div`
   display: flex;
   flex-direction: column;
   gap: ${({ theme }) => theme.sizing.scale8};

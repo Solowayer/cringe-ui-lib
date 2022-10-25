@@ -37,15 +37,15 @@ export const ProductCard = ({
         {image && <StyledCardImage image={image} />}
         <StyledCardBody>
           {startAmount !== 0 && (
-            <Typo type="labelMedium" color="green">
+            <Typo variant="labelMedium" color="green">
               {startAmount}
             </Typo>
           )}
-          <Typo type="labelLarge">{title}</Typo>
+          <Typo variant="labelLarge">{title}</Typo>
           {description && <StyledDescription>{description}</StyledDescription>}
         </StyledCardBody>
         <StyledCardFooter>
-          {<Typo type="labelLarge">{price} грн</Typo>}
+          {<Typo variant="labelLarge">{price} грн</Typo>}
           {weight ? <Typo color="secondary">{weight} кг</Typo> : null}
           {calories ? <Typo color="secondary">{calories} кал</Typo> : null}
         </StyledCardFooter>

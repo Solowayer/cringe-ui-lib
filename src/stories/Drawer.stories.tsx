@@ -16,7 +16,7 @@ const Template: ComponentStory<typeof Drawer> = () => {
       </Button>
       <Drawer size="default" side="left" isOpen={isOpen} onClose={() => setIsOpen(!isOpen)}>
         <DrawerHeader>
-          <Typo type="headingXSmall">Корзина</Typo>
+          <Typo variant="headingXSmall">Корзина</Typo>
         </DrawerHeader>
         <DrawerBody>
           <Typo>Замовлення...</Typo>

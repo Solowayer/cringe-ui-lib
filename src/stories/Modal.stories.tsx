@@ -23,7 +23,7 @@ const Template: ComponentStory<typeof Modal> = () => {
         onClose={() => setIsOpen(!isOpen)}
       >
         <ModalHeader>
-          <Typo type="headingXSmall">Діапазон цін</Typo>
+          <Typo variant="headingXSmall">Діапазон цін</Typo>
           {/* <Typo color="secondary">
             Цю інформацію надав господар, і її перевірено в Cringe. Щоб ви не сумнівались, ото так!
           </Typo> */}
