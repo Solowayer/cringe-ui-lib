@@ -2,9 +2,9 @@ import styled from 'styled-components'
 
 export const StyledProductCard = styled.div`
   display: flex;
+  flex-direction: column;
   position: relative;
   width: 400px;
-
   border-radius: 4px;
   overflow: hidden;
   cursor: pointer;
@@ -25,22 +25,23 @@ export const StyledCardImage = styled.div<{ headerImage: string }>`
 `
 
 export const StyledCardThumbnail = styled.img`
-  align-self: flex-end;
   min-width: 96px;
   max-height: 96px;
   object-fit: cover;
 `
 
+export const StyledBody = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: ${({ theme }) => theme.sizing.scale16};
+  margin: ${({ theme }) => theme.sizing.scale16};
+`
+
 export const StyledContent = styled.div`
   display: flex;
   flex-direction: column;
-`
-
-export const StyledCardBody = styled.div`
-  display: flex;
-  flex-direction: row;
-  gap: 8px;
-  margin: ${({ theme }) => theme.sizing.scale16};
+  gap: ${({ theme }) => theme.sizing.scale8};
 `
 
 export const StyledCardAction = styled.div`
@@ -48,7 +49,4 @@ export const StyledCardAction = styled.div`
   align-items: center;
   gap: ${({ theme }) => theme.sizing.scale8};
   color: ${({ theme }) => theme.colors.contentSecondary};
-  margin-left: ${({ theme }) => theme.sizing.scale16};
-  margin-right: ${({ theme }) => theme.sizing.scale16};
-  margin-bottom: ${({ theme }) => theme.sizing.scale16};
 `

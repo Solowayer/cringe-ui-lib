@@ -4,7 +4,7 @@ import { Typography } from '../../config/themes'
 import { ReactNode } from 'react'
 
 export interface TypoProps {
-  type?: keyof Typography
+  variant?: keyof Typography
   line?: number
   children?: ReactNode
   color?: string | 'secondary'
@@ -17,7 +17,7 @@ export interface TypoProps {
 }
 
 export const Typo = ({
-  type = 'paragraphMedium',
+  variant = 'paragraphMedium',
   line,
   children,
   color,
@@ -31,7 +31,7 @@ export const Typo = ({
   return (
     <LibraryThemeProvider>
       <StyledTypo
-        type={type}
+        variant={variant}
         line={line}
         color={color}
         width={width}

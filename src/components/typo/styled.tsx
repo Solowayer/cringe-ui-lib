@@ -17,8 +17,8 @@ export const StyledTypo = styled.p<TypoProps>`
   color: ${(props) => props.color};
 `
 
-function fontStyles({ type }: TypoProps) {
-  switch (type) {
+function fontStyles({ variant }: TypoProps) {
+  switch (variant) {
     case 'labelSmall':
       return css`
         font-size: ${({ theme }) => theme.typography.labelSmall.fontSize};

@@ -18,15 +18,14 @@ export default {
 const Template: ComponentStory<typeof Card> = () => {
   return (
     <Card
-      title="Penn Station (12507 Olive Boulevard)"
+      title="Breakfast Muffin Meal Deal"
       // headerImage="https://plus.unsplash.com/premium_photo-1664551734513-7c7e0dd24fac?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=688&q=80"
       thumbnail="https://plus.unsplash.com/premium_photo-1664551734513-7c7e0dd24fac?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=688&q=80"
     >
-      Proin ut dui sed metus pharetra hend rerit vel non mi. Nulla ornare faucibus ex, non facilisis
-      nisl.
-      <StyledCardAction>
-        <Button>Замовити</Button>
-      </StyledCardAction>
+      <Typo variant="paragraphMedium" line={2} color="secondary">
+        Any LEON Sourdough Muffin with Organic Coffee and a revitalising MOJU shot. It's the
+        breakfast of champions.
+      </Typo>
     </Card>
   )
 }

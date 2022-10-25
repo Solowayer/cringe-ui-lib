@@ -5,7 +5,7 @@ import {
   StyledProductCard,
   StyledCardImage,
   StyledCardThumbnail,
-  StyledCardBody,
+  StyledBody,
   StyledContent,
 } from './styled'
 
@@ -26,13 +26,15 @@ export const Card = ({ headerImage, thumbnail, title, children, onClick }: CardP
     <LibraryThemeProvider>
       <StyledProductCard onClick={onClick}>
         {headerImage && <StyledCardImage headerImage={headerImage} />}
-        <StyledContent>
-          <Typo type="labelLarge" line={2} marginLeft="16px" marginTop="16px">
-            {title}
-          </Typo>
-          {children}
-        </StyledContent>
-        {thumbnail && <StyledCardThumbnail src={thumbnail} />}
+        <StyledBody>
+          <StyledContent>
+            <Typo variant="labelLarge" line={2}>
+              {title}
+            </Typo>
+            {children}
+          </StyledContent>
+          {thumbnail && <StyledCardThumbnail src={thumbnail} />}
+        </StyledBody>
       </StyledProductCard>
     </LibraryThemeProvider>
   )
