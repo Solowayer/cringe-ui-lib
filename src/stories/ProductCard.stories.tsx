@@ -22,9 +22,11 @@ const Template: ComponentStory<typeof ProductCard> = () => {
     price: 222,
     weight: 350,
     calories: 1200,
+    thumbnail: 'https://burgerburger.co.nz/wp-content/uploads/2020/01/BC.jpg',
+    headerImage: 'https://burgerburger.co.nz/wp-content/uploads/2020/01/BC.jpg',
   }))
   return (
-    <div style={{ display: 'flex', flexWrap: 'wrap' }}>
+    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '16px' }}>
       {items.map((item) => (
         <ProductCard
           title={item.title}
@@ -32,6 +34,8 @@ const Template: ComponentStory<typeof ProductCard> = () => {
           price={item.price}
           weight={item.weight}
           calories={item.calories}
+          thumbnail={item.thumbnail}
+          headerImage={item.headerImage}
         />
       ))}
     </div>

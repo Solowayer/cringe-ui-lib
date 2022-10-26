@@ -1,9 +1,10 @@
 import React, { ElementType, HTMLAttributes, ReactNode } from 'react'
-import { StyledFlexBlock } from './styled'
+import { StyledBox } from './styled'
 import { LibraryThemeProvider } from '../../config/themes/theme-provider'
 
-export interface FlexProps extends HTMLAttributes<HTMLDivElement> {
+export interface BoxProps extends HTMLAttributes<HTMLDivElement> {
   as?: ElementType
+  display?: string
   position?: string
   overflow?: string
   flex?: string
@@ -40,9 +41,10 @@ export interface FlexProps extends HTMLAttributes<HTMLDivElement> {
   children?: ReactNode
 }
 
-export const FlexBlock = (props: FlexProps) => {
+export const Box = (props: BoxProps) => {
   const {
     as = 'div',
+    display,
     position,
     overflow,
     flex,
@@ -80,8 +82,9 @@ export const FlexBlock = (props: FlexProps) => {
   } = props
   return (
     <LibraryThemeProvider>
-      <StyledFlexBlock
+      <StyledBox
         as={as}
+        display={display}
         position={position}
         overflow={overflow}
         flex={flex}
@@ -117,7 +120,7 @@ export const FlexBlock = (props: FlexProps) => {
         backgroundRepeat={backgroundRepeat}
       >
         {children}
-      </StyledFlexBlock>
+      </StyledBox>
     </LibraryThemeProvider>
   )
 }

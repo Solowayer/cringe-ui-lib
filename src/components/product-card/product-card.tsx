@@ -1,17 +1,21 @@
 import React, { MouseEventHandler } from 'react'
 import { LibraryThemeProvider } from '../../config/themes/theme-provider'
 import { Typo } from '../typo'
+import { Box } from '../box'
 import {
-  StyledProductCard,
-  StyledCardImage,
-  StyledCardBody,
-  StyledDescription,
-  StyledCardFooter,
-} from './styled'
+  Card,
+  CardHeaderImage,
+  CardActionArea,
+  CardContent,
+  CardThumbnail,
+  CardActions,
+} from '../card'
+import { Button } from '../button'
 
 export type ProductCardProps = {
   id?: string
-  image?: string
+  headerImage?: string
+  thumbnail?: string
   title: string
   description?: string
   price: number
@@ -22,34 +26,39 @@ export type ProductCardProps = {
 }
 
 export const ProductCard = ({
-  image,
+  thumbnail,
+  headerImage,
   title,
   description,
   price,
   weight,
   calories,
 }: ProductCardProps) => {
-  const [startAmount, setAmount] = React.useState(0)
-
   return (
     <LibraryThemeProvider>
-      <StyledProductCard onClick={() => setAmount(startAmount + 1)}>
-        {image && <StyledCardImage image={image} />}
-        <StyledCardBody>
-          {startAmount !== 0 && (
-            <Typo variant="labelMedium" color="green">
-              {startAmount}
+      <Card>
+        <Box display="flex" alignItems="flex-start" gap="16px">
+          <CardContent>
+            <Typo variant="labelLarge" line={2}>
+              {title}
             </Typo>
-          )}
-          <Typo variant="labelLarge">{title}</Typo>
-          {description && <StyledDescription>{description}</StyledDescription>}
-        </StyledCardBody>
-        <StyledCardFooter>
-          {<Typo variant="labelLarge">{price} грн</Typo>}
-          {weight ? <Typo color="secondary">{weight} кг</Typo> : null}
-          {calories ? <Typo color="secondary">{calories} кал</Typo> : null}
-        </StyledCardFooter>
-      </StyledProductCard>
+            {description && (
+              <Typo variant="paragraphMedium" line={2}>
+                {description}
+              </Typo>
+            )}
+            <Box display="flex" alignItems="flex-end" gap="8px">
+              {<Typo variant="labelLarge">{price} грн</Typo>}
+              {weight ? <Typo color="secondary">{weight} кг</Typo> : null}
+              {calories ? <Typo color="secondary">{calories} кал</Typo> : null}
+            </Box>
+          </CardContent>
+          {thumbnail && <CardThumbnail src={thumbnail} />}
+        </Box>
+        <CardActions>
+          <Button>Купити</Button>
+        </CardActions>
+      </Card>
     </LibraryThemeProvider>
   )
 }

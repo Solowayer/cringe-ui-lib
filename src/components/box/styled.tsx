@@ -1,8 +1,8 @@
 import styled from 'styled-components'
-import { FlexProps } from './flex-block'
+import { BoxProps } from './box'
 
-export const StyledFlexBlock = styled.div<FlexProps>`
-  display: flex;
+export const StyledBox = styled.div<BoxProps>`
+  display: ${({ display }) => display};
   position: ${({ position }) => position};
   overflow: ${({ overflow }) => overflow};
   flex: ${({ flex }) => flex};
