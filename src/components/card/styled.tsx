@@ -5,7 +5,6 @@ export const StyledCard = styled.div<{ width: string; height: string }>`
   display: flex;
   flex-direction: column;
   position: relative;
-  flex: 0 1 33.3%;
   margin: 8px;
   border-radius: 4px;
   overflow: hidden;
@@ -34,9 +33,7 @@ export const StyledCardImage = styled.div<CardImageProps>`
   background-size: cover;
 `
 
-export const StyledCardHeader = styled.div`
-  
-`
+export const StyledCardHeader = styled.div``
 
 export const StyledCardThumbnail = styled.img`
   width: 96px;
@@ -49,8 +46,7 @@ export const StyledCardThumbnail = styled.img`
 export const StyledCardContent = styled.div`
   display: flex;
   flex-direction: column;
-  gap: ${({ theme }) => theme.sizing.scale8};
-  margin: ${({ theme }) => theme.sizing.scale16};
+  padding: ${({ theme }) => theme.sizing.scale16};
 `
 
 export const StyledCardActions = styled.div`
@@ -58,8 +54,8 @@ export const StyledCardActions = styled.div`
   align-items: center;
   gap: ${({ theme }) => theme.sizing.scale8};
   color: ${({ theme }) => theme.colors.contentSecondary};
-  margin-top: ${({ theme }) => theme.sizing.scale8};
-  margin-bottom: ${({ theme }) => theme.sizing.scale16};
-  margin-right: ${({ theme }) => theme.sizing.scale16};
-  margin-left: ${({ theme }) => theme.sizing.scale16};
+  padding-top: ${({ theme }) => theme.sizing.scale8};
+  padding-bottom: ${({ theme }) => theme.sizing.scale16};
+  padding-right: ${({ theme }) => theme.sizing.scale16};
+  padding-left: ${({ theme }) => theme.sizing.scale16};
 `

@@ -1,6 +1,6 @@
 import React from 'react'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Typo, FlexBlock } from '../components'
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Typo, Box } from '../components'
 
 export default {
   title: 'Components/Surface/Modal',
@@ -36,12 +36,12 @@ const Template: ComponentStory<typeof Modal> = () => {
           </Typo>
         </ModalBody>
         <ModalFooter>
-          <FlexBlock justifyContent="flex-end" gap="8px">
+          <Box display="flex" justifyContent="flex-end" gap="8px">
             <Button>Submit</Button>
             <Button variant="ghost" onClick={() => setIsOpen(!isOpen)}>
               Cancel
             </Button>
-          </FlexBlock>
+          </Box>
         </ModalFooter>
       </Modal>
     </div>

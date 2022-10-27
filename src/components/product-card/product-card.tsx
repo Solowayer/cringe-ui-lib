@@ -26,40 +26,28 @@ export type ProductCardProps = {
   onClick?: MouseEventHandler<HTMLDivElement>
 }
 
-export const ProductCard = ({
-  thumbnail,
-  image,
-  title,
-  description,
-  price,
-  weight,
-  calories,
-}: ProductCardProps) => {
+export const ProductCard = ({ thumbnail, image, title, description, price }: ProductCardProps) => {
   return (
     <LibraryThemeProvider>
       <Card>
-        <CardImage height="300px" image={image} />
-        <Box display="flex" alignItems="flex-start" gap="16px">
-          <CardContent>
-            <Typo variant="labelLarge" line={2}>
-              {title}
-            </Typo>
-            {description && (
-              <Typo variant="paragraphMedium" line={2}>
-                {description}
+        <CardActionArea onClick={() => alert('clicked')}>
+          <Box display="flex" alignItems="flex-start">
+            <CardContent>
+              <Typo variant="labelLarge" line={2} marginBottom="8px">
+                {title}
               </Typo>
-            )}
-            <Box display="flex" alignItems="flex-end" gap="8px">
-              {<Typo variant="labelLarge">{price} грн</Typo>}
-              {weight ? <Typo color="secondary">{weight} кг</Typo> : null}
-              {calories ? <Typo color="secondary">{calories} кал</Typo> : null}
-            </Box>
-          </CardContent>
-          {thumbnail && <CardThumbnail src={thumbnail} />}
-        </Box>
-        <CardActions>
-          <Button>Купити</Button>
-        </CardActions>
+              {description && (
+                <Typo variant="paragraphMedium" line={2} marginBottom="8px">
+                  {description}
+                </Typo>
+              )}
+              <Box display="flex" alignItems="flex-end">
+                <Typo variant="labelLarge">{price} грн</Typo>
+              </Box>
+            </CardContent>
+            {thumbnail && <CardThumbnail src={thumbnail} />}
+          </Box>
+        </CardActionArea>
       </Card>
     </LibraryThemeProvider>
   )
