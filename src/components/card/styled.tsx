@@ -1,10 +1,12 @@
 import styled from 'styled-components'
+import { CardImageProps } from './card-image'
 
 export const StyledCard = styled.div<{ width: string; height: string }>`
   display: flex;
   flex-direction: column;
   position: relative;
-  width: 400px;
+  flex: 0 1 33.3%;
+  margin: 8px;
   border-radius: 4px;
   overflow: hidden;
   transition: box-shadow 0.2s ease-in-out;
@@ -19,13 +21,17 @@ export const StyledCardActionArea = styled.div`
   cursor: pointer;
 `
 
-export const StyledCardHeaderImage = styled.div<{ headerImage: string }>`
-  width: 100%;
-  background-image: url(${(props) => props.headerImage});
+export const StyledCardImage = styled.div<CardImageProps>`
+  width: ${(props) => props.width};
+  min-width: ${(props) => props.minWidth};
+  max-width: ${(props) => props.maxWidth};
+  height: ${(props) => props.height};
+  min-height: ${(props) => props.minHeight};
+  max-height: ${(props) => props.maxHeight};
+  background-image: url(${(props) => props.image});
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 192px;
 `
 
 export const StyledCardThumbnail = styled.img`

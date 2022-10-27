@@ -1,6 +1,6 @@
 export { Card } from './card'
+export { CardImage } from './card-image'
 export {
-  StyledCardHeaderImage as CardHeaderImage,
   StyledCardThumbnail as CardThumbnail,
   StyledCardContent as CardContent,
   StyledCardActions as CardActions,
