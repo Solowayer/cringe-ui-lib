@@ -2,7 +2,15 @@ import React, { MouseEventHandler } from 'react'
 import { LibraryThemeProvider } from '../../config/themes/theme-provider'
 import { Typo } from '../typo'
 import { Box } from '../box'
-import { Card, CardImage, CardActionArea, CardContent, CardThumbnail, CardActions } from '../card'
+import {
+  Card,
+  CardImage,
+  CardActionArea,
+  CardHeader,
+  CardContent,
+  CardThumbnail,
+  CardActions,
+} from '../card'
 import { Button } from '../button'
 
 export type ProductCardProps = {
@@ -49,7 +57,6 @@ export const ProductCard = ({
           </CardContent>
           {thumbnail && <CardThumbnail src={thumbnail} />}
         </Box>
-        <CardImage height="300px" maxWidth="300px" image={image} />
         <CardActions>
           <Button>Купити</Button>
         </CardActions>

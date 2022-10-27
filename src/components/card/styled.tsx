@@ -34,6 +34,10 @@ export const StyledCardImage = styled.div<CardImageProps>`
   background-size: cover;
 `
 
+export const StyledCardHeader = styled.div`
+  
+`
+
 export const StyledCardThumbnail = styled.img`
   width: 96px;
   height: 96px;
@@ -54,7 +58,8 @@ export const StyledCardActions = styled.div`
   align-items: center;
   gap: ${({ theme }) => theme.sizing.scale8};
   color: ${({ theme }) => theme.colors.contentSecondary};
-  margin-left: ${({ theme }) => theme.sizing.scale16};
-  margin-right: ${({ theme }) => theme.sizing.scale16};
+  margin-top: ${({ theme }) => theme.sizing.scale8};
   margin-bottom: ${({ theme }) => theme.sizing.scale16};
+  margin-right: ${({ theme }) => theme.sizing.scale16};
+  margin-left: ${({ theme }) => theme.sizing.scale16};
 `
