@@ -63,7 +63,7 @@ export const StyledDrawerFooter = styled.div`
   padding-right: ${({ theme }) => theme.sizing.scale24};
   padding-top: ${({ theme }) => theme.sizing.scale16};
   padding-bottom: ${({ theme }) => theme.sizing.scale16};
-  box-shadow: ${({ theme }) => theme.effects.shadow1};
+  box-shadow: ${({ theme }) => theme.lighting.shadow1};
 `
 
 function getSide({ size, side, isOpen }: DrawerProps) {

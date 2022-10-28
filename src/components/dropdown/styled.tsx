@@ -14,7 +14,7 @@ export const StyledList = styled.ul<DropdownProps>`
   padding-right: 0;
   padding-top: ${({ theme }) => theme.sizing.scale8};
   padding-bottom: ${({ theme }) => theme.sizing.scale8};
-  box-shadow: ${({ theme }) => theme.effects.shadow2};
+  box-shadow: ${({ theme }) => theme.lighting.shadow2};
   border-radius: ${({ theme }) => theme.sizing.scale4};
 `
 

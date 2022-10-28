@@ -1,7 +1,7 @@
 import React from 'react'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
-import { ProductCard } from '../components'
-import { backgroundColors } from '../components/themes/light-theme/background-colors'
+import { ProductCard } from '../../test-components'
+import { backgroundColors } from '../../components/themes/light-theme/background-colors'
 
 export default {
   title: 'Components/Test Components/ProductCard',

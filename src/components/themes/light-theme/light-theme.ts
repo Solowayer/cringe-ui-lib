@@ -1,5 +1,5 @@
 import { DefaultTheme } from 'styled-components'
-import { baseColors } from '../shared/base-colors'
+import { baseColors } from '../../tokens/colors'
 import { backgroundColors } from './background-colors'
 import { contentColors } from './content-colors'
 import { componentColors } from './component-colors'

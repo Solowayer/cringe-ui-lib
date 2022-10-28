@@ -14,7 +14,7 @@ import {
 } from '../../components/card'
 import { Button } from '../../components/button'
 import { sizing } from '../../components/themes/shared/sizing'
-import { baseColors } from '../../components/themes/shared/base-colors'
+import { baseColors } from '../../components/tokens/colors'
 
 export type ProductCardProps = {
   id?: string

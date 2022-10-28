@@ -1,16 +1,8 @@
 import 'styled-components'
-import {
-  Typography,
-  Borders,
-  Lighting,
-  Sizing,
-  Base,
-  Background,
-  Component,
-  Content,
-} from './types'
+import { Typography, Borders, Lighting, Sizing, Background, Component, Content } from './types'
+import { BaseColors } from '../tokens/types'
 
-type Colors = Base & Background & Content & Component
+type Colors = BaseColors & Background & Content & Component
 
 declare module 'styled-components' {
   export interface DefaultTheme {

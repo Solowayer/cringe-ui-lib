@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { SelectProps, Value } from './select'
 
 interface StyledSelectProps extends Omit<SelectProps, 'options' | 'value' | 'onChange'> {}
@@ -27,7 +28,7 @@ export const StyledDropdown = styled.ul<StyledSelectProps>`
   padding-right: 0;
   padding-top: ${({ theme }) => theme.sizing.scale8};
   padding-bottom: ${({ theme }) => theme.sizing.scale8};
-  box-shadow: ${({ theme }) => theme.effects.shadow2};
+  box-shadow: ${({ theme }) => theme.lighting.shadow2};
   border-radius: ${({ theme }) => theme.sizing.scale4};
 `
 

@@ -1,4 +1,4 @@
-import { baseColors } from '../shared/base-colors'
+import { baseColors } from '../../tokens/colors'
 import { Content } from '../types'
 
 export const contentColors: Content = {

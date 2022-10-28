@@ -37,6 +37,7 @@ export const Select = ({
     setIsOpen(false)
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const isOptionSelected = (option: Value) => {
     return option === value
   }
