@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react'
 import { StyledFormControl, StyledLabel, StyledHint, StyledError, StyledSuccess } from './styled'
-import { LibraryThemeProvider } from '../../config/themes/theme-provider'
+import { LibraryThemeProvider } from '../themes/theme-provider'
 
 export type FormControlProps = {
   label?: string

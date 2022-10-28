@@ -1,6 +1,6 @@
 import React, { ElementType, HTMLAttributes, ReactNode } from 'react'
 import { StyledBox } from './styled'
-import { LibraryThemeProvider } from '../../config/themes/theme-provider'
+import { LibraryThemeProvider } from '../themes/theme-provider'
 
 export interface BoxProps extends HTMLAttributes<HTMLDivElement> {
   as?: ElementType

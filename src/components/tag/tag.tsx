@@ -1,7 +1,7 @@
 import React, { MouseEventHandler, ReactNode } from 'react'
 import { StyledTag, Control } from './styled'
 import { COLOR, VARIANT } from './constants'
-import { LibraryThemeProvider } from '../../config/themes/theme-provider'
+import { LibraryThemeProvider } from '../themes/theme-provider'
 import { Close } from '../icon'
 
 export type TagProps = {

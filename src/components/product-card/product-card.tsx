@@ -1,5 +1,5 @@
 import React, { MouseEventHandler } from 'react'
-import { LibraryThemeProvider } from '../../config/themes/theme-provider'
+import { LibraryThemeProvider } from '../themes/theme-provider'
 import { Typo } from '../typo'
 import { Box } from '../box'
 import {
@@ -12,6 +12,8 @@ import {
   CardActions,
 } from '../card'
 import { Button } from '../button'
+import { sizing } from '../themes/shared/sizing'
+import { baseColors } from '../themes/shared/base-colors'
 
 export type ProductCardProps = {
   id?: string
@@ -33,11 +35,16 @@ export const ProductCard = ({ thumbnail, image, title, description, price }: Pro
         <CardActionArea onClick={() => alert('clicked')}>
           <Box display="flex" alignItems="flex-start">
             <CardContent>
-              <Typo variant="labelLarge" line={2} marginBottom="8px">
+              <Typo variant="labelLarge" line={2} marginBottom={sizing.scale8}>
                 {title}
               </Typo>
               {description && (
-                <Typo variant="paragraphMedium" line={2} marginBottom="8px">
+                <Typo
+                  variant="paragraphMedium"
+                  color="contentSecondary"
+                  line={2}
+                  marginBottom={sizing.scale8}
+                >
                   {description}
                 </Typo>
               )}

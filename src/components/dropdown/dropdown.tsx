@@ -1,6 +1,6 @@
 import React from 'react'
 import { HTMLAttributes } from 'react'
-import { LibraryThemeProvider } from '../../config/themes/theme-provider'
+import { LibraryThemeProvider } from '../themes/theme-provider'
 import { StyledList, NoResults } from './styled'
 import { MenuItem } from '.'
 import { MenuItemProps } from './menu-item/menu-item'

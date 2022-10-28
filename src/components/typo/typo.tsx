@@ -1,13 +1,16 @@
-import { LibraryThemeProvider } from '../../config/themes/theme-provider'
+import { LibraryThemeProvider } from '../themes/theme-provider'
 import { StyledTypo } from './styled'
-import { Typography } from '../../config/themes'
+import { Typography } from '../themes'
 import { ReactNode } from 'react'
+import { contentColors } from '../themes/light-theme/content-colors'
+
+export type TypoColors = keyof typeof contentColors
 
 export interface TypoProps {
   variant?: keyof Typography
   line?: number
   children?: ReactNode
-  color?: string | 'secondary'
+  color?: string | TypoColors
   width?: string
   margin?: string
   marginTop?: string

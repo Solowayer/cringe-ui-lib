@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { StyledAccordion } from './styled'
-import { LibraryThemeProvider } from '../../config/themes/theme-provider'
+import { LibraryThemeProvider } from '../themes/theme-provider'
 import { Panel } from './panel'
 import { PanelProps } from './panel/panel'
 

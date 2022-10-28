@@ -6,7 +6,7 @@ export const StyledModalWrapper = styled.div<{ isOpen: boolean }>`
   position: fixed;
   align-items: center;
   justify-content: center;
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: ${({ theme }) => theme.lighting.overlay1};
   left: 0;
   right: 0;
   top: 0;
@@ -66,5 +66,5 @@ export const StyledModalFooter = styled.div`
   padding-right: ${({ theme }) => theme.sizing.scale24};
   padding-top: ${({ theme }) => theme.sizing.scale16};
   padding-bottom: ${({ theme }) => theme.sizing.scale16};
-  box-shadow: ${({ theme }) => theme.effects.shadow1};
+  box-shadow: ${({ theme }) => theme.lighting.shadow1};
 `

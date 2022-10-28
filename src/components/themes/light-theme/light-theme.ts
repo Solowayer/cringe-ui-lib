@@ -6,7 +6,7 @@ import { componentColors } from './component-colors'
 import { typography } from '../shared/typography'
 import { borders } from './borders'
 import { sizing } from '../shared/sizing'
-import { effects } from './effects'
+import { effects } from './lighting'
 
 export const lightTheme: DefaultTheme = {
   colors: {

@@ -1,6 +1,6 @@
 import React from 'react'
 import { HTMLAttributes } from 'react'
-import { LibraryThemeProvider } from '../../../config/themes/theme-provider'
+import { LibraryThemeProvider } from '../../themes/theme-provider'
 import { StyledDivider } from '../styled'
 import {
   StyledMenuItemProfile,

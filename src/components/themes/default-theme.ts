@@ -1,5 +1,14 @@
 import 'styled-components'
-import { Typography, Borders, Effects, Sizing, Base, Background, Component, Content } from './types'
+import {
+  Typography,
+  Borders,
+  Lighting,
+  Sizing,
+  Base,
+  Background,
+  Component,
+  Content,
+} from './types'
 
 type Colors = Base & Background & Content & Component
 
@@ -9,6 +18,6 @@ declare module 'styled-components' {
     typography: Typography
     borders: Borders
     sizing: Sizing
-    effects: Effects
+    lighting: Lighting
   }
 }

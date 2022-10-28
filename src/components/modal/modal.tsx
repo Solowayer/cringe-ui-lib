@@ -2,7 +2,7 @@ import React, { ReactNode } from 'react'
 import { StyledModalWrapper, StyledModal, StyledClose, StyledModalImage } from './styled'
 import { Close } from '../icon/'
 import { Button } from '../button/button'
-import { LibraryThemeProvider } from '../../config/themes/theme-provider'
+import { LibraryThemeProvider } from '../themes/theme-provider'
 import { useHideScroll } from '../../config/hooks/useHideScroll'
 import { IMAGE_SIZE, SIZE } from './constants'
 

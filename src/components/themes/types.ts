@@ -217,7 +217,8 @@ export type Borders = {
   radiusCircle: string
 }
 
-export type Effects = {
+export type Lighting = {
+  overlay1: string
   shadow1: string
   shadow2: string
   shadow3: string

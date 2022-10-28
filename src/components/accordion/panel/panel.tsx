@@ -1,5 +1,5 @@
 import React, { ReactNode, useEffect, useRef, useState } from 'react'
-import { LibraryThemeProvider } from '../../../config/themes/theme-provider'
+import { LibraryThemeProvider } from '../../themes/theme-provider'
 import {
   StyledPanel,
   ItemHeader,

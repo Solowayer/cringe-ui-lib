@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { ChangeEventHandler, HTMLAttributes, ReactElement } from 'react'
 import { SIZE } from './constants'
-import { LibraryThemeProvider } from '../../config/themes/theme-provider'
+import { LibraryThemeProvider } from '../themes/theme-provider'
 import {
   StyledInputWrapper,
   StyledInputIcon,

@@ -92,13 +92,45 @@ function fontStyles({ variant }: TypoProps) {
 
 function colorStyles({ color }: TypoProps) {
   switch (color) {
-    case 'secondary':
+    case 'contentPrimary':
       return css`
-        color: ${({ theme }) => theme.colors.gray500};
+        color: ${({ theme }) => theme.colors.contentPrimary};
+      `
+    case 'contentSecondary':
+      return css`
+        color: ${({ theme }) => theme.colors.contentSecondary};
+      `
+    case 'contentTertiary':
+      return css`
+        color: ${({ theme }) => theme.colors.contentTertiary};
+      `
+    case 'contentOnColor':
+      return css`
+        color: ${({ theme }) => theme.colors.contentOnColor};
+      `
+    case 'contentAccent':
+      return css`
+        color: ${({ theme }) => theme.colors.contentAccent};
+      `
+    case 'contentSuccess':
+      return css`
+        color: ${({ theme }) => theme.colors.contentSuccess};
+      `
+    case 'contentWarning':
+      return css`
+        color: ${({ theme }) => theme.colors.contentWarning};
+      `
+    case 'contentDanger':
+      return css`
+        color: ${({ theme }) => theme.colors.contentDanger};
+      `
+    case 'contentDisabled':
+      return css`
+        color: ${({ theme }) => theme.colors.contentDisabled};
       `
     default:
       return css`
-        color: ${({ theme }) => theme.colors.black};
+        color: ${({ theme }) => theme.colors.contentPrimary};
       `
   }
 }

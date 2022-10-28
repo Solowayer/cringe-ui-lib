@@ -4,7 +4,7 @@ import { ProductCard } from '../components'
 import { backgroundColors } from '../config/themes/light-theme/background-colors'
 
 export default {
-  title: 'Components/Card/ProductCard',
+  title: 'Components/ProductCard',
   parameters: {
     backgrounds: {
       default: 'primary',

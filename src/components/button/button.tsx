@@ -1,6 +1,6 @@
 import { MouseEventHandler, ReactNode, ReactElement } from 'react'
 import { StyledButton, StyledIconLeft, StyledIconRight } from './styled'
-import { LibraryThemeProvider } from '../../config/themes/theme-provider'
+import { LibraryThemeProvider } from '../themes/theme-provider'
 import { VARIANT, SIZE, SHAPE } from './constants'
 import { Spinner } from '../spinner'
 

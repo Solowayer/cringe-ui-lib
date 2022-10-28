@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { StyledSelectWrapper, StyledDropdown, StyledOption } from './styled'
-import { LibraryThemeProvider } from '../../config/themes/theme-provider'
+import { LibraryThemeProvider } from '../themes/theme-provider'
 import { Input } from '../input'
 import { ExpandMore } from '../icon'
 

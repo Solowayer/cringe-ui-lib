@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react'
-import { LibraryThemeProvider } from '../../config/themes/theme-provider'
+import { LibraryThemeProvider } from '../themes/theme-provider'
 import { useHideScroll } from '../../config/hooks/useHideScroll'
 import { StyledDrawerWrapper, StyledClose, StyledDrawer } from './styled'
 import { SIDE, SIZE } from './constants'
