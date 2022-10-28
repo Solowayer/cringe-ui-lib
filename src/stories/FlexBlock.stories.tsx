@@ -1,13 +1,13 @@
 import React from 'react'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
-import { FlexBlock } from '../components'
+import { Box } from '../components'
 
 export default {
-  title: 'Components/Block/FlexBlock',
-  component: FlexBlock,
-} as ComponentMeta<typeof FlexBlock>
+  title: 'Components/Block/Box',
+  component: Box,
+} as ComponentMeta<typeof Box>
 
-const Template: ComponentStory<typeof FlexBlock> = (args) => <FlexBlock {...args} />
+const Template: ComponentStory<typeof Box> = (args) => <Box {...args} />
 
 export const Playground = Template.bind({})
 Playground.args = {}

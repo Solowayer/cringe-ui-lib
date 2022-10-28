@@ -1,7 +1,8 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { MouseEventHandler } from 'react'
-import { LibraryThemeProvider } from '../themes/theme-provider'
-import { Typo } from '../typo'
-import { Box } from '../box'
+import { LibraryThemeProvider } from '../../components/themes/theme-provider'
+import { Typo } from '../../components/typo'
+import { Box } from '../../components/box'
 import {
   Card,
   CardImage,
@@ -10,10 +11,10 @@ import {
   CardContent,
   CardThumbnail,
   CardActions,
-} from '../card'
-import { Button } from '../button'
-import { sizing } from '../themes/shared/sizing'
-import { baseColors } from '../themes/shared/base-colors'
+} from '../../components/card'
+import { Button } from '../../components/button'
+import { sizing } from '../../components/themes/shared/sizing'
+import { baseColors } from '../../components/themes/shared/base-colors'
 
 export type ProductCardProps = {
   id?: string

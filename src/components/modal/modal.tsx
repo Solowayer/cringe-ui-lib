@@ -3,7 +3,7 @@ import { StyledModalWrapper, StyledModal, StyledClose, StyledModalImage } from '
 import { Close } from '../icon/'
 import { Button } from '../button/button'
 import { LibraryThemeProvider } from '../themes/theme-provider'
-import { useHideScroll } from '../../config/hooks/useHideScroll'
+import { useHideScroll } from '../../hooks/useHideScroll'
 import { IMAGE_SIZE, SIZE } from './constants'
 
 export type ModalProps = {

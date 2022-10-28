@@ -10,7 +10,7 @@ export const StyledCard = styled.div<{ width: string; height: string }>`
   overflow: hidden;
   transition: box-shadow 0.2s ease-in-out;
   &:hover {
-    box-shadow: ${(props) => props.theme.effects.shadow2};
+    box-shadow: ${({ theme }) => theme.lighting.shadow2};
     z-index: 10;
   }
   background-color: ${({ theme }) => theme.colors.backgroundPrimary};

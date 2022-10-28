@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react'
 import { LibraryThemeProvider } from '../themes/theme-provider'
-import { useHideScroll } from '../../config/hooks/useHideScroll'
+import { useHideScroll } from '../../hooks/useHideScroll'
 import { StyledDrawerWrapper, StyledClose, StyledDrawer } from './styled'
 import { SIDE, SIZE } from './constants'
 import { Button } from '../button'
