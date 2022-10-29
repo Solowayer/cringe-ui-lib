@@ -4,12 +4,14 @@ import { LibraryThemeProvider } from '../themes/theme-provider'
 
 export type ArtworkProps = {
   size?: 'medium'
+  shape?: 'circle'
+  src: string
 }
 
-export const Artwork = ({ size }: ArtworkProps) => {
+export const Artwork = ({ src, size = 'medium' }: ArtworkProps) => {
   return (
     <LibraryThemeProvider>
-      <StyledArtwork size={size} />
+      <StyledArtwork src={src} size={size} />
     </LibraryThemeProvider>
   )
 }

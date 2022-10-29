@@ -5,18 +5,19 @@ export const StyledCard = styled.div<{ width: string; height: string }>`
   display: flex;
   flex-direction: column;
   position: relative;
-  margin: 8px;
+  width: ${(props) => props.width};
   border-radius: 4px;
   overflow: hidden;
   transition: box-shadow 0.2s ease-in-out;
   &:hover {
     box-shadow: ${({ theme }) => theme.lighting.shadow2};
-    z-index: 10;
   }
   background-color: ${({ theme }) => theme.colors.backgroundPrimary};
 `
 
 export const StyledCardActionArea = styled.div`
+  display: flex;
+  flex-direction: column;
   cursor: pointer;
 `
 
@@ -33,18 +34,9 @@ export const StyledCardImage = styled.div<CardImageProps>`
   background-size: cover;
 `
 
-export const StyledCardHeader = styled.div``
-
-export const StyledCardThumbnail = styled.img`
-  width: 96px;
-  height: 96px;
-  object-fit: cover;
-  margin-top: ${({ theme }) => theme.sizing.scale16};
-  margin-right: ${({ theme }) => theme.sizing.scale16};
-`
-
 export const StyledCardContent = styled.div`
   display: flex;
+  width: 100%;
   flex-direction: column;
   padding: ${({ theme }) => theme.sizing.scale16};
 `

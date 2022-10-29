@@ -3,16 +3,9 @@ import React, { MouseEventHandler } from 'react'
 import { LibraryThemeProvider } from '../../components/themes/theme-provider'
 import { Typo } from '../../components/typo'
 import { Box } from '../../components/box'
-import {
-  Card,
-  CardImage,
-  CardActionArea,
-  CardHeader,
-  CardContent,
-  CardThumbnail,
-  CardActions,
-} from '../../components/card'
+import { Card, CardImage, CardActionArea, CardContent, CardActions } from '../../components/card'
 import { Button } from '../../components/button'
+import { Artwork } from '../../components'
 import { sizing } from '../../components/themes/shared/sizing'
 import { baseColors } from '../../components/tokens/colors'
 
@@ -32,8 +25,9 @@ export type ProductCardProps = {
 export const ProductCard = ({ thumbnail, image, title, description, price }: ProductCardProps) => {
   return (
     <LibraryThemeProvider>
-      <Card>
+      <Card width="calc(25% - 6px)">
         <CardActionArea onClick={() => alert('clicked')}>
+          <CardImage image={image} minHeight="160px" width="100%" />
           <Box display="flex" alignItems="flex-start">
             <CardContent>
               <Typo variant="labelLarge" line={2} marginBottom={sizing.scale8}>
@@ -49,11 +43,8 @@ export const ProductCard = ({ thumbnail, image, title, description, price }: Pro
                   {description}
                 </Typo>
               )}
-              <Box display="flex" alignItems="flex-end">
-                <Typo variant="labelLarge">{price} грн</Typo>
-              </Box>
+              <Typo variant="labelLarge">{price} грн</Typo>
             </CardContent>
-            {thumbnail && <CardThumbnail src={thumbnail} />}
           </Box>
         </CardActionArea>
       </Card>

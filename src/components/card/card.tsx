@@ -8,7 +8,6 @@ export type SizeProperties = {
 }
 
 export type CardProps = {
-  thumbnail?: string
   children: ReactNode
 } & SizeProperties
 

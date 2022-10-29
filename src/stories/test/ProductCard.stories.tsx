@@ -16,15 +16,42 @@ export default {
 
 const Template: ComponentStory<typeof ProductCard> = () => {
   return (
-    <div style={{ display: 'flex', flexWrap: 'wrap', margin: '-8px', width: '430px' }}>
+    <div style={{ display: 'flex', flexWrap: 'wrap', flexDirection: 'row', gap: '8px' }}>
       <ProductCard
         title="Cheesesteak"
         description="New & improved recipe! A deep smokey BBQ sauce, rocket, a smoked cheddar cheese slice, bacon, crispy onions, tomato and mayo on top of a flame grilled 100% Aberdeen Angus Beef Burger. Meals are served with large fries or onion rings and a soft drink of your choice."
         price={222}
         weight={350}
         calories={1200}
-        thumbnail="https://burgerburger.co.nz/wp-content/uploads/2020/01/BC.jpg"
         image="https://burgerburger.co.nz/wp-content/uploads/2020/01/BC.jpg"
+        thumbnail="https://burgerburger.co.nz/wp-content/uploads/2020/01/BC.jpg"
+      />
+      <ProductCard
+        title="Cheesesteak"
+        description="New & improved recipe! A deep smokey BBQ sauce, rocket, a smoked cheddar cheese slice, bacon, crispy onions, tomato and mayo on top of a flame grilled 100% Aberdeen Angus Beef Burger. Meals are served with large fries or onion rings and a soft drink of your choice."
+        price={222}
+        weight={350}
+        calories={1200}
+        image="https://burgerburger.co.nz/wp-content/uploads/2020/01/BC.jpg"
+        thumbnail="https://burgerburger.co.nz/wp-content/uploads/2020/01/BC.jpg"
+      />
+      <ProductCard
+        title="Cheesesteak"
+        description="New & improved recipe! A deep smokey BBQ sauce, rocket, a smoked cheddar cheese slice, bacon, crispy onions, tomato and mayo on top of a flame grilled 100% Aberdeen Angus Beef Burger. Meals are served with large fries or onion rings and a soft drink of your choice."
+        price={222}
+        weight={350}
+        calories={1200}
+        image="https://burgerburger.co.nz/wp-content/uploads/2020/01/BC.jpg"
+        thumbnail="https://burgerburger.co.nz/wp-content/uploads/2020/01/BC.jpg"
+      />
+      <ProductCard
+        title="Cheesesteak"
+        description="New & improved recipe! A deep smokey BBQ sauce, rocket, a smoked cheddar cheese slice, bacon, crispy onions, tomato and mayo on top of a flame grilled 100% Aberdeen Angus Beef Burger. Meals are served with large fries or onion rings and a soft drink of your choice."
+        price={222}
+        weight={350}
+        calories={1200}
+        image="https://burgerburger.co.nz/wp-content/uploads/2020/01/BC.jpg"
+        thumbnail="https://burgerburger.co.nz/wp-content/uploads/2020/01/BC.jpg"
       />
     </div>
   )
