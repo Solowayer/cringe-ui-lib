@@ -1,4 +1,6 @@
-export type SizeProperties = {
+import { css } from 'styled-components'
+
+export type Styles = {
   width?: string
   minWidth?: string
   maxWidth?: string
@@ -6,9 +8,6 @@ export type SizeProperties = {
   minHeight?: string
   maxHeight?: string
   flex?: string
-}
-
-export type PositionProperties = {
   margin?: string
   marginTop?: string
   marginBottom?: string

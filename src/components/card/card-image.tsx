@@ -1,34 +1,16 @@
 import React from 'react'
 import { StyledCardImage } from './styled'
+import { Styles } from '../types/shared'
+
+export type CardImageStyles = Pick<
+  Styles,
+  'width' | 'minWidth' | 'maxWidth' | 'height' | 'minHeight' | 'maxHeight'
+>
 
 export type CardImageProps = {
-  width?: string
-  minWidth?: string
-  maxWidth?: string
-  height?: string
-  minHeight?: string
-  maxHeight?: string
   image?: string
-}
+} & CardImageStyles
 
-export const CardImage = ({
-  width,
-  minWidth,
-  maxWidth,
-  height,
-  minHeight,
-  maxHeight,
-  image,
-}: CardImageProps) => {
-  return (
-    <StyledCardImage
-      width={width}
-      minWidth={minWidth}
-      maxWidth={maxWidth}
-      height={height}
-      minHeight={minHeight}
-      maxHeight={maxHeight}
-      image={image}
-    />
-  )
+export const CardImage = ({ image, ...styles }: CardImageProps) => {
+  return <StyledCardImage image={image} {...styles} />
 }

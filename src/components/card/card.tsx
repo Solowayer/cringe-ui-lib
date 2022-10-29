@@ -1,22 +1,18 @@
 import React, { ReactNode } from 'react'
 import { LibraryThemeProvider } from '../themes/theme-provider'
 import { StyledCard } from './styled'
+import { Styles } from '../types/shared'
 
-export type SizeProperties = {
-  height?: string
-  width?: string
-}
+export type CardStyles = Pick<Styles, 'margin' | 'width'>
 
 export type CardProps = {
   children: ReactNode
-} & SizeProperties
+} & CardStyles
 
-export const Card = ({ width, height, children }: CardProps) => {
+export const Card = ({ children, ...styles }: CardProps) => {
   return (
     <LibraryThemeProvider>
-      <StyledCard width={width} height={height}>
-        {children}
-      </StyledCard>
+      <StyledCard {...styles}>{children}</StyledCard>
     </LibraryThemeProvider>
   )
 }

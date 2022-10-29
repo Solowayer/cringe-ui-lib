@@ -1,11 +1,13 @@
 import styled from 'styled-components'
 import { CardImageProps } from './card-image'
+import { CardStyles } from './card'
 
-export const StyledCard = styled.div<{ width: string; height: string }>`
+export const StyledCard = styled.div<CardStyles>`
   display: flex;
   flex-direction: column;
   position: relative;
   width: ${(props) => props.width};
+  margin: ${(props) => props.margin};
   border-radius: 4px;
   overflow: hidden;
   transition: box-shadow 0.2s ease-in-out;
