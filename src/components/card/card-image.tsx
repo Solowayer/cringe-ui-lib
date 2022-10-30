@@ -1,16 +1,15 @@
-import React from 'react'
+import React, { HTMLAttributes } from 'react'
 import { StyledCardImage } from './styled'
-import { Styles } from '../types/shared'
 
-export type CardImageStyles = Pick<
-  Styles,
-  'width' | 'minWidth' | 'maxWidth' | 'height' | 'minHeight' | 'maxHeight'
->
+export type CardImageStyles = {
+  height?: string
+  width?: string
+}
 
-export type CardImageProps = {
+export interface CardImageProps extends CardImageStyles, HTMLAttributes<HTMLImageElement> {
   image?: string
-} & CardImageStyles
+}
 
-export const CardImage = ({ image, ...styles }: CardImageProps) => {
-  return <StyledCardImage image={image} {...styles} />
+export const CardImage = ({ image, height, width, ...rest }: CardImageProps) => {
+  return <StyledCardImage src={image} height={height} width={width} {...rest} />
 }

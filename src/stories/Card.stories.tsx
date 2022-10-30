@@ -16,7 +16,7 @@ export default {
 
 const Template: ComponentStory<typeof Card> = () => {
   return (
-    <Card>
+    <Card style={{ width: '300px' }}>
       <CardContent>
         <Typo variant="paragraphMedium" line={2} color="secondary">
           Any LEON Sourdough Muffin with Organic Coffee and a revitalising MOJU shot. It's the

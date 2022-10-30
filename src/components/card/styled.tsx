@@ -1,20 +1,18 @@
 import styled from 'styled-components'
-import { CardImageProps } from './card-image'
-import { CardStyles } from './card'
+import { CardImageStyles } from './card-image'
 
-export const StyledCard = styled.div<CardStyles>`
+export const StyledCard = styled.div`
   display: flex;
   flex-direction: column;
   position: relative;
-  width: ${(props) => props.width};
-  margin: ${(props) => props.margin};
-  border-radius: 4px;
+  border-radius: ${(props) => props.theme.sizing.scale4};
   overflow: hidden;
   transition: box-shadow 0.2s ease-in-out;
   &:hover {
     box-shadow: ${({ theme }) => theme.lighting.shadow2};
   }
   background-color: ${({ theme }) => theme.colors.backgroundPrimary};
+  list-style: none;
 `
 
 export const StyledCardActionArea = styled.div`
@@ -23,22 +21,14 @@ export const StyledCardActionArea = styled.div`
   cursor: pointer;
 `
 
-export const StyledCardImage = styled.div<CardImageProps>`
+export const StyledCardImage = styled.img<CardImageStyles>`
   width: ${(props) => props.width};
-  min-width: ${(props) => props.minWidth};
-  max-width: ${(props) => props.maxWidth};
   height: ${(props) => props.height};
-  min-height: ${(props) => props.minHeight};
-  max-height: ${(props) => props.maxHeight};
-  background-image: url(${(props) => props.image});
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+  object-fit: cover;
 `
 
 export const StyledCardContent = styled.div`
   display: flex;
-  width: 100%;
   flex-direction: column;
   padding: ${({ theme }) => theme.sizing.scale16};
 `

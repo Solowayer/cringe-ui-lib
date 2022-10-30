@@ -1,18 +1,18 @@
-import React, { ReactNode } from 'react'
+import React, { HTMLAttributes, ElementType, ReactNode } from 'react'
 import { LibraryThemeProvider } from '../themes/theme-provider'
 import { StyledCard } from './styled'
-import { Styles } from '../types/shared'
 
-export type CardStyles = Pick<Styles, 'margin' | 'width'>
-
-export type CardProps = {
+export interface CardProps extends HTMLAttributes<HTMLDivElement> {
+  as?: ElementType
   children: ReactNode
-} & CardStyles
+}
 
-export const Card = ({ children, ...styles }: CardProps) => {
+export const Card = ({ as = 'div', children, ...rest }: CardProps) => {
   return (
     <LibraryThemeProvider>
-      <StyledCard {...styles}>{children}</StyledCard>
+      <StyledCard as={as} {...rest}>
+        {children}
+      </StyledCard>
     </LibraryThemeProvider>
   )
 }
