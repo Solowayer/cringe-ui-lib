@@ -1,15 +1,15 @@
 import React from 'react'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
 import { Card, Typo, CardContent, CardActionArea } from '../components'
-import { backgroundColors } from '../components/themes/light-theme/background-colors'
-import { baseColors } from '../components/tokens/colors'
+import { backgroundColorTokens } from '../components/themes/light-theme/background-color-tokens'
+import { colorTokens } from '../components/themes/shared/color-tokens'
 
 export default {
   title: 'Components/Surface/Card',
   parameters: {
     backgrounds: {
       default: 'primary',
-      values: [{ name: 'primary', value: backgroundColors.backgroundSecondary }],
+      values: [{ name: 'primary', value: backgroundColorTokens.backgroundSecondary }],
     },
   },
   component: Card,
@@ -17,7 +17,7 @@ export default {
 
 const Template: ComponentStory<typeof Card> = () => {
   return (
-    <Card style={{ width: '300px' }} hoverShadow>
+    <Card style={{ width: '300px' }} backgroundColor={colorTokens.blue500}>
       <CardActionArea>
         <CardContent>
           <Typo variant="paragraphMedium" line={2}>

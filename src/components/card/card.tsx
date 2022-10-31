@@ -1,7 +1,6 @@
 import React, { HTMLAttributes, ElementType, ReactNode } from 'react'
 import { LibraryThemeProvider } from '../themes/theme-provider'
 import { StyledCard } from './styled'
-import { backgroundColorTokens } from '../themes/light-theme/background-color-tokens'
 
 export type CardStyles = {
   backgroundColor?: string
@@ -17,7 +16,7 @@ export interface CardProps extends CardStyles, HTMLAttributes<HTMLDivElement> {
 
 export const Card = ({
   as = 'div',
-  backgroundColor = backgroundColorTokens.backgroundPrimary,
+  backgroundColor,
   backgroundImage,
   height,
   hoverShadow,

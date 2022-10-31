@@ -9,7 +9,7 @@ export const StyledCard = styled.div<CardStyles>`
   border-radius: ${(props) => props.theme.sizing.scale4};
   overflow: hidden;
   transition: box-shadow 0.2s ease-in-out;
-  background-color: ${(props) => props.backgroundColor};
+  background-color: ${(props) => props.backgroundColor || props.theme.colors.backgroundPrimary};
   background-image: ${(props) => props.backgroundImage};
   background-size: cover;
   background-position: center;
