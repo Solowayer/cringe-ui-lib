@@ -7,6 +7,7 @@ export type CardStyles = {
   backgroundColor?: string
   backgroundImage?: string
   height?: string
+  hoverShadow?: boolean
 }
 
 export interface CardProps extends CardStyles, HTMLAttributes<HTMLDivElement> {
@@ -19,6 +20,7 @@ export const Card = ({
   backgroundColor = backgroundColors.backgroundPrimary,
   backgroundImage,
   height,
+  hoverShadow,
   children,
   ...rest
 }: CardProps) => {
@@ -29,6 +31,7 @@ export const Card = ({
         backgroundColor={backgroundColor}
         backgroundImage={backgroundImage}
         height={height}
+        hoverShadow={hoverShadow}
         {...rest}
       >
         {children}

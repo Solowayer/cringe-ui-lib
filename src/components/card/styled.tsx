@@ -15,7 +15,7 @@ export const StyledCard = styled.div<CardStyles>`
   background-position: center;
   background-repeat: no-repeat;
   &:hover {
-    box-shadow: ${({ theme }) => theme.lighting.shadow2};
+    box-shadow: ${({ theme, hoverShadow }) => (hoverShadow ? theme.lighting.shadow2 : 'none')};
   }
   list-style: none;
 `
