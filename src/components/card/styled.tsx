@@ -1,17 +1,22 @@
 import styled from 'styled-components'
 import { CardImageStyles } from './card-image'
+import { CardStyles } from './card'
 
-export const StyledCard = styled.div`
+export const StyledCard = styled.div<CardStyles>`
   display: flex;
   flex-direction: column;
   position: relative;
   border-radius: ${(props) => props.theme.sizing.scale4};
   overflow: hidden;
   transition: box-shadow 0.2s ease-in-out;
+  background-color: ${(props) => props.backgroundColor};
+  background-image: ${(props) => props.backgroundImage};
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   &:hover {
     box-shadow: ${({ theme }) => theme.lighting.shadow2};
   }
-  background-color: ${({ theme }) => theme.colors.backgroundPrimary};
   list-style: none;
 `
 
