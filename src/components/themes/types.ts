@@ -1,4 +1,56 @@
-export type Background = {
+export type ColorTokens = {
+  black: string
+  white: string
+  // Gray
+  gray50: string
+  gray100: string
+  gray200: string
+  gray300: string
+  gray400: string
+  gray500: string
+  gray600: string
+  gray700: string
+  gray800: string
+  gray900: string
+  // Red
+  red50: string
+  red100: string
+  red200: string
+  red300: string
+  red400: string
+  red500: string
+  red600: string
+  red700: string
+  // Orange
+  orange50: string
+  orange100: string
+  orange200: string
+  orange300: string
+  orange400: string
+  orange500: string
+  orange600: string
+  orange700: string
+  //Green
+  green50: string
+  green100: string
+  green200: string
+  green300: string
+  green400: string
+  green500: string
+  green600: string
+  green700: string
+  //Blue
+  blue50: string
+  blue100: string
+  blue200: string
+  blue300: string
+  blue400: string
+  blue500: string
+  blue600: string
+  blue700: string
+}
+
+export type BackgroundColorTokens = {
   backgroundPrimary: string
   backgroundSecondary: string
   backgroundAccent: string
@@ -11,7 +63,7 @@ export type Background = {
   backgroundDangerLight: string
 }
 
-export type Content = {
+export type ContentColorTokens = {
   contentPrimary: string
   contentSecondary: string
   contentTertiary: string
@@ -23,7 +75,7 @@ export type Content = {
   contentDisabled: string
 }
 
-export type Component = {
+export type ComponentColorTokens = {
   // Buttons
   buttonPrimaryFill: string
   buttonPrimaryHover: string

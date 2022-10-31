@@ -1,6 +1,6 @@
-import { BaseColors } from './types'
+import { ColorTokens } from '../types'
 
-export const baseColors: BaseColors = {
+export const colorTokens: ColorTokens = {
   black: '#000000',
   white: '#ffffff',
   // Gray

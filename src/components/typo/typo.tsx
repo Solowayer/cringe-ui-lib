@@ -2,9 +2,9 @@ import { LibraryThemeProvider } from '../themes/theme-provider'
 import { StyledTypo } from './styled'
 import { Typography } from '../themes'
 import { ReactNode } from 'react'
-import { contentColors } from '../themes/light-theme/content-colors'
+import { contentColorTokens } from '../themes/light-theme/content-color-tokens'
 
-export type TypoColors = keyof typeof contentColors
+export type TypoColors = keyof typeof contentColorTokens
 
 export interface TypoProps {
   variant?: keyof Typography
