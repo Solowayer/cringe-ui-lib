@@ -223,3 +223,11 @@ export type Lighting = {
   shadow2: string
   shadow3: string
 }
+
+export type MediaQuery = {
+  small: string
+  medium: string
+  large: string
+  xLarge: string
+  xXLarge: string
+}
