@@ -219,6 +219,8 @@ export type Borders = {
 
 export type Lighting = {
   overlay1: string
+  overlay2: string
+  overlay3: string
   shadow1: string
   shadow2: string
   shadow3: string
@@ -230,4 +232,10 @@ export type MediaQuery = {
   large: string
   xLarge: string
   xXLarge: string
+}
+
+export type ZIndex = {
+  dropdown: number
+  drawer: number
+  modal: number
 }

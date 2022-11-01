@@ -6,7 +6,7 @@ export const StyledModalWrapper = styled.div<{ isOpen: boolean }>`
   position: fixed;
   align-items: center;
   justify-content: center;
-  background-color: ${({ theme }) => theme.lighting.overlay1};
+  background-color: ${({ theme }) => theme.lighting.overlay2};
   left: 0;
   right: 0;
   top: 0;
@@ -14,7 +14,7 @@ export const StyledModalWrapper = styled.div<{ isOpen: boolean }>`
   transition: opacity 0.2s ease-in;
   pointer-events: ${(props) => (props.isOpen ? 'all' : 'none')};
   opacity: ${(props) => (props.isOpen ? 1 : 0)};
-  z-index: 1000;
+  z-index: ${({ theme }) => theme.zIndex.modal};
 `
 
 export const StyledModal = styled.div<{ isOpen: boolean; size: keyof typeof SIZE }>`

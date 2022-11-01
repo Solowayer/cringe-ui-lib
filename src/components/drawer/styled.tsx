@@ -9,7 +9,7 @@ export const StyledDrawerWrapper = styled.div<{ isOpen: boolean; side: keyof typ
   align-items: ${(props) =>
     props.side === SIDE.top ? 'flex-start' : props.side === SIDE.bottom ? 'flex-end' : ''};
   position: fixed;
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: ${({ theme }) => theme.lighting.overlay2};
   left: 0;
   right: 0;
   top: 0;
@@ -17,7 +17,7 @@ export const StyledDrawerWrapper = styled.div<{ isOpen: boolean; side: keyof typ
   transition: opacity 0.2s ease-in;
   pointer-events: ${(props) => (props.isOpen ? 'all' : 'none')};
   opacity: ${(props) => (props.isOpen ? 1 : 0)};
-  z-index: 1000;
+  z-index: ${({ theme }) => theme.zIndex.drawer};
 `
 
 export const StyledDrawer = styled.div<{

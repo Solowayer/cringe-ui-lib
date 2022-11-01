@@ -1,13 +1,15 @@
 import 'styled-components'
 import {
-  Typography,
-  Borders,
-  Lighting,
-  Sizing,
   ColorTokens,
   BackgroundColorTokens,
   ComponentColorTokens,
   ContentColorTokens,
+  Typography,
+  Borders,
+  Lighting,
+  Sizing,
+  ZIndex,
+  MediaQuery,
 } from './types'
 
 type Colors = ColorTokens & BackgroundColorTokens & ContentColorTokens & ComponentColorTokens
@@ -19,5 +21,7 @@ declare module 'styled-components' {
     borders: Borders
     sizing: Sizing
     lighting: Lighting
+    zIndex: ZIndex
+    mediaQuery: MediaQuery
   }
 }
