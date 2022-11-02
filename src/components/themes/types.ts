@@ -231,7 +231,6 @@ export type MediaQuery = {
   medium: string
   large: string
   xLarge: string
-  xXLarge: string
 }
 
 export type ZIndex = {

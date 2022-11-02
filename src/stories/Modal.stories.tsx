@@ -3,7 +3,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react'
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Typo, Box } from '../components'
 
 export default {
-  title: 'Components/Surface/Modal',
+  title: 'ComponentsModal',
   component: Modal,
 } as ComponentMeta<typeof Modal>
 

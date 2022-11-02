@@ -3,7 +3,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react'
 import { Drawer, DrawerHeader, DrawerBody, DrawerFooter, Button, Typo } from '../components'
 
 export default {
-  title: 'Components/Surface/Drawer',
+  title: 'Components/Drawer',
   component: Drawer,
 } as ComponentMeta<typeof Drawer>
 

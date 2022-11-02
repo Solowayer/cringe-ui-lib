@@ -4,7 +4,7 @@ import { Button } from '../components'
 import { Close } from '../components/icon/close'
 
 export default {
-  title: 'Components/Controls/Button',
+  title: 'Components/Button',
   component: Button,
 } as ComponentMeta<typeof Button>
 

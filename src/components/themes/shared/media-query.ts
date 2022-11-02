@@ -6,5 +6,4 @@ export const mediaQuery: MediaQuery = {
   medium: breakpoints.md,
   large: breakpoints.lg,
   xLarge: breakpoints.xl,
-  xXLarge: breakpoints.xxl,
 }

@@ -4,7 +4,7 @@ import { FormControl } from '../components'
 import { Input } from '../components'
 
 export default {
-  title: 'Components/Controls/FormControl',
+  title: 'Components/FormControl',
   component: FormControl,
 } as ComponentMeta<typeof FormControl>
 

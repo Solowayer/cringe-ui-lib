@@ -5,7 +5,7 @@ import { backgroundColorTokens } from '../components/themes/light-theme/backgrou
 import { colorTokens } from '../components/themes/shared/color-tokens'
 
 export default {
-  title: 'Components/Surface/Card',
+  title: 'Components/Card',
   parameters: {
     backgrounds: {
       default: 'primary',
