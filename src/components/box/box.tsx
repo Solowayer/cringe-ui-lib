@@ -79,6 +79,7 @@ export const Box = (props: BoxProps) => {
     backgroundPosition,
     backgroundRepeat,
     children,
+    ...rest
   } = props
   return (
     <LibraryThemeProvider>
@@ -118,6 +119,7 @@ export const Box = (props: BoxProps) => {
         backgroundImage={backgroundImage}
         backgroundPosition={backgroundPosition}
         backgroundRepeat={backgroundRepeat}
+        {...rest}
       >
         {children}
       </StyledBox>
