@@ -2,20 +2,101 @@ import React, { ElementType, HTMLAttributes, ReactNode } from 'react'
 import { StyledBox } from './styled'
 import { LibraryThemeProvider } from '../themes/theme-provider'
 
+type AlignItems =
+  | 'normal'
+  | 'stretch'
+  | 'center'
+  | 'start'
+  | 'end'
+  | 'flex-start'
+  | 'flex-end'
+  | 'self-start'
+  | 'self-end'
+  | 'baseline'
+  | 'first baseline'
+  | 'last baseline'
+  | 'safe center'
+  | 'unsafe center'
+  | 'inherit'
+  | 'initial'
+  | 'unset'
+
+type AlignSelf =
+  | 'auto'
+  | 'normal'
+  | 'center'
+  | 'start'
+  | 'end'
+  | 'self-start'
+  | 'self-end'
+  | 'flex-start'
+  | 'flex-end'
+  | 'baseline'
+  | 'first baseline'
+  | 'last baseline'
+  | 'stretch'
+  | 'safe center'
+  | 'unsafe center'
+  | 'inherit'
+  | 'initial'
+  | 'unset'
+
+type FlexDirection =
+  | 'row'
+  | 'row-reverse'
+  | 'column'
+  | 'column-reverse'
+  | 'inherit'
+  | 'initial'
+  | 'unset'
+
+type Display =
+  | 'block'
+  | 'inline'
+  | 'flex'
+  | 'grid'
+  | 'none'
+  | 'inline-block'
+  | 'inline-flex'
+  | 'inline-grid'
+  | 'inherit'
+  | 'initial'
+  | 'unset'
+
+type JustifyContent =
+  | 'center'
+  | 'start'
+  | 'end'
+  | 'flex-start'
+  | 'flex-end'
+  | 'left'
+  | 'right'
+  | 'space-between'
+  | 'space-around'
+  | 'space-evenly'
+  | 'stretch'
+  | 'safe center'
+  | 'unsafe center'
+  | 'inherit'
+  | 'initial'
+  | 'unset'
+
+type Position = 'static' | 'absolute' | 'relative' | 'fixed' | 'sticky'
+
 export interface BoxProps extends HTMLAttributes<HTMLDivElement> {
   as?: ElementType
-  display?: string
-  position?: string
+  display?: Display
+  position?: Position
   overflow?: string
   flex?: string
   flexGrow?: string
   flexShrink?: string
   flexBasis?: string
   flexWrap?: string
-  flexDirection?: string
-  alignItems?: string
-  alignSelf?: string
-  justifyContent?: string
+  flexDirection?: FlexDirection
+  alignItems?: AlignItems
+  alignSelf?: AlignSelf
+  justifyContent?: JustifyContent
   gap?: string
   width?: string
   minWidth?: string
