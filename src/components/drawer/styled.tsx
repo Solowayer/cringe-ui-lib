@@ -1,13 +1,24 @@
 import styled, { css } from 'styled-components'
 import { DrawerProps } from './drawer'
-import { SIDE, SIZE } from './constants'
+import { ALIGNMENT, SIZE } from './constants'
 
-export const StyledDrawerWrapper = styled.div<{ isOpen: boolean; side: keyof typeof SIDE }>`
+export const StyledDrawerWrapper = styled.div<{
+  isOpen: boolean
+  alignment: keyof typeof ALIGNMENT
+}>`
   display: flex;
   justify-content: ${(props) =>
-    props.side === SIDE.right ? 'flex-end' : props.side === SIDE.left ? 'flex-start' : ''};
+    props.alignment === ALIGNMENT.right
+      ? 'flex-end'
+      : props.alignment === ALIGNMENT.left
+      ? 'flex-start'
+      : ''};
   align-items: ${(props) =>
-    props.side === SIDE.top ? 'flex-start' : props.side === SIDE.bottom ? 'flex-end' : ''};
+    props.alignment === ALIGNMENT.top
+      ? 'flex-start'
+      : props.alignment === ALIGNMENT.bottom
+      ? 'flex-end'
+      : ''};
   position: fixed;
   background-color: ${({ theme }) => theme.lighting.overlay2};
   left: 0;
@@ -23,7 +34,7 @@ export const StyledDrawerWrapper = styled.div<{ isOpen: boolean; side: keyof typ
 export const StyledDrawer = styled.div<{
   isOpen: boolean
   size: keyof typeof SIZE
-  side: keyof typeof SIDE
+  alignment: keyof typeof ALIGNMENT
 }>`
   display: flex;
   flex-direction: column;
@@ -66,7 +77,7 @@ export const StyledDrawerFooter = styled.div`
   box-shadow: ${({ theme }) => theme.lighting.shadow1};
 `
 
-function getSide({ size, side, isOpen }: DrawerProps) {
+function getSide({ size, alignment, isOpen }: DrawerProps) {
   const getSize =
     size === SIZE.default
       ? '400px'
@@ -76,26 +87,26 @@ function getSide({ size, side, isOpen }: DrawerProps) {
       ? '100%'
       : 'auto'
 
-  switch (side) {
-    case SIDE.left:
+  switch (alignment) {
+    case ALIGNMENT.left:
       return css`
         width: ${getSize};
         height: 100%;
         transform: ${isOpen ? 'translateX(0)' : `translateX(-${getSize})`};
       `
-    case SIDE.right:
+    case ALIGNMENT.right:
       return css`
         width: ${getSize};
         height: 100%;
         transform: ${isOpen ? 'translateX(0)' : `translateX(${getSize})`};
       `
-    case SIDE.top:
+    case ALIGNMENT.top:
       return css`
         width: 100%;
         height: ${getSize};
         transform: ${isOpen ? 'translateY(0)' : `translateY(-${getSize})`};
       `
-    case SIDE.bottom:
+    case ALIGNMENT.bottom:
       return css`
         width: 100%;
         height: ${getSize};

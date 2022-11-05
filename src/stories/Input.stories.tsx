@@ -17,6 +17,7 @@ const Template: ComponentStory<typeof Input> = () => {
       onChange={(event) => setValue(event.currentTarget.value)}
       clearButtonClick={() => setValue('')}
       clearable
+      inputSize="large"
     />
   )
 }

@@ -12,4 +12,5 @@ const Template: ComponentStory<typeof Typo> = (args) => <Typo {...args} />
 export const Playground = Template.bind({})
 Playground.args = {
   children: 'Cringe',
+  as: 'a',
 }

@@ -20,13 +20,8 @@ const Template: ComponentStory<typeof Container> = () => {
 
   return (
     <React.Fragment>
-      <Box {...styles}>
-        <Container maxWidth="100%" paddingLeft="40px" paddingRight="40px">
-          Cringe
-        </Container>
-      </Box>
       <Container maxWidth="100%" paddingLeft="40px" paddingRight="40px">
-        <Box {...styles}>Cringe</Box>
+        <Box {...styles}>Content</Box>
       </Container>
     </React.Fragment>
   )

@@ -2,13 +2,13 @@ import React, { ReactNode } from 'react'
 import { LibraryThemeProvider } from '../themes/theme-provider'
 import { useHideScroll } from '../../hooks/useHideScroll'
 import { StyledDrawerWrapper, StyledClose, StyledDrawer } from './styled'
-import { SIDE, SIZE } from './constants'
+import { ALIGNMENT, SIZE } from './constants'
 import { Button } from '../button'
 import { Close } from '../icon/close'
 
 export type DrawerProps = {
   isOpen?: boolean
-  side?: keyof typeof SIDE
+  alignment?: keyof typeof ALIGNMENT
   size?: keyof typeof SIZE
   onClose?: () => void
   children?: ReactNode
@@ -16,7 +16,7 @@ export type DrawerProps = {
 
 export const Drawer = ({
   isOpen,
-  side = 'right',
+  alignment = 'right',
   size = 'default',
   onClose,
   children,
@@ -25,8 +25,13 @@ export const Drawer = ({
 
   return (
     <LibraryThemeProvider>
-      <StyledDrawerWrapper isOpen={isOpen} side={side} onClick={onClose}>
-        <StyledDrawer isOpen={isOpen} side={side} size={size} onClick={(e) => e.stopPropagation()}>
+      <StyledDrawerWrapper isOpen={isOpen} alignment={alignment} onClick={onClose}>
+        <StyledDrawer
+          isOpen={isOpen}
+          alignment={alignment}
+          size={size}
+          onClick={(e) => e.stopPropagation()}
+        >
           <StyledClose onClick={onClose}>
             <Button variant="clear" shape="circle">
               <Close />

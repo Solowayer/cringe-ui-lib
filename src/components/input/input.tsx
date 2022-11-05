@@ -14,12 +14,11 @@ import { Close, Show, Hide } from '../icon'
 
 type InputTypes = 'text' | 'password'
 
-export interface InputProps
-  extends Omit<HTMLAttributes<HTMLInputElement>, 'size' | 'disabled' | 'onChange'> {
+export interface InputProps extends HTMLAttributes<HTMLInputElement> {
   value?: string
   type?: InputTypes
   width?: string
-  scale?: keyof typeof SIZE
+  inputSize?: keyof typeof SIZE
   onChange?: ChangeEventHandler<HTMLInputElement>
   clearButtonClick?: () => void
   startIcon?: ReactElement
@@ -38,7 +37,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>((props, ref)
     value,
     type = 'text',
     width = '100%',
-    scale = SIZE.medium,
+    inputSize = SIZE.medium,
     onChange,
     clearButtonClick,
     startIcon,
@@ -61,13 +60,13 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>((props, ref)
 
   return (
     <LibraryThemeProvider>
-      <StyledInputWrapper width={width} scale={scale}>
+      <StyledInputWrapper width={width} inputSize={inputSize}>
         {startIcon && <StyledInputIcon disabled={disabled}>{startIcon}</StyledInputIcon>}
         <StyledInput
           ref={ref}
           value={value}
           type={getInputType()}
-          scale={scale}
+          inputSize={inputSize}
           onChange={onChange}
           clearButtonClick={clearButtonClick}
           startIcon={startIcon}

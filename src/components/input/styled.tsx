@@ -2,7 +2,12 @@ import styled, { css } from 'styled-components'
 import { InputProps } from './input'
 import { SIZE } from './constants'
 
-export const StyledInputWrapper = styled.div<InputProps>`
+type StyledInputProps = {
+  inputSize?: keyof typeof SIZE
+  width?: string
+}
+
+export const StyledInputWrapper = styled.div<StyledInputProps>`
   position: relative;
   display: flex;
   box-sizing: border-box;
@@ -101,8 +106,8 @@ function getBackgroundStyles({ disabled, error, success }: InputProps) {
   }
 }
 
-function getHeightStyles({ scale }: InputProps) {
-  switch (scale) {
+function getHeightStyles({ inputSize }: InputProps) {
+  switch (inputSize) {
     case SIZE.small:
       return css`
         height: ${({ theme }) => theme.sizing.scale32};
@@ -120,8 +125,8 @@ function getHeightStyles({ scale }: InputProps) {
   }
 }
 
-function getPaddingStyles({ startIcon, scale }: InputProps) {
-  switch (scale) {
+function getPaddingStyles({ startIcon, inputSize }: InputProps) {
+  switch (inputSize) {
     case SIZE.small:
       return css`
         padding-left: ${startIcon ? '48px' : ({ theme }) => theme.sizing.scale16};
@@ -139,8 +144,8 @@ function getPaddingStyles({ startIcon, scale }: InputProps) {
   }
 }
 
-function getFontStyles({ scale }: InputProps) {
-  switch (scale) {
+function getFontStyles({ inputSize }: InputProps) {
+  switch (inputSize) {
     case SIZE.small:
       return css`
         font-size: ${({ theme }) => theme.typography.paragraphSmall.fontSize};

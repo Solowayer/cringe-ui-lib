@@ -1,4 +1,4 @@
-export const SIDE = {
+export const ALIGNMENT = {
   right: 'right',
   left: 'left',
   top: 'top',
