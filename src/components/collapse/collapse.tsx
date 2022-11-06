@@ -1,7 +1,7 @@
 import React, { ReactNode, useEffect, useRef, useState } from 'react'
-import { LibraryThemeProvider } from '../../themes/theme-provider'
+import { LibraryThemeProvider } from '../themes/theme-provider'
 import { StyledPanel, Header, Heading, Content, ContentContainer, Title, SubTitle } from './styled'
-import { ExpandMore } from '../../icon'
+import { ExpandMore } from '../icon'
 
 export type PanelProps = {
   title?: string
@@ -11,7 +11,7 @@ export type PanelProps = {
   onClick?: () => void
 }
 
-export const Panel = ({ title, subTitle, content, expanded = false, onClick }: PanelProps) => {
+export const Collapse = ({ title, subTitle, content, expanded = false, onClick }: PanelProps) => {
   const [height, setHeight] = useState(0)
   const contentRef = useRef<HTMLDivElement>(null)
 

@@ -4,19 +4,22 @@ import { LibraryThemeProvider } from '../themes/theme-provider'
 import { Input } from '../input'
 import { ExpandMore } from '../icon'
 
+export type SelectStyles = {
+  width?: string
+  maxDropdownHeight?: string
+}
+
 export type Value = {
   label: string
   value: string
 }
 
 export type SelectProps = {
-  width?: string
-  maxDropdownHeight?: string
   isDropdownOpen?: boolean
   value?: Value
   options: Value[]
   onChange?: (option: Value | undefined) => void
-}
+} & SelectStyles
 
 export const Select = ({
   width,

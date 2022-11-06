@@ -9,9 +9,8 @@ export type AccordionProps = {
   width?: string
 }
 
-export const Accordion = (props: AccordionProps) => {
+export const Accordion = ({ items, width }: AccordionProps) => {
   const [currentIdx, setCurrentIdx] = useState(-1)
-  const { items, width } = props
   const handleClick = (idx: number) => {
     setCurrentIdx((currentValue) => (currentValue !== idx ? idx : -1))
   }

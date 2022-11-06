@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { PanelProps } from './panel'
+import { PanelProps } from './collapse'
 
 export const StyledPanel = styled.li<PanelProps>`
   width: 100%;

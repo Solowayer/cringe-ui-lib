@@ -53,7 +53,23 @@ function getSize({ size }: SpinnerProps) {
         height: ${({ theme }) => theme.sizing.scale32};
         border-width: ${({ theme }) => theme.sizing.scale6};
       `
+    case SIZE.xl:
+      return css`
+        width: ${({ theme }) => theme.sizing.scale40};
+        height: ${({ theme }) => theme.sizing.scale40};
+        border-width: ${({ theme }) => theme.sizing.scale8};
+      `
+    case SIZE.xxl:
+      return css`
+        width: ${({ theme }) => theme.sizing.scale56};
+        height: ${({ theme }) => theme.sizing.scale56};
+        border-width: ${({ theme }) => theme.sizing.scale10};
+      `
     default:
-      return ''
+      return css`
+        width: ${({ theme }) => theme.sizing.scale24};
+        height: ${({ theme }) => theme.sizing.scale24};
+        border-width: ${({ theme }) => theme.sizing.scale4};
+      `
   }
 }
