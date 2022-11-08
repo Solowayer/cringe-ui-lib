@@ -13,8 +13,6 @@ export const StyledGridLayout = styled.div`
   grid-template-columns: repeat(12, 1fr);
   row-gap: 8px;
   column-gap: 40px;
-  margin-right: 40px;
-  margin-left: 40px;
   @media (max-width: 1136px) {
     grid-template-columns: repeat(8, 1fr);
   }

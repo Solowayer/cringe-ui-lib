@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components'
-import { MenuItemProps } from './menu-item'
+import { ListItemProps } from './list-item'
 
-export const StyledMenuItem = styled.li<MenuItemProps>`
+export const StyledMenuItem = styled.li<ListItemProps>`
   display: flex;
   align-items: center;
   gap: ${({ theme }) => theme.sizing.scale8};
@@ -25,13 +25,13 @@ export const StyledMenuItem = styled.li<MenuItemProps>`
   ${dangerStyles}
 `
 
-export const StyledContainer = styled.div<MenuItemProps>`
+export const StyledContainer = styled.div<ListItemProps>`
   display: flex;
   flex-direction: column;
   margin-left: ${({ theme }) => theme.sizing.scale8};
 `
 
-function dangerStyles({ danger }: MenuItemProps) {
+function dangerStyles({ danger }: ListItemProps) {
   if (danger) {
     return css`
       color: ${({ theme }) => theme.colors.menuItemContentDanger};

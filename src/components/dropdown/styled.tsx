@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { DropdownProps } from './dropdown'
 
-export const StyledList = styled.ul<DropdownProps>`
+export const StyledDropdown = styled.ul<DropdownProps>`
   display: ${(props) => (props.isOpen ? 'flex' : 'none')};
   flex-direction: column;
   box-sizing: border-box;
@@ -16,17 +16,6 @@ export const StyledList = styled.ul<DropdownProps>`
   padding-bottom: ${({ theme }) => theme.sizing.scale8};
   box-shadow: ${({ theme }) => theme.lighting.shadow2};
   border-radius: ${({ theme }) => theme.sizing.scale4};
-`
-
-export const StyledDivider = styled.li`
-  display: flex;
-  max-width: 100%;
-  height: 1px;
-  background-color: ${({ theme }) => theme.borders.default.color};
-  margin-top: ${({ theme }) => theme.sizing.scale4};
-  margin-bottom: ${({ theme }) => theme.sizing.scale4};
-  margin-left: ${({ theme }) => theme.sizing.scale16};
-  margin-right: ${({ theme }) => theme.sizing.scale16};
 `
 
 export const NoResults = styled.li`

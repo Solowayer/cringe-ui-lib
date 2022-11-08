@@ -78,6 +78,7 @@ export const Select = ({
           value={value?.label}
           clearButtonClick={() => onChange({ label: '', value: '' })}
           clearable
+          readonly
         />
         <StyledDropdown
           ref={dropdownRef}
