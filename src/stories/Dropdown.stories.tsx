@@ -1,23 +1,35 @@
 import React from 'react'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
-import { Dropdown } from '../components'
+import { Dropdown, ListItem, ListItemLink } from '../components'
 import { Delete } from '../components/icon'
+import { Typo } from '../components'
 
 export default {
-  title: 'Components/Dropdown/Dropdown',
+  title: 'Components/Dropdown',
   component: Dropdown,
 } as ComponentMeta<typeof Dropdown>
 
-const Template: ComponentStory<typeof Dropdown> = (args) => <Dropdown {...args} />
-
 const ITEMS = [
-  { icon: <Delete />, label: 'Delete' },
+  { path: 'https://www.youtube.com/', icon: <Delete />, label: 'Delete' },
   { icon: <Delete />, label: 'Delete' },
   { icon: <Delete />, label: 'Delete', danger: true },
-  { icon: <Delete />, label: 'Delete' },
   { divider: true },
   { icon: <Delete />, label: 'Delete', disabled: true },
 ]
 
+const Template: ComponentStory<typeof Dropdown> = () => {
+  return (
+    <Dropdown isOpen={true}>
+      {ITEMS.map((item) => (
+        <ListItem divider={item.divider} disabled={item.disabled}>
+          <ListItemLink href={item.path}>
+            {item.icon}
+            <Typo color="contentPrimary">{item.label}</Typo>
+          </ListItemLink>
+        </ListItem>
+      ))}
+    </Dropdown>
+  )
+}
+
 export const Playground = Template.bind({})
-Playground.args = { items: ITEMS, maxHeight: '400px' }

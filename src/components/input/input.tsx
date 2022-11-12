@@ -20,7 +20,6 @@ export interface InputProps extends HTMLAttributes<HTMLInputElement> {
   width?: string
   inputSize?: keyof typeof SIZE
   onChange?: ChangeEventHandler<HTMLInputElement>
-  clearButtonClick?: () => void
   startIcon?: ReactElement
   endContent?: ReactElement | string
   clearable?: boolean
@@ -39,7 +38,6 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>((props, ref)
     width = '100%',
     inputSize = SIZE.medium,
     onChange,
-    clearButtonClick,
     startIcon,
     endContent,
     clearable = false,
@@ -68,7 +66,6 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>((props, ref)
           type={getInputType()}
           inputSize={inputSize}
           onChange={onChange}
-          clearButtonClick={clearButtonClick}
           startIcon={startIcon}
           endContent={endContent}
           clearable={clearable}
@@ -80,7 +77,12 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>((props, ref)
         />
         <StyledInputControls disabled={disabled}>
           {clearable && value && !disabled ? (
-            <StyledClearIcon onClick={clearButtonClick}>
+            <StyledClearIcon
+              onClick={(e) => {
+                e.preventDefault()
+                onChange && onChange({ currentTarget: { value: '' } } as any)
+              }}
+            >
               <Close size="16" />
             </StyledClearIcon>
           ) : null}

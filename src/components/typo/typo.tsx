@@ -10,7 +10,7 @@ export interface TypoProps {
   variant?: keyof Typography
   line?: number
   children?: ReactNode
-  color?: string | TypoColors
+  color?: (string & {}) | TypoColors
   width?: string
   margin?: string
   marginTop?: string

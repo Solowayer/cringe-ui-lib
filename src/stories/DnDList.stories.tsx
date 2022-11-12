@@ -11,10 +11,7 @@ export default {
 const Template: ComponentStory<typeof DnDList> = () => {
   return (
     <DnDList>
-      <ListItem label="Cringe" />
-      <ListItem label="Cringe" />
-      <ListItem divider />
-      <ListItem label="Cringe" />
+      <ListItem>Cringe</ListItem>
     </DnDList>
   )
 }

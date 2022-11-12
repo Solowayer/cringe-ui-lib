@@ -1,7 +1,8 @@
 import styled, { css } from 'styled-components'
 import { ListItemProps } from './list-item'
+import { ListItemLinkProps } from './list-item-link'
 
-export const StyledMenuItem = styled.li<ListItemProps>`
+export const StyledListItem = styled.li<ListItemProps>`
   display: flex;
   align-items: center;
   gap: ${({ theme }) => theme.sizing.scale8};
@@ -23,6 +24,21 @@ export const StyledMenuItem = styled.li<ListItemProps>`
       disabled ? 'transparent' : theme.colors.menuItemHover};
   }
   ${dangerStyles}
+`
+
+export const StyledListItemLink = styled.a<ListItemLinkProps>`
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+  flex-grow: 1;
+  gap: inherit;
+`
+
+export const StyledListItemText = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: ${({ theme }) => theme.sizing.scale4};
 `
 
 export const StyledContainer = styled.div<ListItemProps>`
