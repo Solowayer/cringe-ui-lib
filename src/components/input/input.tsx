@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { ChangeEventHandler, HTMLAttributes, ReactElement } from 'react'
+import React, { HTMLAttributes, useState } from 'react'
+import { ChangeEventHandler, ReactElement } from 'react'
 import { SIZE } from './constants'
 import { LibraryThemeProvider } from '../themes/theme-provider'
 import {
@@ -14,7 +14,7 @@ import { Close, Show, Hide } from '../icon'
 
 type InputTypes = 'text' | 'password'
 
-export interface InputProps extends HTMLAttributes<HTMLInputElement> {
+export type InputProps = {
   value?: string
   type?: InputTypes
   width?: string
@@ -27,7 +27,7 @@ export interface InputProps extends HTMLAttributes<HTMLInputElement> {
   error?: boolean
   success?: boolean
   readonly?: boolean
-}
+} & HTMLAttributes<HTMLInputElement>
 
 export const Input = React.forwardRef<HTMLInputElement, InputProps>((props, ref) => {
   const [isMasked, setMask] = useState(true)

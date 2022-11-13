@@ -1,10 +1,10 @@
 import React from 'react'
 import { StyledDnDList } from './styled'
 
-export type DnDListProps = {
+export type DndListProps = {
   children: React.ReactNode | Array<React.ReactNode>
 }
 
-export const DnDList = ({ children }: DnDListProps) => {
+export const DndList = ({ children }: DndListProps) => {
   return <StyledDnDList>{children}</StyledDnDList>
 }

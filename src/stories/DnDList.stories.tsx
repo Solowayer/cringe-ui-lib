@@ -1,18 +1,21 @@
 import React from 'react'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
-import { DnDList } from '../components'
-import { ListItem } from '../components'
+import { DndList, DndItem } from '../components'
+import { Drag } from '../components/icon'
 
 export default {
-  title: 'Components/DnDList',
-  component: DnDList,
-} as ComponentMeta<typeof DnDList>
+  title: 'Components/DndList',
+  component: DndList,
+} as ComponentMeta<typeof DndList>
 
-const Template: ComponentStory<typeof DnDList> = () => {
+const Template: ComponentStory<typeof DndList> = () => {
   return (
-    <DnDList>
-      <ListItem>Cringe</ListItem>
-    </DnDList>
+    <DndList>
+      <DndItem>
+        <Drag />
+        Cringe
+      </DndItem>
+    </DndList>
   )
 }
 

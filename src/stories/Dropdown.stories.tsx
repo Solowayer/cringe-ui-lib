@@ -24,7 +24,7 @@ const Template: ComponentStory<typeof Dropdown> = () => {
         <ListItem divider={item.divider} disabled={item.disabled}>
           <ListItemLink href={item.path}>
             {item.icon}
-            <Typo color="contentPrimary">{item.label}</Typo>
+            <Typo color={item.disabled ? 'contentDisabled' : 'contentPrimary'}>{item.label}</Typo>
           </ListItemLink>
         </ListItem>
       ))}
