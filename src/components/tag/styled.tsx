@@ -5,7 +5,7 @@ import { COLOR, VARIANT } from './constants'
 export const StyledTag = styled.span<TagProps>`
   display: inline-flex;
   align-items: center;
-  cursor: default;
+  cursor: pointer;
   font-size: ${({ theme }) => theme.typography.paragraphMedium.fontSize};
   font-weight: ${({ theme }) => theme.typography.paragraphMedium.fontWeight};
   line-height: ${({ theme }) => theme.typography.paragraphMedium.lineHeight};
@@ -15,6 +15,8 @@ export const StyledTag = styled.span<TagProps>`
   padding-left: ${({ theme }) => theme.sizing.scale8};
   padding-right: ${({ theme }) => theme.sizing.scale8};
   border-radius: ${({ theme }) => theme.borders.radius16};
+  border-style: ${({ theme }) => theme.borders.solid};
+  border-width: ${({ theme }) => theme.borders.width2};
   ${(props) => (props.variant === VARIANT.solid ? getSolidStyles : getOutlinedStyles)}
 `
 
@@ -45,16 +47,12 @@ function getOutlinedStyles({ color }: TagProps) {
     case COLOR.default:
       return css`
         color: ${({ theme }) => theme.colors.tagOutlinedDefaultContent};
-        outline-width: ${({ theme }) => theme.colors.tagOutlinedDefaultBorder.width};
-        outline-style: ${({ theme }) => theme.colors.tagOutlinedDefaultBorder.style};
-        outline-color: ${({ theme }) => theme.colors.tagOutlinedDefaultBorder.color};
+        border-color: ${({ theme }) => theme.colors.tagOutlinedDefaultBorder};
       `
     case COLOR.positive:
       return css`
         color: ${({ theme }) => theme.colors.tagOutlinedPositiveContent};
-        outline-width: ${({ theme }) => theme.colors.tagOutlinedPositiveBorder.width};
-        outline-style: ${({ theme }) => theme.colors.tagOutlinedPositiveBorder.style};
-        outline-color: ${({ theme }) => theme.colors.tagOutlinedPositiveBorder.color};
+        border-color: ${({ theme }) => theme.colors.tagOutlinedPositiveBorder};
       `
     default:
       return ``

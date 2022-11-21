@@ -1,9 +1,17 @@
 import React, { ReactNode, useEffect, useRef, useState } from 'react'
 import { LibraryThemeProvider } from '../themes/theme-provider'
-import { StyledPanel, Header, Heading, Content, ContentContainer, Title, SubTitle } from './styled'
+import {
+  StyledCollapse,
+  Header,
+  Heading,
+  Content,
+  ContentContainer,
+  Title,
+  SubTitle,
+} from './styled'
 import { ExpandMore } from '../icon'
 
-export type PanelProps = {
+export type CollapseProps = {
   title?: string
   subTitle?: string
   content?: ReactNode
@@ -11,7 +19,13 @@ export type PanelProps = {
   onClick?: () => void
 }
 
-export const Collapse = ({ title, subTitle, content, expanded = false, onClick }: PanelProps) => {
+export const Collapse = ({
+  title,
+  subTitle,
+  content,
+  expanded = false,
+  onClick,
+}: CollapseProps) => {
   const [height, setHeight] = useState(0)
   const contentRef = useRef<HTMLDivElement>(null)
 
@@ -26,7 +40,7 @@ export const Collapse = ({ title, subTitle, content, expanded = false, onClick }
 
   return (
     <LibraryThemeProvider>
-      <StyledPanel>
+      <StyledCollapse>
         <Header onClick={onClick} expanded={expanded}>
           <Heading>
             <Title>{title}</Title>
@@ -39,7 +53,7 @@ export const Collapse = ({ title, subTitle, content, expanded = false, onClick }
             {content}
           </Content>
         </ContentContainer>
-      </StyledPanel>
+      </StyledCollapse>
     </LibraryThemeProvider>
   )
 }

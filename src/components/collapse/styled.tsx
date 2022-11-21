@@ -1,7 +1,7 @@
 import styled from 'styled-components'
-import { PanelProps } from './collapse'
+import { CollapseProps } from './collapse'
 
-export const StyledPanel = styled.li<PanelProps>`
+export const StyledCollapse = styled.li<CollapseProps>`
   width: 100%;
   display: flex;
   box-sizing: border-box;
@@ -9,7 +9,7 @@ export const StyledPanel = styled.li<PanelProps>`
   list-style: none;
   border-bottom: 1px solid lightgray;
 `
-export const Header = styled.div<PanelProps>`
+export const Header = styled.div<CollapseProps>`
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -47,7 +47,7 @@ export const ContentContainer = styled.div`
   transition: height 0.2s ease-in-out;
 `
 
-export const Content = styled.div<PanelProps>`
+export const Content = styled.div<CollapseProps>`
   display: flex;
   transition: opacity 0.5s ease-in-out;
   opacity: ${(props) => (props.expanded ? 1 : 0)};

@@ -1,4 +1,4 @@
-import React, { HTMLAttributes } from 'react'
+import React from 'react'
 import { StyledLabel, StyledCheckmark, StyledSlider, StyledTrack, StyledIcon } from './styled'
 import { Typo } from '../typo'
 import { LibraryThemeProvider } from '../themes/theme-provider'

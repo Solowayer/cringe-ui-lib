@@ -1,2 +1,2 @@
 export { Accordion } from './accordion'
-export { Panel } from './panel'
+export { Panel } from '../collapse'

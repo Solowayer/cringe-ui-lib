@@ -1,1 +1,1 @@
-export { Panel } from './collapse'
+export { Collapse } from './collapse'

@@ -74,7 +74,10 @@ export const StyledSlider = styled.div<CheckboxProps>`
 export const StyledIcon = styled.div<CheckboxProps>`
   display: flex;
   ${getIconStyles}
-  color: ${({ theme }) => theme.colors.blue400};
+  transition: all 0.2s;
+  &:hover {
+    transform: scale(1.1);
+  }
 `
 
 function getCheckmarkStyles({ disabled, checked, isIndeterminate }: CheckboxProps) {
@@ -122,6 +125,8 @@ function getTrackStyles({ checked, disabled }: CheckboxProps) {
 
 function getIconStyles({ checked }: CheckboxProps) {
   if (checked) {
-    return css``
+    return css`
+      color: ${({ theme }) => theme.colors.red500};
+    `
   }
 }

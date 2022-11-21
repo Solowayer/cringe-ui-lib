@@ -14,15 +14,15 @@ const Template: ComponentStory<typeof Checkbox> = () => {
     <>
       <Checkbox
         // disabled
-        checkmarkType="icon"
+        checkmarkType="toggle"
         alignItems="center"
         // isIndeterminate
         id="cringe"
         checked={checked}
         onChange={(e) => setChecked(e.target.checked)}
         // label="Cringe"
-        icon={<FavoriteOutlined />}
-        checkedIcon={<FavoriteFilled />}
+        // icon={<FavoriteOutlined size="24" />}
+        // checkedIcon={<FavoriteFilled size="24" />}
       />
     </>
   )

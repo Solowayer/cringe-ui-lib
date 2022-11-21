@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
 import { StyledAccordion } from './styled'
 import { LibraryThemeProvider } from '../themes/theme-provider'
-import { Panel } from './panel'
-import { PanelProps } from './panel/panel'
+import { Collapse } from '../collapse'
+import { CollapseProps } from '../collapse/collapse'
 
 export type AccordionProps = {
-  items?: PanelProps[]
+  items?: CollapseProps[]
   width?: string
 }
 
@@ -20,7 +20,7 @@ export const Accordion = ({ items, width }: AccordionProps) => {
     <LibraryThemeProvider>
       <StyledAccordion width={width}>
         {items?.map((item, idx) => (
-          <Panel
+          <Collapse
             title={item.title}
             subTitle={item.subTitle}
             expanded={idx === currentIdx}
