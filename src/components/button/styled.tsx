@@ -9,6 +9,9 @@ export const StyledButton = styled.button<ButtonProps>`
   justify-content: center;
   width: ${(props) => (props.fullWidth ? '100%' : '')};
   gap: ${({ theme }) => theme.sizing.scale8};
+  outline-width: ${({ theme }) => theme.borders.width2};
+  outline-style: ${({ theme }) => theme.borders.solid};
+  outline-color: transparent;
   border: none;
   cursor: ${(props) => (props.disabled ? 'not-allowed' : 'pointer')};
   ${(props) => (props.disabled ? getDisabledStyles : getBackgroundStyles)}
@@ -46,9 +49,7 @@ function getBackgroundStyles({ variant }: ButtonProps) {
       `
     case VARIANT.secondary:
       return css`
-        outline-width: ${({ theme }) => theme.colors.buttonSecondaryBorder.width};
-        outline-style: ${({ theme }) => theme.colors.buttonSecondaryBorder.style};
-        outline-color: ${({ theme }) => theme.colors.buttonSecondaryBorder.color};
+        outline-color: ${({ theme }) => theme.colors.buttonSecondaryBorder};
         color: ${({ theme }) => theme.colors.buttonSecondaryContent};
         &:hover {
           background-color: ${({ theme }) => theme.colors.buttonSecondaryHover};

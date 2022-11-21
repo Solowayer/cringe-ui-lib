@@ -85,7 +85,7 @@ export type ComponentColorTokens = {
   buttonSecondaryHover: string
   buttonSecondaryActive: string
   buttonSecondaryContent: string
-  buttonSecondaryBorder: Border
+  buttonSecondaryBorder: string
 
   buttonTertiaryFill: string
   buttonTertiaryHover: string
@@ -115,10 +115,10 @@ export type ComponentColorTokens = {
 
   // Inputs
   inputFill: string
-  inputFocusFill: string
-  inputSuccessFill: string
-  inputErrorFill: string
-  inputDisabledFill: string
+  inputFocus: string
+  inputSuccess: string
+  inputError: string
+  inputDisabled: string
 
   inputPlaceholder: string
   inputPlaceholderDisabled: string
@@ -126,11 +126,11 @@ export type ComponentColorTokens = {
   inputContentDisabled: string
   inputControls: string
 
-  inputBorderHover: Border
-  inputBorderFocus: Border
-  inputBorderSuccess: Border
-  inputBorderError: Border
-  inputBorderDisabled: Border
+  inputBorderHover: string
+  inputBorderFocus: string
+  inputBorderSuccess: string
+  inputBorderError: string
+  inputBorderDisabled: string
 
   // Dropdown
   dropdownFill: string
@@ -146,10 +146,26 @@ export type ComponentColorTokens = {
   tagSolidDefaultContent: string
   tagSolidPositiveFill: string
   tagSolidPositiveContent: string
-  tagOutlinedDefaultBorder: Border
+  tagOutlinedDefaultBorder: string
   tagOutlinedDefaultContent: string
-  tagOutlinedPositiveBorder: Border
+  tagOutlinedPositiveBorder: string
   tagOutlinedPositiveContent: string
+
+  // Checkbox
+  checkboxChecked: string
+  checkboxContent: string
+  checkboxBorder: string
+  checkboxBorderHover: string
+  checkboxBorderChecked: string
+  checkboxBorderDisabled: string
+
+  // Toggle
+  toggleTrackOn: string
+  toggleTrackOff: string
+  toggleTrackDisabled: string
+  toggleSlider: string
+
+  // Divider
 }
 
 export type Sizing = {
@@ -197,20 +213,20 @@ export type Typography = {
   headingXLarge: Font
 }
 
-export type Border = {
-  width: string
-  style: 'solid' | 'dashed'
-  color: string
-}
-
 export type Borders = {
-  default: Border
-  selected: Border
-  accent: Border
-  success: Border
-  warning: Border
-  danger: Border
-  disabled: Border
+  default: string
+  selected: string
+  accent: string
+  success: string
+  warning: string
+  danger: string
+  disabled: string
+  width1: string
+  width2: string
+  width4: string
+  solid: string
+  dashed: string
+  radius2: string
   radius4: string
   radius16: string
   radius32: string

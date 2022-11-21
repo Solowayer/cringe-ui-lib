@@ -26,19 +26,20 @@ export const StyledInput = styled.input<InputProps>`
   border-radius: ${(props) => props.theme.sizing.scale4};
   background-color: ${({ theme }) => theme.colors.inputFill};
   cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'text')};
+  outline-width: ${({ theme }) => theme.borders.width2};
+  outline-style: ${({ theme }) => theme.borders.solid};
+  outline-color: transparent;
   &::placeholder {
     color: ${({ theme }) => theme.colors.inputPlaceholder};
   }
   &:focus {
-    outline-width: ${({ theme }) => theme.colors.inputBorderFocus.width};
-    outline-style: ${({ theme }) => theme.colors.inputBorderFocus.style};
-    outline-color: ${({ theme }) => theme.colors.inputBorderFocus.color};
-    background-color: ${({ theme }) => theme.colors.inputFocusFill};
+    outline-color: ${({ theme }) => theme.colors.inputBorderFocus};
+    background-color: ${({ theme }) => theme.colors.inputFocus};
   }
   padding-top: 0;
   padding-bottom: 0;
   padding-right: ${({ theme }) => theme.sizing.scale64};
-  ${getBackgroundStyles}
+  ${getColorStyles}
   ${getPaddingStyles}
   ${getFontStyles}
 `
@@ -78,11 +79,11 @@ export const StyledVisibilityIcon = styled.div`
   }
 `
 
-function getBackgroundStyles({ disabled, error, success }: InputProps) {
+function getColorStyles({ disabled, error, success }: InputProps) {
   if (disabled) {
     return css`
       color: ${({ theme }) => theme.colors.inputContentDisabled};
-      background-color: ${({ theme }) => theme.colors.inputDisabledFill};
+      background-color: ${({ theme }) => theme.colors.inputDisabled};
       &::placeholder {
         color: ${({ theme }) => theme.colors.inputPlaceholderDisabled};
       }
@@ -90,18 +91,14 @@ function getBackgroundStyles({ disabled, error, success }: InputProps) {
   }
   if (error) {
     return css`
-      outline-width: ${({ theme }) => theme.colors.inputBorderError.width};
-      outline-style: ${({ theme }) => theme.colors.inputBorderError.style};
-      outline-color: ${({ theme }) => theme.colors.inputBorderError.color};
-      background-color: ${({ theme }) => theme.colors.inputErrorFill};
+      outline-color: ${({ theme }) => theme.colors.inputBorderError};
+      background-color: ${({ theme }) => theme.colors.inputError};
     `
   }
   if (success) {
     return css`
-      outline-width: ${({ theme }) => theme.colors.inputBorderSuccess.width};
-      outline-style: ${({ theme }) => theme.colors.inputBorderSuccess.style};
-      outline-color: ${({ theme }) => theme.colors.inputBorderSuccess.color};
-      background-color: ${({ theme }) => theme.colors.inputSuccessFill};
+      outline-color: ${({ theme }) => theme.colors.inputBorderSuccess};
+      background-color: ${({ theme }) => theme.colors.inputSuccess};
     `
   }
 }

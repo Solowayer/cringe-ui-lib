@@ -11,11 +11,7 @@ export const componentColorTokens: ComponentColorTokens = {
   buttonSecondaryHover: colorTokens.green100,
   buttonSecondaryActive: colorTokens.green200,
   buttonSecondaryContent: colorTokens.green500,
-  buttonSecondaryBorder: {
-    width: '2px',
-    style: 'solid',
-    color: colorTokens.green500,
-  },
+  buttonSecondaryBorder: colorTokens.green500,
 
   buttonTertiaryFill: colorTokens.black,
   buttonTertiaryHover: colorTokens.gray700,
@@ -45,40 +41,20 @@ export const componentColorTokens: ComponentColorTokens = {
 
   // Inputs
   inputFill: colorTokens.gray100,
-  inputFocusFill: colorTokens.white,
-  inputSuccessFill: colorTokens.green50,
-  inputErrorFill: colorTokens.red50,
-  inputDisabledFill: colorTokens.gray50,
+  inputFocus: colorTokens.white,
+  inputSuccess: colorTokens.green50,
+  inputError: colorTokens.red50,
+  inputDisabled: colorTokens.gray50,
   inputPlaceholder: colorTokens.gray500,
   inputPlaceholderDisabled: colorTokens.gray300,
   inputContent: colorTokens.black,
   inputContentDisabled: colorTokens.gray300,
   inputControls: colorTokens.gray500,
-  inputBorderHover: {
-    width: '2px',
-    style: 'solid',
-    color: colorTokens.gray200,
-  },
-  inputBorderFocus: {
-    width: '2px',
-    style: 'solid',
-    color: colorTokens.black,
-  },
-  inputBorderSuccess: {
-    width: '2px',
-    style: 'solid',
-    color: colorTokens.green300,
-  },
-  inputBorderError: {
-    width: '2px',
-    style: 'solid',
-    color: colorTokens.red300,
-  },
-  inputBorderDisabled: {
-    width: '2px',
-    style: 'solid',
-    color: colorTokens.gray50,
-  },
+  inputBorderHover: colorTokens.gray200,
+  inputBorderFocus: colorTokens.black,
+  inputBorderSuccess: colorTokens.green300,
+  inputBorderError: colorTokens.red300,
+  inputBorderDisabled: colorTokens.gray50,
 
   // Dropdown
   dropdownFill: colorTokens.white,
@@ -96,16 +72,22 @@ export const componentColorTokens: ComponentColorTokens = {
   tagSolidPositiveContent: colorTokens.white,
 
   // Tag Outlined
-  tagOutlinedDefaultBorder: {
-    width: '2px',
-    style: 'solid',
-    color: colorTokens.gray200,
-  },
+  tagOutlinedDefaultBorder: colorTokens.gray200,
   tagOutlinedDefaultContent: colorTokens.black,
-  tagOutlinedPositiveBorder: {
-    width: '2px',
-    style: 'solid',
-    color: colorTokens.green300,
-  },
+  tagOutlinedPositiveBorder: colorTokens.green300,
   tagOutlinedPositiveContent: colorTokens.green500,
+
+  // Checkbox
+  checkboxChecked: colorTokens.black,
+  checkboxContent: colorTokens.white,
+  checkboxBorder: colorTokens.gray200,
+  checkboxBorderHover: colorTokens.black,
+  checkboxBorderChecked: colorTokens.black,
+  checkboxBorderDisabled: colorTokens.gray100,
+
+  // Toggle
+  toggleTrackOn: colorTokens.black,
+  toggleTrackOff: colorTokens.gray200,
+  toggleTrackDisabled: colorTokens.gray50,
+  toggleSlider: colorTokens.white,
 }

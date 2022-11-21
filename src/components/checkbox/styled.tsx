@@ -7,9 +7,15 @@ const check = encodeURIComponent(`
 </svg>
 `)
 
+const indeterminate = encodeURIComponent(`
+<svg width="14" height="4" viewBox="0 0 14 4" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M14 0.5H0V3.5H14V0.5Z" fill="#ffffff"/>
+</svg>
+`)
+
 export const StyledLabel = styled.label<CheckboxProps>`
-  display: flex;
-  align-items: flex-start;
+  display: inline-flex;
+  align-items: ${({ alignItems }) => alignItems};
   cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
 
   input {
@@ -24,15 +30,15 @@ export const StyledCheckmark = styled.span<CheckboxProps>`
   display: flex;
   width: ${({ theme }) => theme.sizing.scale16};
   height: ${({ theme }) => theme.sizing.scale16};
+  border-radius: ${({ theme }) => theme.borders.radius2};
   transition: 0.4s;
   flex: 0 0 auto;
-
-  outline-width: 2px;
-  outline-style: ${({ theme }) => theme.borders.default.style};
-  outline-color: ${({ theme }) => theme.borders.default.color};
+  outline-width: ${({ theme }) => theme.borders.width2};
+  outline-style: ${({ theme }) => theme.borders.solid};
+  outline-color: ${({ theme }) => theme.colors.checkboxBorder};
   &:hover {
     outline-color: ${({ theme, disabled }) =>
-      disabled ? theme.borders.disabled.color : theme.borders.selected.color};
+      disabled ? theme.colors.checkboxBorderDisabled : theme.colors.checkboxBorderHover};
   }
   background-position: center center;
   background-size: contain;
@@ -46,36 +52,49 @@ export const StyledTrack = styled.div<CheckboxProps>`
   align-items: center;
   width: ${({ theme }) => theme.sizing.scale40};
   height: ${({ theme }) => theme.sizing.scale24};
-  background-color: grey;
+  background-color: ${({ theme }) => theme.colors.toggleTrackOff};
   border-radius: ${({ theme }) => theme.borders.radius16};
   flex: 0 0 auto;
-  box-shadow: ${({ theme }) => theme.lighting.shadow1};
   transition: 0.2s;
   ${getTrackStyles}
 `
 
 export const StyledSlider = styled.div<CheckboxProps>`
-  background-color: white;
+  background-color: ${({ theme }) => theme.colors.toggleSlider};
   width: ${({ theme }) => theme.sizing.scale16};
   height: ${({ theme }) => theme.sizing.scale16};
   border-radius: 50%;
   flex: 0 0 auto;
   margin-left: ${({ theme }) => theme.sizing.scale4};
   transition: 0.2s;
+  box-shadow: ${({ theme }) => theme.lighting.shadow1};
   ${getSliderStyles}
 `
 
-function getCheckmarkStyles({ disabled, checked }: CheckboxProps) {
+export const StyledIcon = styled.div<CheckboxProps>`
+  display: flex;
+  ${getIconStyles}
+  color: ${({ theme }) => theme.colors.blue400};
+`
+
+function getCheckmarkStyles({ disabled, checked, isIndeterminate }: CheckboxProps) {
   if (checked) {
     return css`
-      outline-color: ${({ theme }) => theme.borders.selected.color};
+      outline-color: ${({ theme }) => theme.colors.checkboxChecked};
       background-image: url('data:image/svg+xml,${check}');
-      background-color: ${({ theme }) => theme.colors.black};
+      background-color: ${({ theme }) => theme.colors.checkboxChecked};
     `
   }
   if (disabled) {
     return css`
-      outline-color: ${({ theme }) => theme.borders.disabled.color};
+      outline-color: ${({ theme }) => theme.colors.checkboxBorderDisabled};
+    `
+  }
+  if (isIndeterminate) {
+    return css`
+      outline-color: ${({ theme }) => theme.colors.checkboxChecked};
+      background-image: url('data:image/svg+xml,${indeterminate}');
+      background-color: ${({ theme }) => theme.colors.checkboxChecked};
     `
   }
 }
@@ -88,10 +107,21 @@ function getSliderStyles({ checked }: CheckboxProps) {
   }
 }
 
-function getTrackStyles({ checked }: CheckboxProps) {
+function getTrackStyles({ checked, disabled }: CheckboxProps) {
   if (checked) {
     return css`
-      background-color: black;
+      background-color: ${({ theme }) => theme.colors.toggleTrackOn};
     `
+  }
+  if (disabled) {
+    return css`
+      background-color: ${({ theme }) => theme.colors.toggleTrackDisabled};
+    `
+  }
+}
+
+function getIconStyles({ checked }: CheckboxProps) {
+  if (checked) {
+    return css``
   }
 }

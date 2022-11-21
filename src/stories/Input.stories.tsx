@@ -13,6 +13,9 @@ const Template: ComponentStory<typeof Input> = () => {
   return (
     <Input
       placeholder="Type some cringe"
+      // error
+      // success
+      // disabled
       value={value}
       onChange={(event) => setValue(event.currentTarget.value)}
       clearable
