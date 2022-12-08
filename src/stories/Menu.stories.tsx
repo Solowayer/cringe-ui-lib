@@ -1,13 +1,13 @@
 import React from 'react'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
-import { Dropdown, ListItem, ListItemLink } from '../components'
+import { Menu, ListItem, ListItemLink } from '../components'
 import { Delete } from '../components/icon'
 import { Typo } from '../components'
 
 export default {
-  title: 'Components/Dropdown',
-  component: Dropdown,
-} as ComponentMeta<typeof Dropdown>
+  title: 'Components/Menu',
+  component: Menu,
+} as ComponentMeta<typeof Menu>
 
 const ITEMS = [
   { path: 'https://www.youtube.com/', icon: <Delete />, label: 'Delete' },
@@ -17,9 +17,9 @@ const ITEMS = [
   { icon: <Delete />, label: 'Delete', disabled: true },
 ]
 
-const Template: ComponentStory<typeof Dropdown> = () => {
+const Template: ComponentStory<typeof Menu> = () => {
   return (
-    <Dropdown isOpen={true}>
+    <Menu isOpen={true}>
       {ITEMS.map((item) => (
         <ListItem divider={item.divider} disabled={item.disabled}>
           <ListItemLink href={item.path}>
@@ -28,7 +28,7 @@ const Template: ComponentStory<typeof Dropdown> = () => {
           </ListItemLink>
         </ListItem>
       ))}
-    </Dropdown>
+    </Menu>
   )
 }
 

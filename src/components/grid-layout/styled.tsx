@@ -13,13 +13,13 @@ export const StyledGridLayout = styled.div`
   grid-template-columns: repeat(12, 1fr);
   row-gap: 8px;
   column-gap: 40px;
-  @media (max-width: 1136px) {
+  @media (max-width: ${({ theme }) => theme.mediaQuery.large}) {
     grid-template-columns: repeat(8, 1fr);
   }
-  @media (max-width: 600px) {
+  @media (max-width: ${({ theme }) => theme.mediaQuery.medium}) {
     grid-template-columns: repeat(4, 1fr);
   }
-  @media (max-width: 420px) {
+  @media (max-width: ${({ theme }) => theme.mediaQuery.small}) {
     grid-template-columns: repeat(1, 1fr);
   }
 `

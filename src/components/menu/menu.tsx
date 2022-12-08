@@ -1,9 +1,9 @@
 import React from 'react'
 import { HTMLAttributes } from 'react'
 import { LibraryThemeProvider } from '../themes/theme-provider'
-import { StyledDropdown } from './styled'
+import { StyledMenu } from './styled'
 
-export interface DropdownProps
+export interface MenuProps
   extends Omit<HTMLAttributes<HTMLUListElement>, 'classname' | 'width' | 'onChange'> {
   isOpen?: boolean
   width?: string
@@ -11,14 +11,14 @@ export interface DropdownProps
   children: React.ReactNode | Array<React.ReactNode>
 }
 
-export const Dropdown = React.forwardRef<HTMLUListElement, DropdownProps>((props, ref) => {
+export const Menu = React.forwardRef<HTMLUListElement, MenuProps>((props, ref) => {
   const { isOpen = false, width, maxHeight, children } = props
 
   return (
     <LibraryThemeProvider>
-      <StyledDropdown ref={ref} isOpen={isOpen} width={width} maxHeight={maxHeight}>
+      <StyledMenu ref={ref} isOpen={isOpen} width={width} maxHeight={maxHeight}>
         {children}
-      </StyledDropdown>
+      </StyledMenu>
     </LibraryThemeProvider>
   )
 })

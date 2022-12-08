@@ -1,6 +1,6 @@
 import React from 'react'
 import { StyledGridLayout } from './styled'
-import { Container } from '../container'
+import { LibraryThemeProvider } from '../themes/theme-provider'
 
 type GridLayoutProps = {
   children: React.ReactNode
@@ -8,8 +8,8 @@ type GridLayoutProps = {
 
 export const GridLayout = ({ children }: GridLayoutProps) => {
   return (
-    <Container paddingLeft="40px" paddingRight="40px">
+    <LibraryThemeProvider>
       <StyledGridLayout>{children}</StyledGridLayout>
-    </Container>
+    </LibraryThemeProvider>
   )
 }

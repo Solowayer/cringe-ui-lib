@@ -1,20 +1,20 @@
 import React from 'react'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
-import { Collapse } from '../components'
+import { Panel } from '../components'
 
 export default {
-  title: 'Components/Collapse',
-  component: Collapse,
-} as ComponentMeta<typeof Collapse>
+  title: 'Components/Panel',
+  component: Panel,
+} as ComponentMeta<typeof Panel>
 
 const content =
   'Folly words widow one downs few age every seven. If miss part by fact he park just shew. Discovered had get considered projection who favourable. Necessary up knowledge it tolerably. Unwilling departure education is be dashwoods or an.'
 
-const Template: ComponentStory<typeof Collapse> = () => {
+const Template: ComponentStory<typeof Panel> = () => {
   const [isExpanded, setExpanded] = React.useState(false)
   return (
     <>
-      <Collapse
+      <Panel
         onClick={() => setExpanded(!isExpanded)}
         expanded={isExpanded}
         title="Cringe"

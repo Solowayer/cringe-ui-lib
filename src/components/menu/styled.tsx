@@ -1,7 +1,7 @@
 import styled from 'styled-components'
-import { DropdownProps } from './dropdown'
+import { MenuProps } from './menu'
 
-export const StyledDropdown = styled.ul<DropdownProps>`
+export const StyledMenu = styled.ul<MenuProps>`
   display: ${(props) => (props.isOpen ? 'flex' : 'none')};
   flex-direction: column;
   box-sizing: border-box;

@@ -76,7 +76,6 @@ export const Select = ({
           placeholder="Select some cringe..."
           endContent={<ExpandMore />}
           value={value?.label}
-          clearButtonClick={() => onChange({ label: '', value: '' })}
           clearable
           readonly
         />

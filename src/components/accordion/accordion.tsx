@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
 import { StyledAccordion } from './styled'
 import { LibraryThemeProvider } from '../themes/theme-provider'
-import { Collapse } from '../collapse'
-import { CollapseProps } from '../collapse/collapse'
+import { Panel } from '../panel'
+import { PanelProps } from '../panel/panel'
 
 export type AccordionProps = {
-  items?: CollapseProps[]
+  items?: PanelProps[]
   width?: string
 }
 
@@ -14,13 +14,12 @@ export const Accordion = ({ items, width }: AccordionProps) => {
   const handleClick = (idx: number) => {
     setCurrentIdx((currentValue) => (currentValue !== idx ? idx : -1))
   }
-  console.log(currentIdx)
 
   return (
     <LibraryThemeProvider>
       <StyledAccordion width={width}>
         {items?.map((item, idx) => (
-          <Collapse
+          <Panel
             title={item.title}
             subTitle={item.subTitle}
             expanded={idx === currentIdx}
